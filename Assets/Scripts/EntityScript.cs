@@ -1,21 +1,16 @@
 using UnityEngine;
 
-public abstract class EnemyScript : MonoBehaviour
+public abstract class EntityScript : MonoBehaviour
 {
     private float health;
-
+    public float movementSpeed;
+    public GameObject deathEffect;
     public float damage;
 
-    public string playerTag;
-
-    public GameObject deathEffect;
-
-    public float movementSpeed;
-
-    Transform FindPlayer()
+    Transform FindEntity(string entityTag)
     {
-        GameObject player = GameObject.FindWithTag(playerTag);
-        return player.transform;
+        GameObject entity = GameObject.FindWithTag(entityTag);
+        return entity.transform;
     }
 
     public void TakeDamage(float damage)
