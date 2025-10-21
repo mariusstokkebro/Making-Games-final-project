@@ -5,16 +5,17 @@ using UnityEngine;
 
 public class HUD : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI FloorDisplay;
-    [SerializeField] private TextMeshProUGUI TimerDisplay;
+    [SerializeField] private TextMeshProUGUI floorDisplay;
+    [SerializeField] private TextMeshProUGUI timerDisplay;
     
-    // TODO Should be moved to a game manager class!!
+    // TODO Should be moved to a game manager class
     private TimeSpan timerValue;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         timerValue = TimeSpan.Zero;
+        // TODO remove
         UpdateFloorDisplay(1);
     }
 
@@ -27,12 +28,12 @@ public class HUD : MonoBehaviour
 
     public void UpdateFloorDisplay(int floor)
     {
-        FloorDisplay.text = "Floor " + floor;
+        floorDisplay.text = "Floor " + floor;
     }
 
     public void UpdateTimerDisplay(TimeSpan time)
     {
-        TimerDisplay.text = time.ToString("mm':'ss");
+        timerDisplay.text = time.ToString("mm':'ss");
     }
     
 }
