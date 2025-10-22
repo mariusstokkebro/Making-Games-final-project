@@ -16,7 +16,8 @@ public class HUD : MonoBehaviour
     void Start()
     {
         timerValue = TimeSpan.Zero;
-        // TODO remove
+        
+        // Initialization, TODO remove
         UpdateFloorDisplay(1);
         healthBarDisplay.Initialize(6);
     }
@@ -42,5 +43,7 @@ public class HUD : MonoBehaviour
     {
         healthBarDisplay.UpdateHealthBar(newHP);
     }
+    
+    // TODO item display
     
 }
