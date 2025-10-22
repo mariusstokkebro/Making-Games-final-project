@@ -2,15 +2,17 @@ using UnityEngine;
 
 public abstract class EntityScript : MonoBehaviour
 {
-    private float health;
-    public float movementSpeed;
-    public GameObject deathEffect;
-    public float damage;
+    
+    [SerializeField] protected float health = 100f;
+    [SerializeField] protected float movementSpeed = 3f;
+    [SerializeField] protected float damage = 10f;
+    [SerializeField] protected float turnSpeed = 180f;
+    [SerializeField] protected GameObject deathEffect;
 
-    Transform FindEntity(string entityTag)
+    protected Transform FindEntity(string entityTag)
     {
         GameObject entity = GameObject.FindWithTag(entityTag);
-        return entity.transform;
+        return entity ? entity.transform : null;
     }
 
     public void TakeDamage(float damage)
@@ -24,7 +26,10 @@ public abstract class EntityScript : MonoBehaviour
 
     private void Die()
     {
-        Instantiate(deathEffect, transform.position, Quaternion.identity);
+        if (deathEffect)
+        {
+            Instantiate(deathEffect, transform.position, Quaternion.identity);
+        }
         Destroy(gameObject);
     }
 }
