@@ -7,6 +7,8 @@ public abstract class EntityScript : MonoBehaviour
     public GameObject deathEffect;
     public float damage;
 
+    public float turnSpeed;
+
     Transform FindEntity(string entityTag)
     {
         GameObject entity = GameObject.FindWithTag(entityTag);
