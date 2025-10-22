@@ -1,16 +1,13 @@
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-    [SerializeField] private HealthBarIcon healthBarIcon;
-
-    private HealthBarIcon[] icons;
-    
+    private Material healthBarMaterial;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Initialize(5);
+        healthBarMaterial = GetComponent<Image>().material;
     }
 
     // Update is called once per frame
@@ -19,20 +16,14 @@ public class HealthBar : MonoBehaviour
         
     }
 
-    public void Initialize(int maxHealth)
+    public void Initialize(int maxHP)
     {
-        icons = new HealthBarIcon[maxHealth];
-        float iconWidth = healthBarIcon.GetComponent<RectTransform>().sizeDelta.x * healthBarIcon.transform.localScale.x;
-        for (int i = 0; i < icons.Length; i++)
-        {
-            icons[i] = Instantiate(healthBarIcon, transform);
-            icons[i].transform.SetLocalPositionAndRotation(icons[i].transform.localPosition + Vector3.right * i * iconWidth, Quaternion.identity);
-            icons[i].transform.SetPositionAndRotation(icons[i].transform.position, Quaternion.identity);
-        }
+        healthBarMaterial.SetFloat("_MaxHealth", maxHP);
+        UpdateHealthBar(maxHP);
     }
 
     public void UpdateHealthBar(int newHP)
     {
-        
+        healthBarMaterial.SetFloat("_CurrentHealth", newHP);
     }
 }
