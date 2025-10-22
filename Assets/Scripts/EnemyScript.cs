@@ -10,23 +10,15 @@ public abstract class EnemyScript : EntityScript
 
     private void TurnTowardsPlayer()
     {
-        Transform player = FindEntity();
-        if (player == null) return;
-        Vector2 dir = (player.position - transform.position).normalized;
-
+        Vector2 dir = (FindPlayer().position - transform.position).normalized;
         float targetAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f;
-
-        float currentAngle = transform.eulerAngles.z;
-
-        float newAngle = Mathf.MoveTowardsAngle(currentAngle, targetAngle, turnSpeed * Time.deltaTime);
-
+        float newAngle = Mathf.MoveTowardsAngle(transform.eulerAngles.z, targetAngle, turnSpeed * Time.deltaTime);
         transform.rotation = Quaternion.Euler(0, 0, newAngle);
     }
 
     private void MoveTowardsTarget(Vector2 target)
     {
-        Vector2 currentPos = transform.position;
-        Vector2 newPos = Vector2.MoveTowards(currentPos, target, movementSpeed * Time.deltaTime);
+        Vector2 newPos = Vector2.MoveTowards(transform.position, target, movementSpeed * Time.deltaTime);
         transform.position = newPos;
     }
 }
