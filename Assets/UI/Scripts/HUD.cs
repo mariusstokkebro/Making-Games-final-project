@@ -39,7 +39,7 @@ public class HUD : MonoBehaviour
         timerDisplay.text = time.ToString("mm':'ss");
     }
 
-    public void UpdateHealthBar(int newHP)
+    public void UpdateHealthBar(float newHP)
     {
         healthBarDisplay.UpdateHealthBar(newHP);
     }

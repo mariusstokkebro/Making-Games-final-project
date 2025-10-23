@@ -22,7 +22,7 @@ public class HealthBar : MonoBehaviour
         UpdateHealthBar(maxHP);
     }
 
-    public void UpdateHealthBar(int newHP)
+    public void UpdateHealthBar(float newHP)
     {
         healthBarMaterial.SetFloat("_CurrentHealth", newHP);
     }
