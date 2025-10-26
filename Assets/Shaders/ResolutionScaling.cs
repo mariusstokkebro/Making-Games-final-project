@@ -8,7 +8,6 @@ public class ResolutionScaling : MonoBehaviour
     [SerializeField] private int targetWidth;
     [SerializeField] private int targetHeight;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         targetWidth = Screen.currentResolution.width / 3;
