@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4002582005579538668}
   - component: {fileID: 226693656331279044}
   - component: {fileID: 4438145346308249075}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: door_SW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,9 +123,10 @@ GameObject:
   - component: {fileID: 196331091387651844}
   - component: {fileID: 6333541330607466555}
   - component: {fileID: 6015508087972160352}
-  m_Layer: 0
+  - component: {fileID: 8528408070778072400}
+  m_Layer: 6
   m_Name: door_NE
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -216,12 +217,55 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 3.8861485, y: 1, z: 1}
+  m_Center: {x: 1.4430745, y: 0, z: -2.28466e-15}
+--- !u!114 &8528408070778072400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 465746998945718285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61afc11dbc84b7547a05e0b33450da0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DoorScript
+--- !u!1 &524608085126439948
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 132443516183642730}
+  m_Layer: 0
+  m_Name: cameraPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &132443516183642730
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524608085126439948}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.23911765, y: -0.3696438, z: 0.09904577, w: 0.89239913}
+  m_LocalPosition: {x: 36.23367, y: 25, z: -22.90083}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7998088012897492592}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &808614582638773325
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,7 +277,7 @@ GameObject:
   - component: {fileID: 7998088012897492592}
   m_Layer: 0
   m_Name: Room
-  m_TagString: Untagged
+  m_TagString: room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -258,6 +302,7 @@ Transform:
   - {fileID: 4899500028398101388}
   - {fileID: 633471235514720801}
   - {fileID: 4121665568579609502}
+  - {fileID: 132443516183642730}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &889296204303687514
@@ -384,7 +429,7 @@ GameObject:
   - component: {fileID: 5778142805327399029}
   - component: {fileID: 7114137809531055122}
   - component: {fileID: 7824054272362329455}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: door_SE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -719,7 +764,7 @@ GameObject:
   - component: {fileID: 2506123135682404618}
   - component: {fileID: 2125475635871945776}
   - component: {fileID: 4679711032881689030}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: door_NW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
