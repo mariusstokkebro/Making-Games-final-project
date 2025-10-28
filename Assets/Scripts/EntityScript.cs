@@ -15,9 +15,9 @@ public abstract class EntityScript : MonoBehaviour
         return entity ? entity.transform : null;
     }
 
-    public void TakeDamage(float damage)
+    public virtual void TakeDamage(float amount)
     {
-        health -= damage;
+        health -= amount;
         if (health <= 0)
         {
             Die();

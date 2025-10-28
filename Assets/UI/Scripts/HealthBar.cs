@@ -16,9 +16,10 @@ public class HealthBar : MonoBehaviour
         
     }
 
-    public void Initialize(int maxHP)
+    public void Initialize(float maxHP, float HPperIcon)
     {
         healthBarMaterial.SetFloat("_MaxHealth", maxHP);
+        healthBarMaterial.SetFloat("_HealthPerIcon", HPperIcon);
         UpdateHealthBar(maxHP);
     }
 
