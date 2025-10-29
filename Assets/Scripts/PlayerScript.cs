@@ -5,11 +5,8 @@ public class PlayerScript : EntityScript, Controls.IPlayerActions
 {
     private bool _usingController = false;
     private Vector3 _movementDirection;
-    private Vector3 _lookDirection;
     private Vector2 _lookInput;
-
     private Vector2 _mousePosition;
-    private Vector2 _stickRotation;
     
     [SerializeField]
     private int rotationSpeed = 200;
@@ -22,14 +19,14 @@ public class PlayerScript : EntityScript, Controls.IPlayerActions
 
         if (!_usingController)
         {
-            // makes sure player is always facing mouse position
+            // makes sure player is always facing the mouse position
             _lookInput = LookDirectionFromMouse(_mousePosition);
         }
         
         if(_lookInput.magnitude > 1e-12){
-            Vector3 tmp = new Vector3(_lookInput.x, 0, _lookInput.y);
-            _lookDirection = _matrix.MultiplyPoint3x4(tmp);
-            transform.right = - _lookDirection;
+            Vector3 lookDirection = new Vector3(_lookInput.x, 0, _lookInput.y);
+            lookDirection = _matrix.MultiplyPoint3x4(lookDirection);
+            transform.right = - lookDirection;
         }else if (_movementDirection.magnitude > 1e-12)
         {
             transform.right = - _movementDirection;
@@ -49,6 +46,7 @@ public class PlayerScript : EntityScript, Controls.IPlayerActions
         }
     }
 
+    // Takes the mouse position in screen space and calculates the on-screen direction from player to mouse cursor
     private Vector2 LookDirectionFromMouse(Vector2 mousePosition)
     {
         Vector2 playerScreenPosition = Camera.main.WorldToScreenPoint(transform.position);
@@ -60,13 +58,9 @@ public class PlayerScript : EntityScript, Controls.IPlayerActions
         _usingController = (context.control.device == Gamepad.current);
 
         if (_usingController)
-        {
             _lookInput = context.ReadValue<Vector2>();
-        }
         else
-        {
             _mousePosition = context.ReadValue<Vector2>();
-        }
     }
 
     public void OnAttack(InputAction.CallbackContext context)
