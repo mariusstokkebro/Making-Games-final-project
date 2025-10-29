@@ -3,9 +3,13 @@ using UnityEngine.InputSystem;
 
 public class PlayerScript : EntityScript, Controls.IPlayerActions
 {
-    //private bool UsingController = false;
-    private Vector3 _direction;
+    private bool _usingController = false;
+    private Vector3 _movementDirection;
     private Vector3 _lookDirection;
+    private Vector2 _lookInput;
+
+    private Vector2 _mousePosition;
+    private Vector2 _stickRotation;
     
     [SerializeField]
     private int rotationSpeed = 200;
@@ -14,13 +18,21 @@ public class PlayerScript : EntityScript, Controls.IPlayerActions
 
     void Update()
     {
-        transform.position += _direction * (movementSpeed * Time.deltaTime);
-        //Debug.Log("Direction "+_direction+"; Look Direction"+_lookDirection);
-        if(_lookDirection.magnitude > 1e-12)
-            transform.right = - _lookDirection;
-        else if (_direction.magnitude > 1e-12)
+        transform.position += _movementDirection * (movementSpeed * Time.deltaTime);
+
+        if (!_usingController)
         {
-            transform.right = - _direction;
+            // makes sure player is always facing mouse position
+            _lookInput = LookDirectionFromMouse(_mousePosition);
+        }
+        
+        if(_lookInput.magnitude > 1e-12){
+            Vector3 tmp = new Vector3(_lookInput.x, 0, _lookInput.y);
+            _lookDirection = _matrix.MultiplyPoint3x4(tmp);
+            transform.right = - _lookDirection;
+        }else if (_movementDirection.magnitude > 1e-12)
+        {
+            transform.right = - _movementDirection;
         }
     }
 
@@ -28,21 +40,33 @@ public class PlayerScript : EntityScript, Controls.IPlayerActions
     {
         Vector2 pressed = context.ReadValue<Vector2>();
         Vector3 tmp = new Vector3(pressed.x, 0, pressed.y);
-        _direction = _matrix.MultiplyPoint3x4(tmp).normalized;
+        _movementDirection = _matrix.MultiplyPoint3x4(tmp).normalized;
+
+        if (_usingController != (context.control.device == Gamepad.current))
+        {
+            _lookInput = Vector2.zero;
+            _usingController = (context.control.device == Gamepad.current);
+        }
+    }
+
+    private Vector2 LookDirectionFromMouse(Vector2 mousePosition)
+    {
+        Vector2 playerScreenPosition = Camera.main.WorldToScreenPoint(transform.position);
+        return (_mousePosition - playerScreenPosition).normalized;
     }
 
     public void OnLook(InputAction.CallbackContext context)
     {
-        Vector2 lookInput = context.ReadValue<Vector2>();
-        if (context.control.device == Mouse.current)
+        _usingController = (context.control.device == Gamepad.current);
+
+        if (_usingController)
         {
-            Vector2 screenPosition = Camera.main.WorldToScreenPoint(transform.position);
-            lookInput -= screenPosition;
-            lookInput.Normalize();
+            _lookInput = context.ReadValue<Vector2>();
         }
-        //Debug.Log(lookInput);
-        Vector3 tmp = new Vector3(lookInput.x, 0, lookInput.y);
-        _lookDirection = _matrix.MultiplyPoint3x4(tmp);
+        else
+        {
+            _mousePosition = context.ReadValue<Vector2>();
+        }
     }
 
     public void OnAttack(InputAction.CallbackContext context)
