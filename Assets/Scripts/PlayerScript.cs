@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerScript : EntityScript, Controls.IPlayerActions
 {
+    //private bool UsingController = false;
     private Vector3 _direction;
     private Vector3 _lookDirection;
     
@@ -14,15 +15,20 @@ public class PlayerScript : EntityScript, Controls.IPlayerActions
     void Update()
     {
         transform.position += _direction * (movementSpeed * Time.deltaTime);
-        
-        transform.forward = _lookDirection;
+        //Debug.Log("Direction "+_direction+"; Look Direction"+_lookDirection);
+        if(_lookDirection.magnitude > 1e-12)
+            transform.right = - _lookDirection;
+        else if (_direction.magnitude > 1e-12)
+        {
+            transform.right = - _direction;
+        }
     }
 
     public void OnMove(InputAction.CallbackContext context)
     {
         Vector2 pressed = context.ReadValue<Vector2>();
         Vector3 tmp = new Vector3(pressed.x, 0, pressed.y);
-        _direction = _matrix.MultiplyPoint3x4(tmp);
+        _direction = _matrix.MultiplyPoint3x4(tmp).normalized;
     }
 
     public void OnLook(InputAction.CallbackContext context)
@@ -34,12 +40,9 @@ public class PlayerScript : EntityScript, Controls.IPlayerActions
             lookInput -= screenPosition;
             lookInput.Normalize();
         }
-
-        if (lookInput.magnitude > 1e-12)
-        {
-            Vector3 tmp = new Vector3(lookInput.y, 0, - lookInput.x).normalized;
-            _lookDirection = _matrix.MultiplyPoint3x4(tmp);
-        }
+        //Debug.Log(lookInput);
+        Vector3 tmp = new Vector3(lookInput.x, 0, lookInput.y);
+        _lookDirection = _matrix.MultiplyPoint3x4(tmp);
     }
 
     public void OnAttack(InputAction.CallbackContext context)
