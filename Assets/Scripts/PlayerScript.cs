@@ -9,11 +9,21 @@ public class PlayerScript : EntityScript, Controls.IPlayerActions
 
     private Matrix4x4 _matrix = Matrix4x4.Rotate(Quaternion.Euler(0,-45, 0));
 
+    void Start()
+    {
+        HUD.Instance.InitializeHealthBar(health, health / 5.0f);
+    }
     void Update()
     {
         transform.position += _direction * (movementSpeed * Time.deltaTime);
     }
 
+    public override void TakeDamage(float amount)
+    {
+        base.TakeDamage(amount);
+        HUD.Instance.UpdateHealthBar(health);
+    }
+    
     public void OnMove(InputAction.CallbackContext context)
     {
         Vector2 pressed = context.ReadValue<Vector2>();
