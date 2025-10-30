@@ -3,7 +3,11 @@ using UnityEngine.InputSystem;
 
 public class PlayerScript : EntityScript, Controls.IPlayerActions
 {
-    private Vector3 _direction;
+    private bool _usingController = false;
+    private Vector3 _movementDirection;
+    private Vector2 _lookInput;
+    private Vector2 _mousePosition;
+    
     [SerializeField]
     private int rotationSpeed = 200;
 
@@ -15,7 +19,22 @@ public class PlayerScript : EntityScript, Controls.IPlayerActions
     }
     void Update()
     {
-        transform.position += _direction * (movementSpeed * Time.deltaTime);
+        transform.position += _movementDirection * (movementSpeed * Time.deltaTime);
+
+        if (!_usingController)
+        {
+            // makes sure player is always facing the mouse position
+            _lookInput = LookDirectionFromMouse(_mousePosition);
+        }
+        
+        if(_lookInput.magnitude > 1e-12){
+            Vector3 lookDirection = new Vector3(_lookInput.x, 0, _lookInput.y);
+            lookDirection = _matrix.MultiplyPoint3x4(lookDirection);
+            transform.right = - lookDirection;
+        }else if (_movementDirection.magnitude > 1e-12)
+        {
+            transform.right = - _movementDirection;
+        }
     }
 
     public override void TakeDamage(float amount)
@@ -28,12 +47,30 @@ public class PlayerScript : EntityScript, Controls.IPlayerActions
     {
         Vector2 pressed = context.ReadValue<Vector2>();
         Vector3 tmp = new Vector3(pressed.x, 0, pressed.y);
-        _direction = _matrix.MultiplyPoint3x4(tmp);
+        _movementDirection = _matrix.MultiplyPoint3x4(tmp).normalized;
+
+        if (_usingController != (context.control.device == Gamepad.current))
+        {
+            _lookInput = Vector2.zero;
+            _usingController = (context.control.device == Gamepad.current);
+        }
+    }
+
+    // Takes the mouse position in screen space and calculates the on-screen direction from player to mouse cursor
+    private Vector2 LookDirectionFromMouse(Vector2 mousePosition)
+    {
+        Vector2 playerScreenPosition = Camera.main.WorldToScreenPoint(transform.position);
+        return (_mousePosition - playerScreenPosition).normalized;
     }
 
     public void OnLook(InputAction.CallbackContext context)
     {
-        throw new System.NotImplementedException();
+        _usingController = (context.control.device == Gamepad.current);
+
+        if (_usingController)
+            _lookInput = context.ReadValue<Vector2>();
+        else
+            _mousePosition = context.ReadValue<Vector2>();
     }
 
     public void OnAttack(InputAction.CallbackContext context)
