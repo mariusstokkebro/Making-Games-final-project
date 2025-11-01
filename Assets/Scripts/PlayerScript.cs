@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerScript : EntityScript, Controls.IPlayerActions
+public class PlayerScript : BaseEntity, Controls.IPlayerActions
 {
     private bool _usingController = false;
     private Vector3 _movementDirection;
@@ -10,8 +10,6 @@ public class PlayerScript : EntityScript, Controls.IPlayerActions
     
     [SerializeField]
     private int rotationSpeed = 200;
-
-    private Matrix4x4 _matrix = Matrix4x4.Rotate(Quaternion.Euler(0,-45, 0));
 
     void Start()
     {
