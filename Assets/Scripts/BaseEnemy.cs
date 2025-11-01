@@ -22,7 +22,9 @@ public abstract class BaseEnemy : BaseEntity
     protected void MoveTowardsTarget(Vector2 target)
     {
         var player = FindPlayer();
-        Vector3 direction = (player.position - transform.position).normalized;
+        Vector3 direction = player.position - transform.position;
+        direction.y = 0f;
+        direction = direction.normalized;
         transform.position += direction * (movementSpeed * Time.deltaTime);
     }
 }
