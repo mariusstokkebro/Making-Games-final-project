@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerScript : EntityScript, Controls.IPlayerActions
+public class PlayerScript : BaseEntity, Controls.IPlayerActions
 {
     private bool _usingController = false;
     private Vector3 _movementDirection;

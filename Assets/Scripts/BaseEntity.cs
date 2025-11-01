@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class EntityScript : MonoBehaviour
+public abstract class BaseEntity : MonoBehaviour
 {
     
     [SerializeField] protected float health = 100f;
@@ -8,6 +8,7 @@ public abstract class EntityScript : MonoBehaviour
     [SerializeField] protected float damage = 10f;
     [SerializeField] protected float turnSpeed = 180f;
     [SerializeField] protected GameObject deathEffect;
+    [SerializeField] protected Matrix4x4 _matrix = Matrix4x4.Rotate(Quaternion.Euler(0,-45, 0));
 
     protected Transform FindEntity(string entityTag)
     {
