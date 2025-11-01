@@ -9,7 +9,7 @@ public class SaltAttackScript : MonoBehaviour
         Destroy(gameObject, destroyTime);
     }
 
-    void OnCollisionEnter(Collider other)
+    void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
