@@ -1512,8 +1512,27 @@ MonoBehaviour:
   damage: 10
   turnSpeed: 180
   deathEffect: {fileID: 0}
+  _matrix:
+    e00: 0.7071067
+    e01: -0
+    e02: -0.7071068
+    e03: 0
+    e10: 0
+    e11: 1
+    e12: -0
+    e13: 0
+    e20: 0.7071068
+    e21: 0
+    e22: 0.7071067
+    e23: 0
+    e30: 0
+    e31: 0
+    e32: 0
+    e33: 1
   rotationSpeed: 200
   saltBlast: {fileID: 6516747311649036499, guid: 2de9349a1bde6b948bcbe82502c067d7, type: 3}
+  saltBlastCollider: {fileID: 0}
+  forwardOffset: 4.5
 --- !u!1 &6276079492673765941
 GameObject:
   m_ObjectHideFlags: 0
