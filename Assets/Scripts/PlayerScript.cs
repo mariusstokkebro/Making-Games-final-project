@@ -11,11 +11,13 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
     [SerializeField]
     private int rotationSpeed = 200;
 
-    private Matrix4x4 _matrix = Matrix4x4.Rotate(Quaternion.Euler(0, -45, 0));
+
+
 
     [SerializeField] private ParticleSystem saltBlast;
     [SerializeField] private GameObject saltBlastCollider;
 
+    [SerializeField] private float forwardOffset = 3.5f;
     void Start()
     {
         HUD.Instance.InitializeHealthBar(health, health / 5.0f);
@@ -82,10 +84,11 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
     {
         if (context.performed)
         {
-            Quaternion blastRotation = Quaternion.LookRotation(transform.forward) * Quaternion.Euler(0f, -30f, 0f);
+            Quaternion blastRotation = (Quaternion.LookRotation(transform.forward) * Quaternion.Euler(0f, -30f, 0f)).normalized;
+            Vector3 saltBlastSpawn = transform.position + (transform.right * -1) * forwardOffset;
             Debug.Log("attack");
             Instantiate(saltBlast, transform.position, blastRotation);
-            Instantiate(saltBlastCollider, transform.position, blastRotation);
+            Instantiate(saltBlastCollider, saltBlastSpawn, Quaternion.LookRotation(transform.forward));
 
         }
 

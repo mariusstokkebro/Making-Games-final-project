@@ -3,6 +3,7 @@ using UnityEngine;
 public class SaltAttackScript : MonoBehaviour
 {
     [SerializeField] private float destroyTime = 0.5f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -13,7 +14,7 @@ public class SaltAttackScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("salt hit enemy");
+            other.gameObject.GetComponent<BaseEntity>().TakeDamage(50f);
         }
 
     }
