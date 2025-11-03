@@ -7,10 +7,14 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
     private Vector3 _movementDirection;
     private Vector2 _lookInput;
     private Vector2 _mousePosition;
-    
+
     [SerializeField]
     private int rotationSpeed = 200;
 
+    [SerializeField] private ParticleSystem saltBlast;
+    [SerializeField] private GameObject saltBlastCollider;
+
+    [SerializeField] private float forwardOffset = 3.5f;
     void Start()
     {
         HUD.Instance.InitializeHealthBar(health, health / 5.0f);
@@ -24,14 +28,16 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
             // makes sure player is always facing the mouse position
             _lookInput = LookDirectionFromMouse(_mousePosition);
         }
-        
-        if(_lookInput.magnitude > 1e-12){
+
+        if (_lookInput.magnitude > 1e-12)
+        {
             Vector3 lookDirection = new Vector3(_lookInput.x, 0, _lookInput.y);
             lookDirection = _matrix.MultiplyPoint3x4(lookDirection);
-            transform.right = - lookDirection;
-        }else if (_movementDirection.magnitude > 1e-12)
+            transform.right = -lookDirection;
+        }
+        else if (_movementDirection.magnitude > 1e-12)
         {
-            transform.right = - _movementDirection;
+            transform.right = -_movementDirection;
         }
     }
 
@@ -40,7 +46,7 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
         base.TakeDamage(amount);
         HUD.Instance.UpdateHealthBar(health);
     }
-    
+
     public void OnMove(InputAction.CallbackContext context)
     {
         Vector2 pressed = context.ReadValue<Vector2>();
@@ -73,7 +79,14 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
 
     public void OnAttack(InputAction.CallbackContext context)
     {
-        throw new System.NotImplementedException();
+        if (context.performed)
+        {
+            Quaternion blastRotation = (Quaternion.LookRotation(transform.forward) * Quaternion.Euler(0f, -30f, 0f)).normalized;
+            Vector3 saltBlastSpawn = transform.position + (transform.right * -1) * forwardOffset;
+            //Debug.Log("attack");
+            Instantiate(saltBlast, transform.position, blastRotation);
+            Instantiate(saltBlastCollider, saltBlastSpawn, Quaternion.LookRotation(transform.forward));
+        }
     }
 
     public void OnInteract(InputAction.CallbackContext context)
