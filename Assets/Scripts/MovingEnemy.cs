@@ -19,4 +19,16 @@ public class MovingEnemy : BaseEnemy
             MoveTowardsTarget(player.position);
         }
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            PlayerScript player = collision.gameObject.GetComponent<PlayerScript>();
+            if (player != null)
+            {
+                player.TakeDamage(damage);
+            }
+        }
+    }
 }
