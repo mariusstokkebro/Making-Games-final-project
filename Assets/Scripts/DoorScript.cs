@@ -1,14 +1,10 @@
-
-
-
-
 using UnityEngine;
 
 public class DoorScript : MonoBehaviour
 {
 
     LayerMask layerMask;
-    int distanceFromDoorToNextRoom = 10;
+    int distanceFromDoorToNextRoom = 15;
     Vector3 back;
     void Start()
     {
@@ -24,7 +20,8 @@ public class DoorScript : MonoBehaviour
             Transform room = GetClosestRoom();
             ActivateRoom(room);
             MoveCameraToRoom(room);
-            movePlayerToRoom(other);
+            MovePlayerToRoom(other);
+            ActivateEnemies(room);
             DisableCurrentRoom();
         }
     }
@@ -58,15 +55,22 @@ public class DoorScript : MonoBehaviour
     {
         room.Find("roomLayout").gameObject.SetActive(true);
     }
-
-    void movePlayerToRoom(Collider other)
+    void ActivateEnemies(Transform room)
     {
-        other.transform.position = transform.position + back * distanceFromDoorToNextRoom;
+
+        room.Find("Enemies").gameObject.SetActive(true);
+
+    }
+
+    void MovePlayerToRoom(Collider other)
+    {
+        other.transform.position = other.transform.position + back * distanceFromDoorToNextRoom;
     }
 
     void DisableCurrentRoom()
     {
         transform.parent.gameObject.SetActive(false);
+        transform.parent.parent.Find("Enemies").gameObject.SetActive(false);
     }
 }
 

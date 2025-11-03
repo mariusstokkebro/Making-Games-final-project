@@ -1,8 +1,30 @@
 using UnityEngine;
-
+using System.Collections;
 public abstract class BaseEnemy : BaseEntity
 {
-    // Update is called once per frame
+    [SerializeField] protected float activationDelay = 1f;
+    protected bool isActive = false;
+    private Coroutine activationCoroutine;
+
+    protected virtual void OnEnable()
+    {
+        // Stop any previous activation
+        if (activationCoroutine != null)
+            StopCoroutine(activationCoroutine);
+
+        // Start delayed activation
+        activationCoroutine = StartCoroutine(ActivateAfterDelay());
+    }
+
+    private IEnumerator ActivateAfterDelay()
+    {
+        isActive = false;
+        yield return new WaitForSeconds(activationDelay);
+        isActive = true;
+        OnActivated();
+    }
+
+    protected virtual void OnActivated() { }
     protected Transform FindPlayer()
     {
         return FindEntity("Player");
@@ -10,6 +32,9 @@ public abstract class BaseEnemy : BaseEntity
 
     protected void TurnTowardsPlayer()
     {
+
+        if (!isActive) return;
+
         var player = FindPlayer();
         Vector3 dir = (player.position - transform.position).normalized;
 
@@ -21,6 +46,7 @@ public abstract class BaseEnemy : BaseEntity
 
     protected void MoveTowardsTarget(Vector2 target)
     {
+        if (!isActive) return;
         var player = FindPlayer();
         Vector3 direction = player.position - transform.position;
         direction.y = 0f;

@@ -523,6 +523,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5138889852868010416}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6138265747610340902
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8153321060385118037}
+  m_Layer: 0
+  m_Name: Enemies
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8153321060385118037
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6138265747610340902}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 14.23422, y: 12.80373, z: -5.25532}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5138889852868010416}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6519311025958962476
 GameObject:
   m_ObjectHideFlags: 0
@@ -868,7 +899,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5138889852868010416}
-  m_Layer: 0
+  - component: {fileID: 4417920304462385109}
+  m_Layer: 6
   m_Name: H_Room
   m_TagString: room
   m_Icon: {fileID: 0}
@@ -890,8 +922,30 @@ Transform:
   m_Children:
   - {fileID: 8074372781150281876}
   - {fileID: 4660692987410418709}
+  - {fileID: 8153321060385118037}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4417920304462385109
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7769625142423597568}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 38.178604, y: 13.303729, z: 25.602814}
+  m_Center: {x: 12.844299, y: 6.1518645, z: 0.8011322}
 --- !u!1 &8174838366217326232
 GameObject:
   m_ObjectHideFlags: 0
