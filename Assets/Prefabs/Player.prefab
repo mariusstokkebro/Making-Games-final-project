@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2649321266402898649}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bone_Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3492346587828575518}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bone_Maracca_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3881317572155303473}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bone_Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 823170972621111057}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bone_Chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4386553719893917156}
   - component: {fileID: 1342448496802917073}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Head_Feathers_YellSlim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,7 +243,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7031764505282470363}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bone_Feathers_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -275,7 +275,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5965416763482636747}
   - component: {fileID: 4247566174433100397}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Feathers_Wide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -380,7 +380,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3232641603762229421}
   - component: {fileID: 2720537975570938531}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Maraccas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -484,7 +484,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4651676735790232491}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bone_Feathers_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -515,7 +515,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1942508110328029387}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bone_UpperArm_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -548,7 +548,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4122703715344571322}
   - component: {fileID: 4552645716771492023}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Head_Ritopology
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -653,7 +653,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4494444418417252038}
   - component: {fileID: 1505322085870112116}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Head_Feathers_WhitWide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -757,7 +757,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4357400249688542092}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bone_LowerArm_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -790,7 +790,7 @@ GameObject:
   m_Component:
   - component: {fileID: 554939548241345232}
   - component: {fileID: 6925652738899493431}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Feathers_Long
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -895,7 +895,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5146682949748906032}
   - component: {fileID: 6746864125908149551}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Coat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1000,7 +1000,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1007489215661786590}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bone_Arm_IK_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1032,7 +1032,7 @@ GameObject:
   m_Component:
   - component: {fileID: 553533689578667719}
   - component: {fileID: 2733921976960761511}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Head_Feathers_WhitNorm1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1137,7 +1137,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5566998714744949582}
   - component: {fileID: 8784498656364301004}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Head_Feathers_YellNorm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1352,7 +1352,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &-3694154897782642976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1542,7 +1542,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1906786858148033810}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bone_LowerArm_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1574,7 +1574,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9119834876848742257}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bone_Feathers_Main
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1607,7 +1607,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4425367009436809243}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1641,7 +1641,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6286822020046769089}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bone_Maracca_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1672,7 +1672,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 189115297280559932}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bone_UpperArm_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1704,7 +1704,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5393616439355733283}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bone_Arm_IK_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1736,7 +1736,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1417925702688766782}
   - component: {fileID: 8522204681413607575}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Head_Feathers_WhitNorm2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1841,7 +1841,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5963230342102924391}
   - component: {fileID: 1736793528313608602}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Head_Feathers_WithWideLong
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1946,7 +1946,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3415904774301353450}
   - component: {fileID: 5971839944330439991}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Feathers_Normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
