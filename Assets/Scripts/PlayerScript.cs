@@ -11,9 +11,6 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
     [SerializeField]
     private int rotationSpeed = 200;
 
-
-
-
     [SerializeField] private ParticleSystem saltBlast;
     [SerializeField] private GameObject saltBlastCollider;
 
@@ -86,12 +83,10 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
         {
             Quaternion blastRotation = (Quaternion.LookRotation(transform.forward) * Quaternion.Euler(0f, -30f, 0f)).normalized;
             Vector3 saltBlastSpawn = transform.position + (transform.right * -1) * forwardOffset;
-            Debug.Log("attack");
+            //Debug.Log("attack");
             Instantiate(saltBlast, transform.position, blastRotation);
             Instantiate(saltBlastCollider, saltBlastSpawn, Quaternion.LookRotation(transform.forward));
-
         }
-
     }
 
     public void OnInteract(InputAction.CallbackContext context)

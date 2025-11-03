@@ -1531,7 +1531,7 @@ MonoBehaviour:
     e33: 1
   rotationSpeed: 200
   saltBlast: {fileID: 6516747311649036499, guid: 2de9349a1bde6b948bcbe82502c067d7, type: 3}
-  saltBlastCollider: {fileID: 0}
+  saltBlastCollider: {fileID: 7960931600771293886, guid: cf9c3ad201dc77746bde17af5bc8f816, type: 3}
   forwardOffset: 4.5
 --- !u!1 &6276079492673765941
 GameObject:
