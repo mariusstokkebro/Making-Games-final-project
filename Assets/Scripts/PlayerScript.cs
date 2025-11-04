@@ -79,6 +79,8 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
     {
         if (context.performed)
         {
+            saltShakerItem.Use(this);
+            /*
             if (selectedActiveItem)
             {
                 saltShakerItem.Cast(this);
@@ -86,7 +88,7 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
             else
             {
                 secondaryActiveItem.Cast(this);
-            }
+            }*/
         }
     }
 

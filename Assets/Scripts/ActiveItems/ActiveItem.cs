@@ -2,15 +2,15 @@ using UnityEngine;
 
 public abstract class ActiveItem : ScriptableObject
 {
-    [SerializeField] protected ParticleSystem blast;
+    [SerializeField] protected GameObject visualEffect;
     [SerializeField] protected GameObject collider;
     [SerializeField] protected float forwardOffset = 3.5f;
     [SerializeField] protected ActiveItemEffect effect;
     public Mesh mesh;
     public Sprite sprite;
     
-    public abstract void Cast(PlayerScript p);
-    public abstract void AltCast(PlayerScript p);
+    public abstract void Use(PlayerScript p);
+    public abstract void AltUse(PlayerScript p);
     public abstract void Drop(PlayerScript p);
 
     protected Quaternion GetRotation(PlayerScript p)
