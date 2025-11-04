@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -17,6 +18,16 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
     [SerializeField] private float forwardOffset = 3.5f;
     void Start()
     {
+        StartCoroutine(InitializeHUD());
+        Debug.Log(GameSeed.EnemyRandom.NextDouble().ToString());
+        
+        Debug.Log(GameSeed.ChestRandom.NextDouble().ToString());
+    }
+
+    IEnumerator InitializeHUD()
+    {
+        // Wait until HUD.Instance is assigned
+        yield return new WaitUntil(() => HUD.Instance);
         HUD.Instance.InitializeHealthBar(health, health / 5.0f);
     }
     void Update()

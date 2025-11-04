@@ -5,6 +5,7 @@ public abstract class BaseEnemy : BaseEntity
     [SerializeField] protected float activationDelay = 1f;
     protected bool isActive = false;
     private Coroutine activationCoroutine;
+    [SerializeField] private GameObject loot;
 
     protected virtual void OnEnable()
     {
@@ -14,6 +15,7 @@ public abstract class BaseEnemy : BaseEntity
 
         // Start delayed activation
         activationCoroutine = StartCoroutine(ActivateAfterDelay());
+        if (GameSeed.EnemyRandom.NextDouble() < 1.0) deathEffect = loot;
     }
 
     private IEnumerator ActivateAfterDelay()

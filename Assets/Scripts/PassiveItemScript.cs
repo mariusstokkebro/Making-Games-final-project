@@ -6,6 +6,11 @@ public class PassiveItemScript : MonoBehaviour
     #nullable enable
     [SerializeField] private PassiveItemData itemData;
 
+    public PassiveItemScript(PassiveItemData itemData)
+    {
+        this.itemData = itemData;
+    }
+
     private void Start()
     {
         gameObject.GetComponent<MeshFilter>().mesh = itemData.mesh;

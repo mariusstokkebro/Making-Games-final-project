@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SpeedCharm
   m_EditorClassIdentifier: Assembly-CSharp::Items.PassiveItemData
   itemName: Speed Charm
+  mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
   sprite: {fileID: 21300000, guid: a6aad232cb6458742b373d51b3bd66cc, type: 3}
   effects:
   - {fileID: 11400000, guid: a8a771c18488942c498ab3979834c73c, type: 2}

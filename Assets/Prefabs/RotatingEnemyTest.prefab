@@ -149,6 +149,8 @@ MonoBehaviour:
     e31: 0
     e32: 0
     e33: 1
+  activationDelay: 1
+  loot: {fileID: 3013907990175888136, guid: 51fb4f3aa2bfe4f81be978de76d07700, type: 3}
 --- !u!54 &3720553750275601702
 Rigidbody:
   m_ObjectHideFlags: 0
