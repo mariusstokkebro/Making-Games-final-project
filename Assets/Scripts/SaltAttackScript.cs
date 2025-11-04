@@ -11,12 +11,12 @@ public class SaltAttackScript : MonoBehaviour
         Destroy(gameObject, destroyTime);
     }
 
-    void OnCollisionEnter(Collision other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
             other.gameObject.GetComponent<BaseEntity>().TakeDamage(damageAmount);
-            Debug.Log("Hit enemy!");
+
         }
 
     }

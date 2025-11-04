@@ -31,7 +31,7 @@ public class HUD : MonoBehaviour
         
         // Initialization, TODO remove
         UpdateFloorDisplay(1);
-        healthBarDisplay.Initialize(6, 1);
+        //healthBarDisplay.Initialize(6, 1);
     }
 
     // Update is called once per frame
