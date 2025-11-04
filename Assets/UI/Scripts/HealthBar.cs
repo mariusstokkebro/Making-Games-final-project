@@ -21,10 +21,13 @@ public class HealthBar : MonoBehaviour
         GetComponent<Image>().material.SetFloat("_MaxHealth", maxHP);
         GetComponent<Image>().material.SetFloat("_HealthPerIcon", HPperIcon);
         UpdateHealthBar(maxHP);
+        
+        Debug.Log("maxHP "+ maxHP + ", "+HPperIcon+" per icon");
     }
 
     public void UpdateHealthBar(float newHP)
     {
         GetComponent<Image>().material.SetFloat("_CurrentHealth", newHP);
+        Debug.Log("New HP value: "+ newHP);
     }
 }

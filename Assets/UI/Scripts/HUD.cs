@@ -30,7 +30,7 @@ public class HUD : MonoBehaviour
         
         // Initialization, TODO remove
         UpdateFloorDisplay(1);
-        healthBarDisplay.Initialize(6, 1);
+        //healthBarDisplay.Initialize(6, 1);
     }
 
     // Update is called once per frame
@@ -52,14 +52,12 @@ public class HUD : MonoBehaviour
 
     public void InitializeHealthBar(float maxHP, float HPperIcon)
     {
-        Debug.Log("maxHP "+ maxHP + ", "+HPperIcon+" per icon");
         healthBarDisplay.Initialize(maxHP, HPperIcon);
     }
     
     public void UpdateHealthBar(float newHP)
     {
         healthBarDisplay.UpdateHealthBar(newHP);
-        Debug.Log("New HP value: "+ newHP);
     }
     
     // TODO item display
