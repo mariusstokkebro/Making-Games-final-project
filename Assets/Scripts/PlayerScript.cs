@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 public class PlayerScript : BaseEntity, Controls.IPlayerActions
 {
@@ -16,6 +17,7 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
     [SerializeField] private GameObject saltBlastCollider;
 
     [SerializeField] private float forwardOffset = 3.5f;
+    [SerializeField] private IList<PassiveItemData> items = new List<PassiveItemData>();
     void Start()
     {
     }
@@ -87,6 +89,17 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
             Instantiate(saltBlast, transform.position, blastRotation);
             Instantiate(saltBlastCollider, saltBlastSpawn, Quaternion.LookRotation(transform.forward));
         }
+    }
+
+    public void AddPassiveItem(PassiveItemData item)
+    {
+        Debug.Log($"Added item {item.name} to player items");
+        items.Add(item);
+    }
+
+    public void RemovePassiveItem(PassiveItemData item)
+    {
+        items.Remove(item);
     }
 
     public void OnInteract(InputAction.CallbackContext context)

@@ -10,7 +10,7 @@ namespace Effects
 
         public override void Apply(PlayerScript p)
         {
-            throw new System.NotImplementedException();
+            p.ModifyDamage(p.GetDamage() * multiplier);
         }
 
     }
