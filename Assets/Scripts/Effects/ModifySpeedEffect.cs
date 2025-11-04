@@ -4,13 +4,10 @@ namespace Effects
 {
     [CreateAssetMenu(fileName = "ModifySpeedEffect", menuName = "Scriptable Objects/Item Effects/Modify Speed")]
     public class ModifySpeedEffect : PassiveEffect
-    {
-        public float increase;
-        public float multiplier = 1f;
-        
+    {   
         public override void Apply(PlayerScript p)
         {
-            p.ModifyMovementSpeed(p.GetMovementSpeed() * multiplier);
+            p.ModifyMovementSpeed(p.GetMovementSpeed() * multiplier + increase);
         }
     }
 }
