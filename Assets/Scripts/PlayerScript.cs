@@ -9,15 +9,11 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
     private Vector3 _movementDirection;
     private Vector2 _lookInput;
     private Vector2 _mousePosition;
-
-    [SerializeField]
-    private int rotationSpeed = 200;
-
-    [SerializeField] private ParticleSystem saltBlast;
-    [SerializeField] private GameObject saltBlastCollider;
-
-    [SerializeField] private float forwardOffset = 3.5f;
+    [SerializeField] private int rotationSpeed = 200;
     [SerializeField] private IList<PassiveItemData> items = new List<PassiveItemData>();
+    [SerializeField] private ActiveItem saltShakerItem;
+    [SerializeField] private ActiveItem secondaryActiveItem;
+    [SerializeField] private bool selectedActiveItem = true;
     void Start()
     {
     }
@@ -83,11 +79,14 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
     {
         if (context.performed)
         {
-            Quaternion blastRotation = (Quaternion.LookRotation(transform.forward) * Quaternion.Euler(0f, -30f, 0f)).normalized;
-            Vector3 saltBlastSpawn = transform.position + (transform.right * -1) * forwardOffset;
-            //Debug.Log("attack");
-            Instantiate(saltBlast, transform.position, blastRotation);
-            Instantiate(saltBlastCollider, saltBlastSpawn, Quaternion.LookRotation(transform.forward));
+            if (selectedActiveItem)
+            {
+                saltShakerItem.Cast(this);
+            }
+            else
+            {
+                secondaryActiveItem.Cast(this);
+            }
         }
     }
 
@@ -101,6 +100,8 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
     {
         items.Remove(item);
     }
+
+    public void SetSecondaryActiveItem(ActiveItem item) => secondaryActiveItem = item;
 
     public void OnInteract(InputAction.CallbackContext context)
     {
