@@ -18,13 +18,13 @@ public class HealthBar : MonoBehaviour
 
     public void Initialize(float maxHP, float HPperIcon)
     {
-        healthBarMaterial.SetFloat("_MaxHealth", maxHP);
-        healthBarMaterial.SetFloat("_HealthPerIcon", HPperIcon);
+        GetComponent<Image>().material.SetFloat("_MaxHealth", maxHP);
+        GetComponent<Image>().material.SetFloat("_HealthPerIcon", HPperIcon);
         UpdateHealthBar(maxHP);
     }
 
     public void UpdateHealthBar(float newHP)
     {
-        healthBarMaterial.SetFloat("_CurrentHealth", newHP);
+        GetComponent<Image>().material.SetFloat("_CurrentHealth", newHP);
     }
 }
