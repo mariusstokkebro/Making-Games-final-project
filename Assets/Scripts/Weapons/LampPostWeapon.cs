@@ -1,0 +1,23 @@
+using UnityEngine;
+
+[CreateAssetMenu(fileName = "LampPostItem", menuName = "Scriptable Objects/Active Items/Lamp Post")]
+public class LampPostWeapon : Weapon
+{
+    public float damage = 5;
+
+    public override void Use(PlayerScript p)
+    {
+        Instantiate(visualEffect, p.transform.position, GetRotation(p));
+        Instantiate(collider, GetSpawn(p), Quaternion.LookRotation(p.transform.forward));
+    }
+
+    public override void AltUse(PlayerScript p)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void Drop(PlayerScript p)
+    {
+        throw new System.NotImplementedException();
+    }
+}

@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
+using UnityEngine.Serialization;
 
 public class PlayerScript : BaseEntity, Controls.IPlayerActions
 {
@@ -9,15 +10,11 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
     private Vector3 _movementDirection;
     private Vector2 _lookInput;
     private Vector2 _mousePosition;
-
-    [SerializeField]
-    private int rotationSpeed = 200;
-
-    [SerializeField] private ParticleSystem saltBlast;
-    [SerializeField] private GameObject saltBlastCollider;
-
-    [SerializeField] private float forwardOffset = 3.5f;
+    [SerializeField] private int rotationSpeed = 200;
     [SerializeField] private IList<PassiveItemData> items = new List<PassiveItemData>();
+    [FormerlySerializedAs("saltShakerItem")] [SerializeField] private Weapon saltShaker;
+    [FormerlySerializedAs("secondaryActiveItem")] [SerializeField] private Weapon secondaryWeapon;
+    [SerializeField] private bool usingPrimaryWeapon = true;
     void Start()
     {
     }
@@ -83,11 +80,16 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
     {
         if (context.performed)
         {
-            Quaternion blastRotation = (Quaternion.LookRotation(transform.forward) * Quaternion.Euler(0f, -30f, 0f)).normalized;
-            Vector3 saltBlastSpawn = transform.position + (transform.right * -1) * forwardOffset;
-            //Debug.Log("attack");
-            Instantiate(saltBlast, transform.position, blastRotation);
-            Instantiate(saltBlastCollider, saltBlastSpawn, Quaternion.LookRotation(transform.forward));
+            saltShaker.Use(this);
+            /*
+            if (usingPrimaryWeapon)
+            {
+                saltShakerItem.Cast(this);
+            }
+            else
+            {
+                secondaryActiveItem.Cast(this);
+            }*/
         }
     }
 
@@ -101,6 +103,8 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
     {
         items.Remove(item);
     }
+
+    public void SetSecondaryWeapon(Weapon item) => secondaryWeapon = item;
 
     public void OnInteract(InputAction.CallbackContext context)
     {

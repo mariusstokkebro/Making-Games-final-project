@@ -16,8 +16,6 @@ public class SaltAttackScript : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             other.gameObject.GetComponent<BaseEntity>().TakeDamage(damageAmount);
-
         }
-
     }
 }
