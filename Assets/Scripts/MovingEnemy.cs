@@ -5,7 +5,7 @@ public class MovingEnemy : BaseEnemy
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -20,14 +20,15 @@ public class MovingEnemy : BaseEnemy
         }
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collider)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collider.gameObject.CompareTag("Player"))
         {
-            PlayerScript player = collision.gameObject.GetComponent<PlayerScript>();
+            PlayerScript player = collider.gameObject.GetComponent<PlayerScript>();
             if (player != null)
             {
                 player.TakeDamage(damage);
+                Debug.Log("player hit)");
             }
         }
     }

@@ -17,7 +17,7 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
     [SerializeField] private float forwardOffset = 3.5f;
     void Start()
     {
-        HUD.Instance.InitializeHealthBar(health, health / 5.0f);
+        HUD.Instance.InitializeHealthBar(health, health / 6.0f);
     }
     void Update()
     {
