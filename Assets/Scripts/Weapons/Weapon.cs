@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class ActiveItem : ScriptableObject
+public abstract class Weapon : ScriptableObject
 {
     [SerializeField] protected GameObject visualEffect;
     [SerializeField] protected GameObject collider;

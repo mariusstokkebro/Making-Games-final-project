@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
+using UnityEngine.Serialization;
 
 public class PlayerScript : BaseEntity, Controls.IPlayerActions
 {
@@ -11,9 +12,9 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
     private Vector2 _mousePosition;
     [SerializeField] private int rotationSpeed = 200;
     [SerializeField] private IList<PassiveItemData> items = new List<PassiveItemData>();
-    [SerializeField] private ActiveItem saltShakerItem;
-    [SerializeField] private ActiveItem secondaryActiveItem;
-    [SerializeField] private bool selectedActiveItem = true;
+    [FormerlySerializedAs("saltShakerItem")] [SerializeField] private Weapon saltShaker;
+    [FormerlySerializedAs("secondaryActiveItem")] [SerializeField] private Weapon secondaryWeapon;
+    [SerializeField] private bool usingPrimaryWeapon = true;
     void Start()
     {
     }
@@ -79,9 +80,9 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
     {
         if (context.performed)
         {
-            saltShakerItem.Use(this);
+            saltShaker.Use(this);
             /*
-            if (selectedActiveItem)
+            if (usingPrimaryWeapon)
             {
                 saltShakerItem.Cast(this);
             }
@@ -103,7 +104,7 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
         items.Remove(item);
     }
 
-    public void SetSecondaryActiveItem(ActiveItem item) => secondaryActiveItem = item;
+    public void SetSecondaryWeapon(Weapon item) => secondaryWeapon = item;
 
     public void OnInteract(InputAction.CallbackContext context)
     {

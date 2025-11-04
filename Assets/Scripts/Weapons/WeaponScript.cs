@@ -1,18 +1,19 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class ActiveItemScript : MonoBehaviour
+public class WeaponScript : MonoBehaviour
 {
-    [SerializeField] private ActiveItem activeItem;
+    [FormerlySerializedAs("activeItem")] [SerializeField] private Weapon weapon;
 
-    public ActiveItemScript(ActiveItem item)
+    public WeaponScript(Weapon item)
     {
-        activeItem = item;
+        weapon = item;
     }
 
     private void Start()
     {
-        gameObject.GetComponent<MeshFilter>().mesh = activeItem.mesh;
+        gameObject.GetComponent<MeshFilter>().mesh = weapon.mesh;
     }
 
     /// <summary>
@@ -20,7 +21,7 @@ public class ActiveItemScript : MonoBehaviour
     /// </summary>
     public void OnPickup(PlayerScript p)
     {
-        p.SetSecondaryActiveItem(activeItem);
+        p.SetSecondaryWeapon(weapon);
         Destroy(gameObject);
     }
 

@@ -1,10 +1,8 @@
 using UnityEngine;
 
-
-[CreateAssetMenu(fileName = "SaltShakerItem", menuName = "Scriptable Objects/Active Items/Salt Shaker")]
-public class SaltShakerItem : ActiveItem
+[CreateAssetMenu(fileName = "LampPostItem", menuName = "Scriptable Objects/Active Items/Lamp Post")]
+public class LampPostWeapon : Weapon
 {
-
     public float damage = 5;
 
     public override void Use(PlayerScript p)

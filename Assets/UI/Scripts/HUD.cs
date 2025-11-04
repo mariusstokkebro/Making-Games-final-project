@@ -14,7 +14,6 @@ public class HUD : MonoBehaviour
     
     // TODO Should be moved to a game manager class
     private TimeSpan timerValue;
-
     
     void Awake()
     {
