@@ -25,8 +25,18 @@ public class PassiveItemScript : MonoBehaviour
         {
             effect.Apply(p);
         }
-        // Add itemData to p.inventory
-        // Destroy(this)?;
+
+        p.AddPassiveItem(itemData);
+        Destroy(gameObject);
+    }
+
+    void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.CompareTag("Player"))
+        {
+            PlayerScript player = collider.gameObject.GetComponent<PlayerScript>();
+            OnPickup(player);
+        }
     }
 
     // Think this is best done by having some unlockables in the player? effect.Apply(p) => p.unlockDash();
