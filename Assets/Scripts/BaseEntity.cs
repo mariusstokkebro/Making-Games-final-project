@@ -2,7 +2,6 @@ using UnityEngine;
 
 public abstract class BaseEntity : MonoBehaviour
 {
-    
     [SerializeField] protected float health = 100f;
     [SerializeField] protected float movementSpeed = 3f;
     [SerializeField] protected float damage = 10f;
@@ -32,5 +31,28 @@ public abstract class BaseEntity : MonoBehaviour
             Instantiate(deathEffect, transform.position, Quaternion.identity);
         }
         Destroy(gameObject);
+    }
+
+    public float GetMovementSpeed() => movementSpeed;
+    public void ModifyMovementSpeed(float newMovementSpeed)
+    {
+        movementSpeed = newMovementSpeed;
+    }
+
+    public float GetDamage() => damage;
+    public void ModifyDamage(float newDamage)
+    {
+        damage = newDamage;
+    }
+
+    public float GetHealth() => health;
+    public void ModifyHealth(float newHealth)
+    {
+        health = newHealth;
+    }
+
+    public void Heal(float amount)
+    {
+        health += amount;
     }
 }

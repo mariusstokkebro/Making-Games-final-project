@@ -1507,8 +1507,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 670227fef33c14b27b7d5eb8543342f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerScript
-  health: 30
-  movementSpeed: 10
+  health: 100
+  movementSpeed: 15
   damage: 10
   turnSpeed: 180
   deathEffect: {fileID: 0}
@@ -1529,10 +1529,8 @@ MonoBehaviour:
     e31: 0
     e32: 0
     e33: 1
-  rotationSpeed: 200
-  saltBlast: {fileID: 6516747311649036499, guid: 2de9349a1bde6b948bcbe82502c067d7, type: 3}
-  saltBlastCollider: {fileID: 7960931600771293886, guid: cf9c3ad201dc77746bde17af5bc8f816, type: 3}
-  forwardOffset: 4.5
+  saltShaker: {fileID: 11400000, guid: 9ea9cb76d0b4c484a96c8e9665e2fbec, type: 2}
+  usingPrimaryWeapon: 1
 --- !u!1 &6276079492673765941
 GameObject:
   m_ObjectHideFlags: 0

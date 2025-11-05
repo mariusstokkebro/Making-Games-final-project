@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 7995309245447885027}
   - component: {fileID: 2853310724296232979}
   - component: {fileID: 1204766445287544618}
-  m_Layer: 8
-  m_Name: MovingEnemyTest
+  m_Layer: 0
+  m_Name: MovingEnemyTestDropsLampPost
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -150,7 +150,7 @@ MonoBehaviour:
     e32: 0
     e33: 1
   activationDelay: 1
-  loot: {fileID: 3013907990175888136, guid: 51fb4f3aa2bfe4f81be978de76d07700, type: 3}
+  loot: {fileID: 3013907990175888136, guid: e7cd24c7cca1ea0459cea81b79caec4d, type: 3}
 --- !u!54 &1204766445287544618
 Rigidbody:
   m_ObjectHideFlags: 0

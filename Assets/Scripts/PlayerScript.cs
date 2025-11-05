@@ -1,5 +1,8 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
+using UnityEngine.Serialization;
 
 public class PlayerScript : BaseEntity, Controls.IPlayerActions
 {
@@ -7,17 +10,16 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
     private Vector3 _movementDirection;
     private Vector2 _lookInput;
     private Vector2 _mousePosition;
-
-    [SerializeField]
-    private int rotationSpeed = 200;
-
-    [SerializeField] private ParticleSystem saltBlast;
-    [SerializeField] private GameObject saltBlastCollider;
-
-    [SerializeField] private float forwardOffset = 3.5f;
+    
+    [SerializeField] private IList<PassiveItemData> items = new List<PassiveItemData>();
+    
+    [SerializeField] private Weapon saltShaker;
+    [SerializeField] private bool usingPrimaryWeapon = true;
+    private WeaponBehaviour primaryWeapon;
+    private WeaponBehaviour secondaryWeapon;
     void Start()
     {
-        HUD.Instance.InitializeHealthBar(health, health / 6.0f);
+        primaryWeapon = saltShaker.EquipWeapon(this);
     }
     void Update()
     {
@@ -81,13 +83,32 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
     {
         if (context.performed)
         {
-            Quaternion blastRotation = (Quaternion.LookRotation(transform.forward) * Quaternion.Euler(0f, -30f, 0f)).normalized;
-            Vector3 saltBlastSpawn = transform.position + (transform.right * -1) * forwardOffset;
-            //Debug.Log("attack");
-            Instantiate(saltBlast, transform.position, blastRotation);
-            Instantiate(saltBlastCollider, saltBlastSpawn, Quaternion.LookRotation(transform.forward));
+            if (usingPrimaryWeapon)
+            {
+                primaryWeapon.StartAttack();
+            }
+            else if (secondaryWeapon)
+            {
+                secondaryWeapon.StartAttack();
+            }
+                
         }
     }
+
+    public void AddPassiveItem(PassiveItemData item)
+    {
+        Debug.Log($"Added item {item.name} to player items");
+        items.Add(item);
+    }
+
+    public void RemovePassiveItem(PassiveItemData item)
+    {
+        items.Remove(item);
+    }
+
+    public void SetSecondaryWeapon(Weapon item) => secondaryWeapon = item.EquipWeapon(this);
+
+    
 
     public void OnInteract(InputAction.CallbackContext context)
     {
