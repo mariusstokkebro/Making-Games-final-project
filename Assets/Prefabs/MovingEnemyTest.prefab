@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7995309245447885027}
   - component: {fileID: 2853310724296232979}
   - component: {fileID: 1204766445287544618}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MovingEnemyTest
   m_TagString: Enemy
   m_Icon: {fileID: 0}

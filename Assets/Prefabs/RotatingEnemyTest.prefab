@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1117227145395237710}
   - component: {fileID: 4286868251459220752}
   - component: {fileID: 3720553750275601702}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RotatingEnemyTest
   m_TagString: Enemy
   m_Icon: {fileID: 0}

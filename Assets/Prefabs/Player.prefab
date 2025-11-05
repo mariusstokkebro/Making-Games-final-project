@@ -1246,7 +1246,7 @@ GameObject:
   - component: {fileID: 2725599196151155862}
   - component: {fileID: -3694154897782642976}
   - component: {fileID: 3598881935967123643}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1322,10 +1322,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1
+  m_Radius: 0.78275734
+  m_Height: 2.3988042
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: -0.057480514, y: 0.97846484, z: -0.019789577}
 --- !u!54 &2725599196151155862
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1507,7 +1507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 670227fef33c14b27b7d5eb8543342f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerScript
-  health: 100
+  health: 30
   movementSpeed: 10
   damage: 10
   turnSpeed: 180
