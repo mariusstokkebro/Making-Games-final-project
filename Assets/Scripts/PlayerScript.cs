@@ -10,13 +10,16 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
     private Vector3 _movementDirection;
     private Vector2 _lookInput;
     private Vector2 _mousePosition;
-    [SerializeField] private int rotationSpeed = 200;
+    
     [SerializeField] private IList<PassiveItemData> items = new List<PassiveItemData>();
-    [FormerlySerializedAs("saltShakerItem")] [SerializeField] private Weapon saltShaker;
-    [FormerlySerializedAs("secondaryActiveItem")] [SerializeField] private Weapon secondaryWeapon;
+    
+    [SerializeField] private Weapon saltShaker;
     [SerializeField] private bool usingPrimaryWeapon = true;
+    private WeaponBehaviour primaryWeapon;
+    private WeaponBehaviour secondaryWeapon;
     void Start()
     {
+        primaryWeapon = saltShaker.EquipWeapon(this);
     }
     void Update()
     {
@@ -80,16 +83,15 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
     {
         if (context.performed)
         {
-            saltShaker.Use(this);
-            /*
             if (usingPrimaryWeapon)
             {
-                saltShakerItem.Cast(this);
+                primaryWeapon.StartAttack();
             }
-            else
+            else if (secondaryWeapon)
             {
-                secondaryActiveItem.Cast(this);
-            }*/
+                secondaryWeapon.StartAttack();
+            }
+                
         }
     }
 
@@ -104,7 +106,9 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
         items.Remove(item);
     }
 
-    public void SetSecondaryWeapon(Weapon item) => secondaryWeapon = item;
+    public void SetSecondaryWeapon(Weapon item) => secondaryWeapon = item.EquipWeapon(this);
+
+    
 
     public void OnInteract(InputAction.CallbackContext context)
     {
