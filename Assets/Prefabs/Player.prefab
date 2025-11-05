@@ -1508,7 +1508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerScript
   health: 100
-  movementSpeed: 10
+  movementSpeed: 15
   damage: 10
   turnSpeed: 180
   deathEffect: {fileID: 0}
@@ -1529,10 +1529,8 @@ MonoBehaviour:
     e31: 0
     e32: 0
     e33: 1
-  rotationSpeed: 200
-  saltShakerItem: {fileID: 11400000, guid: 9836ce52a9f492d48aa1fc28fdc88718, type: 2}
-  secondaryActiveItem: {fileID: 0}
-  selectedActiveItem: 0
+  saltShaker: {fileID: 11400000, guid: 9ea9cb76d0b4c484a96c8e9665e2fbec, type: 2}
+  usingPrimaryWeapon: 1
 --- !u!1 &6276079492673765941
 GameObject:
   m_ObjectHideFlags: 0
