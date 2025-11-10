@@ -120,9 +120,10 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
     }
 
     public void SetSecondaryWeapon(Weapon item) => secondaryWeapon = item.EquipWeapon(this);
+    
+    public void LooseSecondaryWeapon() => usingPrimaryWeapon = true;
 
     
-
     public void OnInteract(InputAction.CallbackContext context)
     {
         throw new System.NotImplementedException();

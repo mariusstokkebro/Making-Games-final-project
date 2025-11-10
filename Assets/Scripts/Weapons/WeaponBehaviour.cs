@@ -45,17 +45,21 @@ public class WeaponBehaviour : MonoBehaviour
             countdown = cooldownTime;
 
             if (canBreak)
-                --usesUntilBreak;
-            if (usesUntilBreak <= 0)
-                Break();
+                DecreaseDurability();
         }
     }
 
-    private void Break()
+    public void DecreaseDurability()
     {
-        Destroy(gameObject);
-        // TODO Handle UI display
+        --usesUntilBreak;
+        if (usesUntilBreak <= 0)
+        {
+            Destroy(gameObject);
+            
+        }
+        // TODO Update UI
     }
+    
 
     // Update is called once per frame
     void Update()
