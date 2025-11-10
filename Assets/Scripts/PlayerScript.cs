@@ -85,14 +85,27 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
         {
             if (usingPrimaryWeapon)
             {
+                if(!primaryWeapon)
+                    Debug.Log("No primary weapon!");
                 primaryWeapon.StartAttack();
             }
             else if (secondaryWeapon)
             {
                 secondaryWeapon.StartAttack();
             }
-                
+            else
+            {
+                Debug.Log("No secondary weapon!");
+            }
         }
+    }
+
+    public void OnSwitchWeapon(InputAction.CallbackContext context)
+    {
+        if (usingPrimaryWeapon && secondaryWeapon)
+            usingPrimaryWeapon = false;
+        else
+            usingPrimaryWeapon = true;
     }
 
     public void AddPassiveItem(PassiveItemData item)
@@ -115,27 +128,12 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
         throw new System.NotImplementedException();
     }
 
-    public void OnCrouch(InputAction.CallbackContext context)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void OnJump(InputAction.CallbackContext context)
-    {
-        throw new System.NotImplementedException();
-    }
-
     public void OnPrevious(InputAction.CallbackContext context)
     {
         throw new System.NotImplementedException();
     }
 
     public void OnNext(InputAction.CallbackContext context)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void OnSprint(InputAction.CallbackContext context)
     {
         throw new System.NotImplementedException();
     }
