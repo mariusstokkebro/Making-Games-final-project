@@ -1,8 +1,7 @@
 using UnityEngine;
-
 public class DoorScript : MonoBehaviour
 {
-
+    private bool smoothCameraTransition = false;
     LayerMask roomMask;
     LayerMask doorMask;
     int distanceFromDoorToPlayer = 10;
@@ -28,6 +27,7 @@ public class DoorScript : MonoBehaviour
         }
     }
 
+
     Transform GetClosestRoom()
     {
         RaycastHit hit;
@@ -45,8 +45,16 @@ public class DoorScript : MonoBehaviour
         Transform cameraPoint = room.Find("cameraPoint");
         if (cameraPoint != null)
         {
-            Camera.main.transform.position = cameraPoint.position;
-            Camera.main.transform.rotation = cameraPoint.rotation;
+            if (smoothCameraTransition)
+            {
+                Camera.main.GetComponent<CameraScript>().SetTarget(cameraPoint);
+            }
+            else
+            {
+                Camera.main.transform.position = cameraPoint.position;
+                Camera.main.transform.rotation = cameraPoint.rotation;
+            }
+
         }
         else
         {
@@ -87,8 +95,8 @@ public class DoorScript : MonoBehaviour
 
     void DisableCurrentRoom()
     {
-        transform.parent.gameObject.SetActive(false);
-        transform.parent.parent.Find("Enemies").gameObject.SetActive(false);
+        //transform.parent.gameObject.SetActive(false);
+        //transform.parent.parent.Find("Enemies").gameObject.SetActive(false);
     }
 }
 

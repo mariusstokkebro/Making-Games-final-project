@@ -12,6 +12,7 @@ public class LevelGeneration : MonoBehaviour
     private Transform attachDoor;
     private List<Transform> availableDoors = new List<Transform>();
     private List<Transform> doorsToDestroy = new List<Transform>();
+    private List<GameObject> roomsToDestroy = new List<GameObject>();
 
     void Start()
     {
@@ -19,8 +20,18 @@ public class LevelGeneration : MonoBehaviour
     }
     void generateLevel(List<RoomsInLevel> roomPrefabs, int roomAmount, int level)
     {
+        if (roomsToDestroy.Count > 0)
+        {
+            DestroyRooms(roomsToDestroy);
+            roomsToDestroy.Clear();
+        }
         Instantiate(startRoom, Vector3.zero, Quaternion.identity);
+        //move camera to start room
+        Transform cameraPoint = startRoom.transform.Find("cameraPoint");
+        Camera.main.transform.position = cameraPoint.position;
+        Camera.main.transform.rotation = cameraPoint.rotation;
         AddRoomDoors(startRoom);
+        roomsToDestroy.Add(startRoom);
         for (int i = 0; i < roomAmount; i++)
         {
             if (availableDoors.Count == 0)
@@ -40,26 +51,7 @@ public class LevelGeneration : MonoBehaviour
                 attachDoor = availableDoors[0];
                 availableDoors.RemoveAt(0);
             }
-            //choose random room from list
-            GameObject newRoomPrefab = roomPrefabsByLevel[level].roomPrefabs[
-            Random.Range(0, roomPrefabsByLevel[level].roomPrefabs.Count)
-];
-            GameObject newRoom = Instantiate(newRoomPrefab);
-            Transform secondDoor = FindDoorForSecondRoom(newRoom, attachDoor);
-            if (secondDoor)
-            {
-                AddRoomDoors(newRoom, secondDoor);
-                AlignRooms(attachDoor, secondDoor);
-            }
-            else
-            {
-                Destroy(newRoom);
-                Debug.LogWarning("No suitable door found in new room");
-                doorsToDestroy.Add(attachDoor);
-            }
-            //newRoom.transform.GetChild(1).gameObject.SetActive(false); //disable room layout
-            //newRoom.transform.GetChild(2).gameObject.SetActive(false); //disable enemies
-            //find door in new room that is opposite to door previously chosen door
+            addRooms();
 
         }
         foreach (Transform door in availableDoors)
@@ -67,6 +59,7 @@ public class LevelGeneration : MonoBehaviour
             doorsToDestroy.Add(door);
         }
         DestroyDoors(doorsToDestroy);
+
     }
     // Update is called once per frame
     void Update()
@@ -129,5 +122,36 @@ public class LevelGeneration : MonoBehaviour
             Destroy(door.gameObject);
         }
     }
+    private void DestroyRooms(List<GameObject> rooms)
+    {
+        foreach (GameObject room in rooms)
+        {
+            Destroy(room);
+        }
+    }
+    private void addRooms()
+    {
+        //choose random room from list
+        GameObject newRoomPrefab = roomPrefabsByLevel[level].roomPrefabs[
+        Random.Range(0, roomPrefabsByLevel[level].roomPrefabs.Count)
+];
+        GameObject newRoom = Instantiate(newRoomPrefab);
+        Transform secondDoor = FindDoorForSecondRoom(newRoom, attachDoor);
+        if (secondDoor)
+        {
+            AddRoomDoors(newRoom, secondDoor);
+            AlignRooms(attachDoor, secondDoor);
+            roomsToDestroy.Add(newRoom);
+            //newRoom.transform.GetChild(1).gameObject.SetActive(false); //disable room layout
+            //newRoom.transform.GetChild(2).gameObject.SetActive(false); //disable enemies
+        }
+        else
+        {
+            Destroy(newRoom);
+            Debug.LogWarning("No suitable door found in new room");
+            addRooms();
+        }
+    }
+
 
 }
