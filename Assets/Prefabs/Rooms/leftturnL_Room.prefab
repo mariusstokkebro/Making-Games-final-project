@@ -466,8 +466,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3897148098168699219}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.00020466742, z: -0, w: 1}
-  m_LocalPosition: {x: 0.00418818, y: 0, z: -0.00061511993}
+  m_LocalRotation: {x: -0, y: -0.026791418, z: -0, w: 0.99964106}
+  m_LocalPosition: {x: -0.5429325, y: 0, z: 1.153861}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -475,7 +475,7 @@ Transform:
   - {fileID: 2177302247528235145}
   - {fileID: 8562169947463680470}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0.023, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -3.07, z: 0}
 --- !u!65 &1979495005835335301
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1331,7 +1331,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8066125874426110558, guid: b38f0ed1bdb4dcf47975f3cc581d1613, type: 3}
       propertyPath: m_Name
-      value: door_SW (1)
+      value: door_SW
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1393,7 +1393,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8066125874426110558, guid: b38f0ed1bdb4dcf47975f3cc581d1613, type: 3}
       propertyPath: m_Name
-      value: door_SE
+      value: door_NW
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -333,8 +333,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   roomAmount: 5
-  stairway_Room: {fileID: 2711664694031869415, guid: 272a17d02e567524eb91e3295a754637, type: 3}
-  level1RoomPrefabs: []
+  uniformRoomGeneration: 1
+  startRoom: {fileID: 2711664694031869415, guid: 272a17d02e567524eb91e3295a754637, type: 3}
+  roomPrefabsByLevel:
+  - roomPrefabs:
+    - {fileID: 808614582638773325, guid: a2bcec2a90599db488f58ac36d3216d3, type: 3}
+    - {fileID: 7769625142423597568, guid: 8f2929a5385e31049a575d7a30610644, type: 3}
+    - {fileID: 3897148098168699219, guid: f21563cdd014ba44f997e9bbd3282275, type: 3}
+    - {fileID: 3897148098168699219, guid: 86d5e60c66a60da49ba6ebccbc8746f5, type: 3}
+  - roomPrefabs: []
 --- !u!4 &777232873
 Transform:
   m_ObjectHideFlags: 0

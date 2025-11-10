@@ -3,12 +3,14 @@ using UnityEngine;
 public class DoorScript : MonoBehaviour
 {
 
-    LayerMask layerMask;
-    int distanceFromDoorToNextRoom = 15;
+    LayerMask roomMask;
+    LayerMask doorMask;
+    int distanceFromDoorToPlayer = 10;
     Vector3 back;
     void Start()
     {
-        layerMask = LayerMask.GetMask("Room");
+        roomMask = LayerMask.GetMask("Room");
+        doorMask = LayerMask.GetMask("Door");
         back = transform.TransformDirection(Vector3.left);
     }
     void OnTriggerStay(Collider other)
@@ -30,7 +32,7 @@ public class DoorScript : MonoBehaviour
     {
         RaycastHit hit;
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.left) * 1000, Color.white);
-        if (Physics.Raycast(transform.position, back, out hit, 20, layerMask))
+        if (Physics.Raycast(transform.position, back, out hit, 100, roomMask))
         {
             return hit.transform;
         }
@@ -57,14 +59,30 @@ public class DoorScript : MonoBehaviour
     }
     void ActivateEnemies(Transform room)
     {
-
-        room.Find("Enemies").gameObject.SetActive(true);
+        GameObject enemies = room.Find("Enemies")?.gameObject;
+        if (enemies == null)
+        {
+            Debug.LogWarning($"No Enemies found in {room.name}");
+        }
+        else
+        {
+            room.Find("Enemies").gameObject.SetActive(true);
+        }
 
     }
 
     void MovePlayerToRoom(Collider other)
     {
-        other.transform.position = other.transform.position + back * distanceFromDoorToNextRoom;
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, back, out hit, 100, doorMask))
+        {
+            other.transform.position = hit.transform.position + (back * distanceFromDoorToPlayer);
+        }
+        else
+        {
+            Debug.LogWarning("No door found behind the door");
+        }
+
     }
 
     void DisableCurrentRoom()
