@@ -11,8 +11,12 @@ public class HUD : MonoBehaviour
     [SerializeField] private TextMeshProUGUI floorDisplay;
     [SerializeField] private TextMeshProUGUI timerDisplay;
     [SerializeField] private HealthBar healthBarDisplay;
+    [SerializeField] private WeaponSlot primaryWeaponSlot;
+    [SerializeField] private WeaponSlot secondaryWeaponSlot;
+
+    private bool usingPrimaryWeapon = true;
     
-    // TODO Should be moved to a game manager class
+    // TODO Should probably be moved to a game manager class
     private TimeSpan timerValue;
     
     void Awake()
@@ -58,6 +62,34 @@ public class HUD : MonoBehaviour
     public void UpdateHealthBar(float newHP)
     {
         healthBarDisplay.UpdateHealthBar(newHP);
+    }
+
+    public void ReduceWeaponUses()
+    {
+        if(usingPrimaryWeapon)
+            primaryWeaponSlot.ReduceUses();
+        else
+            secondaryWeaponSlot.ReduceUses();
+    }
+
+    public void SetPrimaryWeapon(Weapon weapon)
+    {
+        primaryWeaponSlot.FillSlot(weapon);
+    }
+    
+    public void SetSecondaryWeapon(Weapon weapon)
+    {
+        secondaryWeaponSlot.FillSlot(weapon);
+    }
+
+    public void RemoveSecondaryWeapon()
+    {
+        secondaryWeaponSlot.ClearSlot();
+    }
+
+    public void SwitchWeapons()
+    {
+        // TODO
     }
     
     // TODO item display

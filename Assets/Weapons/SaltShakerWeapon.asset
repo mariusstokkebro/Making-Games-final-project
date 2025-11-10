@@ -20,7 +20,7 @@ MonoBehaviour:
   cooldown: 1
   range: 20
   angle: 25
-  canBreak: 0
+  canBreak: 1
   usesUntilBreak: 10
   effect: 0
   mesh: {fileID: 0}

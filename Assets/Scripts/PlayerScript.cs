@@ -20,6 +20,7 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
     void Start()
     {
         primaryWeapon = saltShaker.EquipWeapon(this);
+        HUD.Instance.SetPrimaryWeapon(saltShaker);
     }
     void Update()
     {

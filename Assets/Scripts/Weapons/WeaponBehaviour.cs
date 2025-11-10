@@ -52,10 +52,10 @@ public class WeaponBehaviour : MonoBehaviour
     public void DecreaseDurability()
     {
         --usesUntilBreak;
+        HUD.Instance.ReduceWeaponUses();
         if (usesUntilBreak <= 0)
         {
             Destroy(gameObject);
-            
         }
         // TODO Update UI
     }
