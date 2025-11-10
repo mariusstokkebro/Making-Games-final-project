@@ -12,32 +12,49 @@ public class WeaponBehaviour : MonoBehaviour
     private float countdown;
     
     private ParticleEffect particleEffect;
+
+    private bool canBreak;
+    private int usesUntilBreak;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
     }
 
-    public void Initialize(float damage, float duration, float cooldown, float range, float angle, WeaponProjectile projectile, ParticleEffect effect)
+    public void Initialize(Weapon weaponData)
     {
-        cooldownTime = cooldown;
-        this.projectile = projectile;
-        particleEffect = effect;
-        
-        this.damage = damage;
-        this.attackDuration = duration;
-        this.range = range;
-        this.angle = angle;
+        cooldownTime = weaponData.cooldown;
+        projectile = weaponData.weaponProjectile.GetComponent<WeaponProjectile>();
+        particleEffect = weaponData.visualEffect.GetComponent<ParticleEffect>();
+
+        damage = weaponData.damage;
+        attackDuration = weaponData.duration;
+        range = weaponData.range;
+        angle = weaponData.angle;
+
+        canBreak = weaponData.canBreak;
+        usesUntilBreak = weaponData.usesUntilBreak;
     }
 
     public void StartAttack()
     {
         if (countdown <= 0)
         {
-            Instantiate(projectile, this.transform.position, this.transform.rotation).Initialize(damage, range, angle, attackDuration);
-            Instantiate(particleEffect, this.transform.position, this.transform.rotation);
+            Instantiate(projectile, transform.position, transform.rotation).Initialize(damage, range, angle, attackDuration);
+            Instantiate(particleEffect, transform.position, transform.rotation);
             countdown = cooldownTime;
+
+            if (canBreak)
+                --usesUntilBreak;
+            if (usesUntilBreak <= 0)
+                Break();
         }
+    }
+
+    private void Break()
+    {
+        Destroy(gameObject);
+        // TODO Handle UI display
     }
 
     // Update is called once per frame
