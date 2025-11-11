@@ -32,27 +32,32 @@ public abstract class BaseEnemy : BaseEntity
         return FindEntity("Player");
     }
 
-    protected void TurnTowardsPlayer()
+    protected void TurnTowardsTarget(Vector3 targetPosition)
     {
-
         if (!isActive) return;
 
-        var player = FindPlayer();
-        Vector3 dir = (player.position - transform.position).normalized;
+        Vector3 dir = targetPosition - transform.position;
+        dir.y = 0f;
+        if (dir.magnitude < 0.01f) return;
 
-        float targetAngle = Mathf.Atan2(dir.z, dir.x) * Mathf.Rad2Deg;
-
-        float newAngle = Mathf.MoveTowardsAngle(transform.eulerAngles.y, targetAngle, turnSpeed * Time.deltaTime);
-        transform.rotation = Quaternion.Euler(0, newAngle, 0);
+        transform.right = Vector3.Slerp(transform.right, -dir.normalized, turnSpeed * Time.deltaTime);
+        
+        Debug.DrawRay(transform.position, -transform.right * 2f, Color.red);
+        Debug.DrawRay(transform.position, dir.normalized * 2f, Color.green);
     }
 
-    protected void MoveTowardsTarget(Vector2 target)
+    protected void MoveTowardsTarget(Vector3 targetPosition)
     {
         if (!isActive) return;
-        var player = FindPlayer();
-        Vector3 direction = player.position - transform.position;
-        direction.y = 0f;
-        direction = direction.normalized;
-        transform.position += direction * (movementSpeed * Time.deltaTime);
+
+        Vector3 dir = targetPosition - transform.position;
+        dir.y = 0f;
+        if (dir.magnitude < 0.01f) return;
+
+        Vector3 moveVec = dir.normalized * (movementSpeed * Time.deltaTime);
+        Debug.DrawRay(transform.position, moveVec * 50f, Color.blue);
+        Debug.Log($"Moving: {moveVec}, Magnitude: {moveVec.magnitude}");
+        
+        transform.position += moveVec;
     }
 }

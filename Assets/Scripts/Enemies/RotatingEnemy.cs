@@ -11,6 +11,10 @@ public class RotatingEnemy : BaseEnemy
     // Update is called once per frame
     void Update()
     {
-        TurnTowardsPlayer();
+        var player = FindPlayer();
+        if (player != null)
+        {
+            TurnTowardsTarget(player.position);
+        }
     }
 }

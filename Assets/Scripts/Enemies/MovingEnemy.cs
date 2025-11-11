@@ -12,7 +12,7 @@ public class MovingEnemy : BaseEnemy
 
         if (player != null)
         {
-            TurnTowardsPlayer();
+            TurnTowardsTarget(player.position);
             MoveTowardsTarget(player.position);
         }
     }
