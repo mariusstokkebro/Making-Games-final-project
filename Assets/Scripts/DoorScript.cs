@@ -95,8 +95,8 @@ public class DoorScript : MonoBehaviour
 
     void DisableCurrentRoom()
     {
-        //transform.parent.gameObject.SetActive(false);
-        //transform.parent.parent.Find("Enemies").gameObject.SetActive(false);
+        transform.parent.gameObject.SetActive(false);
+        transform.parent.parent.Find("Enemies").gameObject.SetActive(false);
     }
 }
 

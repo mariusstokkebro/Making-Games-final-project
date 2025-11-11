@@ -70,7 +70,7 @@ public class LevelGeneration : MonoBehaviour
     private void AddRoomDoors(GameObject room, Transform usedDoor = null)
     {
         int doorAmount = 0;
-        Transform roomLayout = room.transform.GetChild(1);
+        Transform roomLayout = room.transform.Find("roomLayout");
         foreach (Transform child in roomLayout)
         {
             if (child.CompareTag("Door") && child != usedDoor)
@@ -86,7 +86,7 @@ public class LevelGeneration : MonoBehaviour
 
     private Transform FindDoorForSecondRoom(GameObject room, Transform firstRoomDoor)
     {
-        Transform roomLayout = room.transform.GetChild(1);
+        Transform roomLayout = room.transform.Find("roomLayout");
         List<Transform> doors = new List<Transform>();
         foreach (Transform child in roomLayout)
         {
@@ -142,8 +142,8 @@ public class LevelGeneration : MonoBehaviour
             AddRoomDoors(newRoom, secondDoor);
             AlignRooms(attachDoor, secondDoor);
             roomsToDestroy.Add(newRoom);
-            //newRoom.transform.GetChild(1).gameObject.SetActive(false); //disable room layout
-            //newRoom.transform.GetChild(2).gameObject.SetActive(false); //disable enemies
+            newRoom.transform.Find("roomLayout").gameObject.SetActive(false); //disable room layout
+            newRoom.transform.Find("Enemies").gameObject.SetActive(false); //disable enemies
         }
         else
         {
