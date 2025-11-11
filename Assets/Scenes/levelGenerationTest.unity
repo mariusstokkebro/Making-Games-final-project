@@ -340,8 +340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5cd5541e8f768d4c9f4677d7c605d99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  roomAmount: 5
-  uniformRoomGeneration: 1
+  roomAmount: 7
   startRoom: {fileID: 2711664694031869415, guid: 272a17d02e567524eb91e3295a754637, type: 3}
   roomPrefabsByLevel:
   - roomPrefabs:
@@ -454,7 +453,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2703844052494568031, guid: d1b1b5791ae6446bfa2a3e9bbf3ffa78, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2703844052494568031, guid: d1b1b5791ae6446bfa2a3e9bbf3ffa78, type: 3}
       propertyPath: m_LocalPosition.y
@@ -462,7 +461,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2703844052494568031, guid: d1b1b5791ae6446bfa2a3e9bbf3ffa78, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2703844052494568031, guid: d1b1b5791ae6446bfa2a3e9bbf3ffa78, type: 3}
       propertyPath: m_LocalRotation.w
@@ -693,7 +692,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraScript
   target: {fileID: 0}
-  moveSpeed: 5
+  moveDuration: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

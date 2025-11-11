@@ -5,7 +5,7 @@ public class LevelGeneration : MonoBehaviour
 
     [SerializeField] private int roomAmount = 5;
     // if all doors in one room needs to be used before moving to next room
-    [SerializeField] private bool uniformRoomGeneration = true;
+    private int DoorsUsed = 0;
     [SerializeField] private GameObject startRoom;
     [SerializeField] private List<RoomsInLevel> roomPrefabsByLevel = new List<RoomsInLevel>();
     private int level = 0;
@@ -25,11 +25,14 @@ public class LevelGeneration : MonoBehaviour
             DestroyRooms(roomsToDestroy);
             roomsToDestroy.Clear();
         }
+        availableDoors.Clear();
+        DoorsUsed = 0;
         Instantiate(startRoom, Vector3.zero, Quaternion.identity);
         //move camera to start room
         Transform cameraPoint = startRoom.transform.Find("cameraPoint");
         Camera.main.transform.position = cameraPoint.position;
         Camera.main.transform.rotation = cameraPoint.rotation;
+
         AddRoomDoors(startRoom);
         roomsToDestroy.Add(startRoom);
         for (int i = 0; i < roomAmount; i++)
@@ -40,16 +43,20 @@ public class LevelGeneration : MonoBehaviour
                 break;
             }
             //choose door and remove it from available doors
-            if (uniformRoomGeneration == false)
+            //chooses completely random door
+            if (DoorsUsed > 4)
             {
-                int randomIndex = Random.Range(0, availableDoors.Count);
+                int randomIndex = GameSeed.LevelRandom.Next(0, availableDoors.Count);
                 attachDoor = availableDoors[randomIndex];
                 availableDoors.RemoveAt(randomIndex);
+                DoorsUsed++;
             }
+            //chooses doors in order they were added
             else
             {
                 attachDoor = availableDoors[0];
                 availableDoors.RemoveAt(0);
+                DoorsUsed++;
             }
             addRooms();
 
@@ -59,6 +66,7 @@ public class LevelGeneration : MonoBehaviour
             doorsToDestroy.Add(door);
         }
         DestroyDoors(doorsToDestroy);
+        doorsToDestroy.Clear();
 
     }
     // Update is called once per frame
@@ -121,6 +129,7 @@ public class LevelGeneration : MonoBehaviour
         {
             Destroy(door.gameObject);
         }
+
     }
     private void DestroyRooms(List<GameObject> rooms)
     {
@@ -133,7 +142,7 @@ public class LevelGeneration : MonoBehaviour
     {
         //choose random room from list
         GameObject newRoomPrefab = roomPrefabsByLevel[level].roomPrefabs[
-        Random.Range(0, roomPrefabsByLevel[level].roomPrefabs.Count)
+        GameSeed.LevelRandom.Next(0, roomPrefabsByLevel[level].roomPrefabs.Count)
 ];
         GameObject newRoom = Instantiate(newRoomPrefab);
         Transform secondDoor = FindDoorForSecondRoom(newRoom, attachDoor);
@@ -142,8 +151,8 @@ public class LevelGeneration : MonoBehaviour
             AddRoomDoors(newRoom, secondDoor);
             AlignRooms(attachDoor, secondDoor);
             roomsToDestroy.Add(newRoom);
-            newRoom.transform.Find("roomLayout").gameObject.SetActive(false); //disable room layout
-            newRoom.transform.Find("Enemies").gameObject.SetActive(false); //disable enemies
+            //newRoom.transform.Find("roomLayout").gameObject.SetActive(false); //disable room layout
+            //newRoom.transform.Find("Enemies").gameObject.SetActive(false); //disable enemies
         }
         else
         {
