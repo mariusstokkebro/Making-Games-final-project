@@ -24,7 +24,7 @@ public abstract class BaseEntity : MonoBehaviour
         }
     }
 
-    private void Die()
+    protected virtual void Die()
     {
         if (deathEffect)
         {
