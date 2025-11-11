@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Weapon", menuName = "Scriptable Objects/Weapon")]
-public class Weapon : ScriptableObject
+public class Weapon : BaseItem
 {
     [SerializeField] protected GameObject weaponProjectile;
     [SerializeField] protected GameObject visualEffect;
