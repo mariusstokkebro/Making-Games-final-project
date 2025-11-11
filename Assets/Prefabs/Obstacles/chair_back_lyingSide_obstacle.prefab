@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5000304937972812983
+--- !u!1 &7620676928109693329
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7719884358104250292}
-  - component: {fileID: 6366418446756791483}
+  - component: {fileID: 5153308191099712146}
+  - component: {fileID: 8429819635675742621}
   m_Layer: 9
-  m_Name: chair_lyingBack_obstacle
+  m_Name: chair_back_lyingSide_obstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7719884358104250292
+--- !u!4 &5153308191099712146
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5000304937972812983}
+  m_GameObject: {fileID: 7620676928109693329}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.34395358, y: -0.16775739, z: 0.8303774, w: 0.40500218}
-  m_LocalPosition: {x: 22.17, y: 3.8, z: -17.17}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalRotation: {x: -0.20279132, y: -0.32453397, z: 0.48958156, w: 0.78349435}
+  m_LocalPosition: {x: 3.42, y: 3.8, z: -17.6}
+  m_LocalScale: {x: -10, y: -10, z: -10}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6288124130069689101}
+  - {fileID: 8927634227640645163}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -45, z: 128}
---- !u!212 &6366418446756791483
+  m_LocalEulerAnglesHint: {x: 0, y: -45, z: 64}
+--- !u!212 &8429819635675742621
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5000304937972812983}
+  m_GameObject: {fileID: 7620676928109693329}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -80,18 +80,18 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 2a47f9e43487544e1ae10baf821f0ceb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 43cf1cd91632a45d19605e9b379e2168, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.72, y: 0.72}
+  m_Size: {x: 0.64, y: 1.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &6735243438790592580
+--- !u!1 &8205232696656055650
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -99,8 +99,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6288124130069689101}
-  - component: {fileID: 3825684965168515345}
+  - component: {fileID: 8927634227640645163}
+  - component: {fileID: 1851300125349121079}
   m_Layer: 9
   m_Name: collider
   m_TagString: Untagged
@@ -108,28 +108,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6288124130069689101
+--- !u!4 &8927634227640645163
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6735243438790592580}
+  m_GameObject: {fileID: 8205232696656055650}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.3826826, z: -0, w: 0.9238799}
-  m_LocalPosition: {x: 0.047, y: 0.06, z: -0.077}
+  m_LocalPosition: {x: -0.031, y: 0.065, z: 0.073}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7719884358104250292}
+  m_Father: {fileID: 5153308191099712146}
   m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
---- !u!65 &3825684965168515345
+--- !u!65 &1851300125349121079
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6735243438790592580}
+  m_GameObject: {fileID: 8205232696656055650}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -142,5 +142,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5, y: 1, z: 0.5}
+  m_Size: {x: 0.5, y: 0.8, z: 0.5}
   m_Center: {x: 0, y: -0.5, z: 0}
