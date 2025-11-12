@@ -35,6 +35,7 @@ public class WeaponSlot : MonoBehaviour
 
     public void ReduceUses()
     {
+        Debug.Log("Weapon used");
         --usesLeft;
         GetComponent<Image>().material.SetFloat("_UsesLeft", usesLeft);
     }

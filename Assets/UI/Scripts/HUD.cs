@@ -15,6 +15,10 @@ public class HUD : MonoBehaviour
     [SerializeField] private WeaponSlot secondaryWeaponSlot;
 
     private bool usingPrimaryWeapon = true;
+    private Vector3 activeWeaponPosition;
+    private Vector3 activeWeaponScale;
+    private Vector3 inactiveWeaponPosition;
+    private Vector3 inactiveWeaponScale;
     
     // TODO Should probably be moved to a game manager class
     private TimeSpan timerValue;
@@ -31,6 +35,12 @@ public class HUD : MonoBehaviour
     void Start()
     {
         timerValue = TimeSpan.Zero;
+        
+        // Save weapon slot positions for switching
+        activeWeaponPosition = primaryWeaponSlot.transform.localPosition;
+        activeWeaponScale = primaryWeaponSlot.transform.localScale;
+        inactiveWeaponPosition = secondaryWeaponSlot.transform.localPosition;
+        inactiveWeaponScale = secondaryWeaponSlot.transform.localScale;
         
         // Initialization, TODO remove
         UpdateFloorDisplay(1);
@@ -89,7 +99,21 @@ public class HUD : MonoBehaviour
 
     public void SwitchWeapons()
     {
-        // TODO
+        if (usingPrimaryWeapon)
+        {
+            primaryWeaponSlot.transform.localPosition = inactiveWeaponPosition;
+            primaryWeaponSlot.transform.localScale = inactiveWeaponScale;
+            secondaryWeaponSlot.transform.localPosition = activeWeaponPosition;
+            secondaryWeaponSlot.transform.localScale = activeWeaponScale;
+        }
+        else
+        {
+            primaryWeaponSlot.transform.localPosition = activeWeaponPosition;
+            primaryWeaponSlot.transform.localScale = activeWeaponScale;
+            secondaryWeaponSlot.transform.localPosition = inactiveWeaponPosition;
+            secondaryWeaponSlot.transform.localScale = inactiveWeaponScale;
+        }
+        usingPrimaryWeapon = !usingPrimaryWeapon;
     }
     
     // TODO item display
