@@ -1,31 +1,37 @@
+using Items_and_Weapons.Effects;
 using UnityEngine;
 using System.Text;
 
-[CreateAssetMenu(fileName = "PassiveItem", menuName = "Scriptable Objects/Passive Item")]
-public class PassiveItemData : BaseItem
+namespace Items_and_Weapons
 {
-    public Sprite sprite;
-    public PassiveEffect[] effects;
-
-    public override string GetDescription()
+    [CreateAssetMenu(fileName = "PassiveItem", menuName = "Scriptable Objects/Passive Item")]
+    public class PassiveItemData : BaseItem
     {
-        StringBuilder sb = new StringBuilder();
-        sb.AppendLine(itemName);
+        public Sprite sprite;
+        public PassiveEffect[] effects;
 
-        if (effects != null && effects.Length > 0)
+        public override string GetDescription()
         {
-            sb.AppendLine("Effects:");
-            foreach (var effect in effects)
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(itemName);
+
+            if (effects != null && effects.Length > 0)
             {
-                if (effect != null)
-                    sb.AppendLine($"- {effect.GetDescription()}");
+                sb.AppendLine("Effects:");
+                foreach (var effect in effects)
+                {
+                    if (effect != null)
+                        sb.AppendLine($"- {effect.GetDescription()}");
+                }
             }
-        }
-        else
-        {
-            sb.AppendLine("No effects");
+            else
+            {
+                sb.AppendLine("No effects");
+            }
+
+            return sb.ToString();
         }
 
-        return sb.ToString();
+        public override string ToString() => name;
     }
 }

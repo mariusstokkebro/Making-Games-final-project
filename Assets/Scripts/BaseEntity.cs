@@ -1,3 +1,4 @@
+using Items_and_Weapons;
 using UnityEngine;
 
 public abstract class BaseEntity : MonoBehaviour
@@ -26,10 +27,7 @@ public abstract class BaseEntity : MonoBehaviour
 
     protected virtual void Die()
     {
-        if (deathEffect)
-        {
-            Instantiate(deathEffect, transform.position, Quaternion.identity);
-        }
+        if (deathEffect) Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 

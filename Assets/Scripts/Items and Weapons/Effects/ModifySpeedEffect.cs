@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Effects
+namespace Items_and_Weapons.Effects
 {
     [CreateAssetMenu(fileName = "ModifySpeedEffect", menuName = "Scriptable Objects/Item Effects/Modify Speed")]
     public class ModifySpeedEffect : PassiveEffect

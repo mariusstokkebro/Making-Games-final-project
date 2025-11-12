@@ -1,54 +1,59 @@
-using System;
+using Items_and_Weapons.Effects;
 using UnityEngine;
 
-public class PassiveItemScript : MonoBehaviour
+namespace Items_and_Weapons
 {
-    #nullable enable
-    [SerializeField] internal PassiveItemData itemData;
-
-    public PassiveItemScript(PassiveItemData itemData)
+    public class PassiveItemScript : MonoBehaviour
     {
-        this.itemData = itemData;
-    }
+        #nullable enable
+        [SerializeField] internal PassiveItemData? itemData;
 
-    private void Start()
-    {
-        gameObject.GetComponent<SpriteRenderer>().sprite = itemData.sprite;
-        transform.rotation = Quaternion.Euler(0, -45, 0);
-        transform.localScale += (new Vector3(3, 3, 3));
-
-    }
-
-    /// <summary>
-    /// A one-time effect when picking up item, e.g. unlocking the dash
-    /// </summary>
-    public void OnPickup(PlayerScript p)
-    {
-        foreach (var effect in itemData.effects)
+        public void SetItem(PassiveItemData item)
         {
-            effect.Apply(p);
+            itemData = item;
         }
 
-        p.AddPassiveItem(itemData);
-        Destroy(gameObject);
-    }
-
-    void OnTriggerEnter(Collider collider)
-    {
-        if (collider.gameObject.CompareTag("Player"))
+        private void Start()
         {
-            PlayerScript player = collider.gameObject.GetComponent<PlayerScript>();
-            OnPickup(player);
+            gameObject.GetComponent<SpriteRenderer>().sprite = itemData?.sprite;
+            transform.rotation = Quaternion.Euler(0, -45, 0);
+            transform.localScale += (new Vector3(3, 3, 3));
         }
-    }
 
-    // Think this is best done by having some unlockables in the player? effect.Apply(p) => p.unlockDash();
-    // /// <summary>
-    // /// Activate the item's effect, e.g. Dashing
-    // /// </summary>
-    // /// <typeparam name="T"></typeparam>
-    // public T? Activate<T>()
-    // {
-    //     throw new System.NotImplementedException();
-    // }
+        /// <summary>
+        /// A one-time effect when picking up item, e.g. unlocking the dash
+        /// </summary>
+        public void OnPickup(PlayerScript p)
+        {
+            // _itemData will never be null because an enemy with no drop doesn't spawn a lootPrefab
+            if (itemData == null) {Destroy(gameObject); return;}
+
+            foreach (PassiveEffect effect in itemData!.effects)
+            {
+                effect.Apply(p);
+            }
+
+            p.AddPassiveItem(itemData);
+            Destroy(gameObject);
+        }
+
+        void OnTriggerEnter(Collider collider)
+        {
+            if (collider.gameObject.CompareTag("Player"))
+            {
+                PlayerScript player = collider.gameObject.GetComponent<PlayerScript>();
+                OnPickup(player);
+            }
+        }
+
+        // Think this is best done by having some unlockables in the player? effect.Apply(p) => p.unlockDash();
+        // /// <summary>
+        // /// Activate the item's effect, e.g. Dashing
+        // /// </summary>
+        // /// <typeparam name="T"></typeparam>
+        // public T? Activate<T>()
+        // {
+        //     throw new System.NotImplementedException();
+        // }
+    }
 }

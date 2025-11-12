@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a459570047ab4efe8c9646d2ea97c00, type: 3}
+  m_Name: LizardTail
+  m_EditorClassIdentifier: Assembly-CSharp::Items_and_Weapons.PassiveItemData
+  itemName: 
+  description: 
+  rarity: 3
+  sprite: {fileID: 0}
+  effects:
+  - {fileID: 11400000, guid: 5b08f55433571441db7169aa3abacfbe, type: 2}
+  - {fileID: 11400000, guid: 5b08f55433571441db7169aa3abacfbe, type: 2}
+  - {fileID: 11400000, guid: 5b08f55433571441db7169aa3abacfbe, type: 2}
+  - {fileID: 11400000, guid: eb4627345e88016ecbf9d0c82deae91e, type: 2}

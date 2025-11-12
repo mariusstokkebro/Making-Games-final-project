@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace Effects
+namespace Items_and_Weapons.Effects
 {
-    [CreateAssetMenu(fileName = "ModifyHealthEffect", menuName = "Scriptable Objects/Item Effects/Modify Health")]
+    [CreateAssetMenu(fileName = "ModifyHealthEffect", menuName = "Scriptable Objects/Item Effects/Modify Max Health")]
     public class ModifyHealthEffect : PassiveEffect
     {
         public override void Apply(PlayerScript p)

@@ -1,3 +1,4 @@
+using Items_and_Weapons;
 using UnityEngine;
 
 public class ItemHoverDetector : MonoBehaviour
@@ -23,7 +24,7 @@ public class ItemHoverDetector : MonoBehaviour
             }
             if (h.collider.TryGetComponent(out PassiveItemScript passiveItemScript))
             {
-                TooltipManager.Instance.ShowTooltip(passiveItemScript.itemData.GetDescription());
+                TooltipManager.Instance.ShowTooltip(passiveItemScript.itemData?.GetDescription());
                 return;
             }
         }

@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public abstract class PassiveEffect : ScriptableObject
+namespace Items_and_Weapons.Effects
 {
-    [SerializeField] protected float increase = 0f;
-    [SerializeField] protected float multiplier = 1.0f;
-    public abstract void Apply(PlayerScript p);
-    public virtual string GetDescription()
+    public abstract class PassiveEffect : ScriptableObject
     {
-        return $"Increase: {increase}, Multiplier: {multiplier}";
+        [SerializeField] protected float increase = 0f;
+        [SerializeField] protected float multiplier = 1.0f;
+        public abstract void Apply(PlayerScript p);
+        public virtual string GetDescription() => $"Increase: {increase}, Multiplier: {multiplier}";
     }
 }

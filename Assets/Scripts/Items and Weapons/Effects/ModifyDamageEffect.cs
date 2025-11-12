@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Effects
+namespace Items_and_Weapons.Effects
 {
     [CreateAssetMenu(fileName = "ModifyDamageEffect", menuName = "Scriptable Objects/Item Effects/Modify Damage")]
     public class ModifyDamageEffect : PassiveEffect
