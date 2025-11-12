@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
+using Items_and_Weapons;
 using UnityEngine.Serialization;
 
 public class PlayerScript : BaseEntity, Controls.IPlayerActions

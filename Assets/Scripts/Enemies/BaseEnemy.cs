@@ -1,21 +1,34 @@
 using UnityEngine;
 using System.Collections;
+using Items_and_Weapons;
+
 public abstract class BaseEnemy : BaseEntity
 {
     [SerializeField] protected float activationDelay = 1f;
     protected bool isActive = false;
     private Coroutine activationCoroutine;
-    [SerializeField] private GameObject loot;
+    [SerializeField] private GameObject lootPrefab;
+    private PassiveItemData _drop;
+    public void AssignDrop(PassiveItemData drop) => _drop = drop;
 
     protected virtual void OnEnable()
     {
+        // Chance for enemy to have loot, deathEffect lets us hardcode drops for some enemies
+        if (GameSeed.EnemyRandom.NextDouble() < 1.0 && deathEffect == null)
+        {
+            var drop = LootTable.GetDrop();
+            if (drop == null) return;
+            AssignDrop(drop);
+            deathEffect = lootPrefab;
+        }
+
         // Stop any previous activation
         if (activationCoroutine != null)
             StopCoroutine(activationCoroutine);
 
         // Start delayed activation
         activationCoroutine = StartCoroutine(ActivateAfterDelay());
-        if (GameSeed.EnemyRandom.NextDouble() < 1.0) deathEffect = loot;
+
     }
 
     private IEnumerator ActivateAfterDelay()
@@ -30,6 +43,22 @@ public abstract class BaseEnemy : BaseEntity
     protected Transform FindPlayer()
     {
         return FindEntity("Player");
+    }
+    
+    public override void Die()
+    {
+        GameObject drop = default;
+        if (deathEffect)
+        {
+            drop = Instantiate(deathEffect, transform.position, Quaternion.identity);
+        }
+
+        if (drop != null && drop.TryGetComponent(out PassiveItemScript s))
+        {
+            Debug.Log($"Dropped item {s.itemData}");
+            s.SetItem(_drop);
+        }
+        Destroy(gameObject);
     }
 
     protected void TurnTowardsTarget(Vector3 targetPosition)
@@ -56,7 +85,7 @@ public abstract class BaseEnemy : BaseEntity
 
         Vector3 moveVec = dir.normalized * (movementSpeed * Time.deltaTime);
         Debug.DrawRay(transform.position, moveVec * 50f, Color.blue);
-        Debug.Log($"Moving: {moveVec}, Magnitude: {moveVec.magnitude}");
+        // Debug.Log($"Moving: {moveVec}, Magnitude: {moveVec.magnitude}");
         
         transform.position += moveVec;
     }

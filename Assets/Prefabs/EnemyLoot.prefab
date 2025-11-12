@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68d1d5b04b2c14651b373870e565c3fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PassiveItemScript
-  itemData: {fileID: 11400000, guid: 13368dcaa47c54b6b96618eea4ad733e, type: 2}
+  itemData: {fileID: 0}
 --- !u!212 &1240459041905740417
 SpriteRenderer:
   m_ObjectHideFlags: 0

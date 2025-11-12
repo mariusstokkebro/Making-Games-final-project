@@ -1,9 +1,15 @@
+using Items_and_Weapons.Effects;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "PassiveItem", menuName = "Scriptable Objects/Passive Item")]
-public class PassiveItemData : BaseItem
+namespace Items_and_Weapons
 {
-    public Sprite sprite;
-    public PassiveEffect[] effects;
-    
+    [CreateAssetMenu(fileName = "PassiveItem", menuName = "Scriptable Objects/Passive Item")]
+    public class PassiveItemData : BaseItem
+    {
+        public Sprite sprite;
+        public PassiveEffect[] effects;
+        public override string ToString() => name;
+    }
+
+
 }

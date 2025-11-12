@@ -124,4 +124,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7ccde28793dd564f96a8ca3d61b6672, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActiveItemScript
-  activeItem: {fileID: 11400000, guid: 9c895677eb8e31a4c9ebd81445e12726, type: 2}
+  weapon: {fileID: 11400000, guid: 9ea9cb76d0b4c484a96c8e9665e2fbec, type: 2}
