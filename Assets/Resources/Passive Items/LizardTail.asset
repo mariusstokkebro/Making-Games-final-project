@@ -9,8 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d5159e06a513469caa51de5d638b090, type: 3}
-  m_Name: ReduceHealthByOne
-  m_EditorClassIdentifier: Assembly-CSharp::Effects.ModifyHealthEffect
-  increase: -1
-  multiplier: 1
+  m_Script: {fileID: 11500000, guid: 4a459570047ab4efe8c9646d2ea97c00, type: 3}
+  m_Name: LizardTail
+  m_EditorClassIdentifier: Assembly-CSharp::Items_and_Weapons.PassiveItemData
+  itemName: 
+  description: 
+  rarity: 0
+  sprite: {fileID: 0}
+  effects: []
