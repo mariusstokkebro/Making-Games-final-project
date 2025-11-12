@@ -151,8 +151,8 @@ public class LevelGeneration : MonoBehaviour
             AddRoomDoors(newRoom, secondDoor);
             AlignRooms(attachDoor, secondDoor);
             roomsToDestroy.Add(newRoom);
-            //newRoom.transform.Find("roomLayout").gameObject.SetActive(false); //disable room layout
-            //newRoom.transform.Find("Enemies").gameObject.SetActive(false); //disable enemies
+            newRoom.transform.Find("roomLayout").gameObject.SetActive(false); //disable room layout
+            newRoom.transform.Find("Enemies").gameObject.SetActive(false); //disable enemies
         }
         else
         {
