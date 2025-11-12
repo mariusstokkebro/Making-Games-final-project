@@ -4,7 +4,7 @@ using UnityEngine;
 public class PassiveItemScript : MonoBehaviour
 {
     #nullable enable
-    [SerializeField] private PassiveItemData itemData;
+    [SerializeField] internal PassiveItemData itemData;
 
     public PassiveItemScript(PassiveItemData itemData)
     {

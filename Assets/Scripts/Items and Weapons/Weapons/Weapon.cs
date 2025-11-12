@@ -8,15 +8,15 @@ public class Weapon : BaseItem
     [SerializeField] protected GameObject visualEffect;
 
     [SerializeField] protected Vector3 offset;
-    
-    [SerializeField] protected float damage;
+
+    [SerializeField] protected float damage = 0;
     /** Length of the timeframe in which the attack can deal damage */
-    [SerializeField] protected float duration;
+    [SerializeField] protected float duration = 0;
     /** Minimum cooldown time between two attacks*/
-    [SerializeField] protected float cooldown;
-    
-    [SerializeField] protected float range;
-    [SerializeField] protected float angle;
+    [SerializeField] protected float cooldown = 0;
+
+    [SerializeField] protected float range = 0;
+    [SerializeField] protected float angle = 0;
     
     // TODO do we actually need this?
     [SerializeField] protected ActiveItemEffect effect;
@@ -43,9 +43,19 @@ public class Weapon : BaseItem
 
     protected Vector3 GetSpawn(PlayerScript p)
         => p.transform.position + offset;// * (p.transform.right * -1);
-    
+
     protected Vector3 GetForwardDirection(PlayerScript p)
         => (p.transform.right * -1).normalized;
+    
+    public override string GetDescription()
+    {
+        return $"{itemName}\n" +
+               $"Damage: {damage}\n" +
+               $"Duration: {duration}\n" +
+               $"Cooldown: {cooldown}\n" +
+               $"Range: {range}\n" +
+               $"Effect: {effect}";
+    }
 }
 
 public enum ActiveItemEffect
