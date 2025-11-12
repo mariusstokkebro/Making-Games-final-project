@@ -12,4 +12,5 @@ public class GameSeed
     public static Random EnvironmentDropRandom { get; } = new(Seed);
     public static Random ChestRandom { get; } = new(Seed);
 
+    public static Random LevelRandom { get; } = new(Seed);
 }
