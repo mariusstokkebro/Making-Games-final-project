@@ -6,7 +6,7 @@ public abstract class BaseItem : ScriptableObject
     [SerializeField] protected string description;
     [SerializeField] public Rarity rarity = Rarity.Natural;
 
-    public string GetDescription()
+    public virtual string GetDescription()
     {
         return description;
     }

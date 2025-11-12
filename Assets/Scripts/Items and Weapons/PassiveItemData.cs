@@ -1,5 +1,6 @@
 using Items_and_Weapons.Effects;
 using UnityEngine;
+using System.Text;
 
 namespace Items_and_Weapons
 {
@@ -8,8 +9,29 @@ namespace Items_and_Weapons
     {
         public Sprite sprite;
         public PassiveEffect[] effects;
+
+        public override string GetDescription()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(itemName);
+
+            if (effects != null && effects.Length > 0)
+            {
+                sb.AppendLine("Effects:");
+                foreach (var effect in effects)
+                {
+                    if (effect != null)
+                        sb.AppendLine($"- {effect.GetDescription()}");
+                }
+            }
+            else
+            {
+                sb.AppendLine("No effects");
+            }
+
+            return sb.ToString();
+        }
+
         public override string ToString() => name;
     }
-
-
 }

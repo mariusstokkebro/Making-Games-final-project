@@ -6,7 +6,7 @@ namespace Items_and_Weapons
     public class PassiveItemScript : MonoBehaviour
     {
         #nullable enable
-        [SerializeField] public PassiveItemData? itemData;
+        [SerializeField] internal PassiveItemData? itemData;
 
         public void SetItem(PassiveItemData item)
         {

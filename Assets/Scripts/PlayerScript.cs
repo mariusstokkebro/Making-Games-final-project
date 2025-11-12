@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using Items_and_Weapons;
 using UnityEngine.Serialization;
+using System.Reflection;
 
 public class PlayerScript : BaseEntity, Controls.IPlayerActions
 {
@@ -18,9 +19,11 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
     [SerializeField] private bool usingPrimaryWeapon = true;
     private WeaponBehaviour primaryWeapon;
     private WeaponBehaviour secondaryWeapon;
+    private Animator animator;
     void Start()
     {
         primaryWeapon = saltShaker.EquipWeapon(this);
+        animator = GetComponent<Animator>();
     }
     void Update()
     {
@@ -46,8 +49,25 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
 
     public override void TakeDamage(float amount)
     {
+        animator.SetBool("isHit", true);
         base.TakeDamage(amount);
         HUD.Instance.UpdateHealthBar(health);
+        health -= amount;
+    }
+
+    public void EndHitTaken()
+    {
+        animator.SetBool("isHit", false);
+    }
+
+    protected override void Die()
+    {
+        animator.SetBool("isDead", true);
+    }
+
+    public void DeathAnimationDone()
+    {
+        base.Die();
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -60,6 +80,14 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
         {
             _lookInput = Vector2.zero;
             _usingController = (context.control.device == Gamepad.current);
+        }
+        if (context.performed)
+        {
+            animator.SetBool("isWalking", pressed.sqrMagnitude > 0.01f);
+        }
+        else if (context.canceled)
+        {
+            animator.SetBool("isWalking", false);
         }
     }
 
@@ -82,6 +110,7 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
 
     public void OnAttack(InputAction.CallbackContext context)
     {
+        animator.SetBool("isAttacking", true);
         if (context.performed)
         {
             if (usingPrimaryWeapon)
@@ -92,8 +121,12 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
             {
                 secondaryWeapon.StartAttack();
             }
-                
         }
+    }
+
+    public void EndAttack()
+    {
+        animator.SetBool("isAttacking", false);
     }
 
     public void AddPassiveItem(PassiveItemData item)

@@ -45,7 +45,7 @@ public abstract class BaseEnemy : BaseEntity
         return FindEntity("Player");
     }
     
-    public override void Die()
+    protected override void Die()
     {
         GameObject drop = default;
         if (deathEffect)
@@ -85,7 +85,6 @@ public abstract class BaseEnemy : BaseEntity
 
         Vector3 moveVec = dir.normalized * (movementSpeed * Time.deltaTime);
         Debug.DrawRay(transform.position, moveVec * 50f, Color.blue);
-        // Debug.Log($"Moving: {moveVec}, Magnitude: {moveVec.magnitude}");
         
         transform.position += moveVec;
     }

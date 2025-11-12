@@ -25,7 +25,7 @@ public abstract class BaseEntity : MonoBehaviour
         }
     }
 
-    public virtual void Die()
+    protected virtual void Die()
     {
         if (deathEffect) Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
