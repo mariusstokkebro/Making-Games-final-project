@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 676aa8f8f30e8402caf553875d61eec1, type: 3}
   m_Name: Speed3down
   m_EditorClassIdentifier: Assembly-CSharp::Effects.ModifySpeedEffect
-  increase: 0
+  increase: -3
   multiplier: 1

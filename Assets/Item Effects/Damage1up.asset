@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37a2ec84fa33471bbadae40b23107da9, type: 3}
   m_Name: Damage1up
   m_EditorClassIdentifier: Assembly-CSharp::Effects.ModifyDamageEffect
-  increase: 0
+  increase: 1
   multiplier: 1

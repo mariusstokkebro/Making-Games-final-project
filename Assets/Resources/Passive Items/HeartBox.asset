@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: HeartBox
   m_EditorClassIdentifier: Assembly-CSharp::Items_and_Weapons.PassiveItemData
   itemName: 
-  description: Contains an extra 2 hearts
-  rarity: 0
+  description: 
+  rarity: 2
   sprite: {fileID: 21300000, guid: 410162899f268404cb39fe60faa7f754, type: 3}
   effects:
   - {fileID: 11400000, guid: db2234a839221484cacf6f76861199da, type: 2}

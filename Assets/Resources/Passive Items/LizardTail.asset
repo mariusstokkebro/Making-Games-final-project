@@ -14,6 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Items_and_Weapons.PassiveItemData
   itemName: 
   description: 
-  rarity: 0
+  rarity: 3
   sprite: {fileID: 0}
-  effects: []
+  effects:
+  - {fileID: 11400000, guid: 5b08f55433571441db7169aa3abacfbe, type: 2}
+  - {fileID: 11400000, guid: 5b08f55433571441db7169aa3abacfbe, type: 2}
+  - {fileID: 11400000, guid: 5b08f55433571441db7169aa3abacfbe, type: 2}
+  - {fileID: 11400000, guid: eb4627345e88016ecbf9d0c82deae91e, type: 2}
