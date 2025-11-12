@@ -56,7 +56,6 @@ public abstract class BaseEnemy : BaseEntity
 
         Vector3 moveVec = dir.normalized * (movementSpeed * Time.deltaTime);
         Debug.DrawRay(transform.position, moveVec * 50f, Color.blue);
-        Debug.Log($"Moving: {moveVec}, Magnitude: {moveVec.magnitude}");
         
         transform.position += moveVec;
     }

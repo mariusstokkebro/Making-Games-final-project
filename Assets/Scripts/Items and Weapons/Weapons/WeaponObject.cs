@@ -4,7 +4,7 @@ using UnityEngine.Serialization;
 
 public class WeaponScript : MonoBehaviour
 {
-    [FormerlySerializedAs("activeItem")] [SerializeField] private Weapon weapon;
+    [FormerlySerializedAs("activeItem")] [SerializeField] internal Weapon weapon;
 
     public WeaponScript(Weapon item)
     {
@@ -25,11 +25,11 @@ public class WeaponScript : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void OnTriggerEnter(Collider collider)
+    private void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject.CompareTag("Player"))
+        if (collider.CompareTag("Player"))
         {
-            PlayerScript player = collider.gameObject.GetComponent<PlayerScript>();
+            var player = collider.GetComponent<PlayerScript>();
             OnPickup(player);
         }
     }
