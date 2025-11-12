@@ -34,8 +34,15 @@ public class WeaponBehaviour : MonoBehaviour
     {
         if (countdown <= 0)
         {
-            Instantiate(projectile, this.transform.position, this.transform.rotation).Initialize(damage, range, angle, attackDuration);
-            Instantiate(particleEffect, this.transform.position, this.transform.rotation);
+            GameObject player = GameObject.FindWithTag("Player");
+            if (player == null) return;
+
+            var rotation = player.transform.rotation;
+            var position = player.transform.position;
+            var fireAngle = rotation * Quaternion.Euler(0, -90, 0);
+
+            Instantiate(projectile, position, fireAngle).Initialize(damage, range, angle, attackDuration);
+            Instantiate(particleEffect, position, fireAngle);
             countdown = cooldownTime;
         }
     }
