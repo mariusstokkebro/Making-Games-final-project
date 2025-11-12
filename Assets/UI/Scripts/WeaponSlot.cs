@@ -13,18 +13,18 @@ public class WeaponSlot : MonoBehaviour
     void Start()
     {
         GetComponent<Image>().material.SetFloat("_Rotation", barRotation);
-        IconImage.enabled = false;
     }
     
     public void FillSlot(Weapon weapon)
     {
+        IconImage.enabled = true;
         IconImage.sprite = weapon.sprite;
         maxUses = weapon.usesUntilBreak;
         usesLeft = maxUses;
         
         GetComponent<Image>().material.SetFloat("_MaxUses", maxUses);
         GetComponent<Image>().material.SetFloat("_UsesLeft", usesLeft);
-        IconImage.enabled = true;
+        
     }
 
     public void ClearSlot()
