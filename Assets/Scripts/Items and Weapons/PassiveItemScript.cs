@@ -13,7 +13,10 @@ public class PassiveItemScript : MonoBehaviour
 
     private void Start()
     {
-        gameObject.GetComponent<MeshFilter>().mesh = itemData.mesh;
+        gameObject.GetComponent<SpriteRenderer>().sprite = itemData.sprite;
+        transform.rotation = Quaternion.Euler(0, -45, 0);
+        transform.localScale += (new Vector3(3, 3, 3));
+
     }
 
     /// <summary>
