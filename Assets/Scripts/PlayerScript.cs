@@ -17,10 +17,12 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
     [SerializeField] private bool usingPrimaryWeapon = true;
     private WeaponBehaviour primaryWeapon;
     private WeaponBehaviour secondaryWeapon;
+
     void Start()
     {
         primaryWeapon = saltShaker.EquipWeapon(this);
         HUD.Instance.SetPrimaryWeapon(saltShaker);
+
     }
     void Update()
     {
@@ -131,9 +133,22 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
         items.Remove(item);
     }
 
-    public void SetSecondaryWeapon(Weapon item) => secondaryWeapon = item.EquipWeapon(this);
+    public void SetSecondaryWeapon(Weapon item)
+    { 
+        secondaryWeapon = item.EquipWeapon(this);
+        HUD.Instance.SetSecondaryWeapon(item);
+    }
     
-    public void LooseSecondaryWeapon() => usingPrimaryWeapon = true;
+    /** Use for manually dropping secondary weapon */
+    public void LooseSecondaryWeapon()
+    { 
+        HUD.Instance.RemoveSecondaryWeapon();
+        if (!usingPrimaryWeapon)
+        {
+            usingPrimaryWeapon = true;
+            HUD.Instance.SwitchWeapons();
+        }
+    }
 
     
     public void OnInteract(InputAction.CallbackContext context)

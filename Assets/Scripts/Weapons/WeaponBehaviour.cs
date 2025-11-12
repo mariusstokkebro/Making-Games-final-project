@@ -56,8 +56,9 @@ public class WeaponBehaviour : MonoBehaviour
         if (usesUntilBreak <= 0)
         {
             Destroy(gameObject);
+            // This is only fine because our primary weapon should never break
+            HUD.Instance.RemoveSecondaryWeapon();
         }
-        // TODO Update UI
     }
     
 

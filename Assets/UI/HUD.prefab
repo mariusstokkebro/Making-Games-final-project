@@ -1919,6 +1919,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 599967070986981020, guid: ca64ea73cb3159442b81f81647fe5fc4, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: b8fc224602151d942a9ab985a0baeb68, type: 2}
     - target: {fileID: 1118988843298145289, guid: ca64ea73cb3159442b81f81647fe5fc4, type: 3}
       propertyPath: IconImage
       value: 

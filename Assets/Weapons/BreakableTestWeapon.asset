@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8f80cd5eb25c494bad9c8cfade4af04, type: 3}
-  m_Name: SaltShakerWeapon
+  m_Name: BreakableTestWeapon
   m_EditorClassIdentifier: Assembly-CSharp::Weapon
   weaponProjectile: {fileID: 7960931600771293886, guid: cf9c3ad201dc77746bde17af5bc8f816, type: 3}
   visualEffect: {fileID: 2176640399428159979, guid: 2de9349a1bde6b948bcbe82502c067d7, type: 3}
   offset: {x: 0, y: 0, z: 0}
   damage: 100
   duration: 0.5
-  cooldown: 0.75
+  cooldown: 1
   range: 20
   angle: 25
-  canBreak: 0
+  canBreak: 1
   usesUntilBreak: 10
   effect: 0
   mesh: {fileID: 0}
-  sprite: {fileID: 21300000, guid: a6aad232cb6458742b373d51b3bd66cc, type: 3}
+  sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}

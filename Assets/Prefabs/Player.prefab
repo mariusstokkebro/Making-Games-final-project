@@ -1535,6 +1535,7 @@ MonoBehaviour:
     e33: 1
   saltShaker: {fileID: 11400000, guid: 9ea9cb76d0b4c484a96c8e9665e2fbec, type: 2}
   usingPrimaryWeapon: 1
+  TestSecondaryWeapon: {fileID: 11400000, guid: 54b550df51db8f046b61bf09ff3ac9a1, type: 2}
 --- !u!1 &6276079492673765941
 GameObject:
   m_ObjectHideFlags: 0
