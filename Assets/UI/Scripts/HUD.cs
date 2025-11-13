@@ -99,20 +99,12 @@ public class HUD : MonoBehaviour
 
     public void SwitchWeapons()
     {
-        if (usingPrimaryWeapon)
-        {
-            primaryWeaponSlot.transform.localPosition = inactiveWeaponPosition;
-            primaryWeaponSlot.transform.localScale = inactiveWeaponScale;
-            secondaryWeaponSlot.transform.localPosition = activeWeaponPosition;
-            secondaryWeaponSlot.transform.localScale = activeWeaponScale;
-        }
-        else
-        {
-            primaryWeaponSlot.transform.localPosition = activeWeaponPosition;
-            primaryWeaponSlot.transform.localScale = activeWeaponScale;
-            secondaryWeaponSlot.transform.localPosition = inactiveWeaponPosition;
-            secondaryWeaponSlot.transform.localScale = inactiveWeaponScale;
-        }
+        primaryWeaponSlot.transform.localPosition = usingPrimaryWeapon ? inactiveWeaponPosition : activeWeaponPosition;
+        primaryWeaponSlot.transform.localScale = usingPrimaryWeapon ? inactiveWeaponScale : activeWeaponScale;
+
+        secondaryWeaponSlot.transform.localPosition = usingPrimaryWeapon ? activeWeaponPosition : inactiveWeaponPosition;
+        secondaryWeaponSlot.transform.localScale = usingPrimaryWeapon ? activeWeaponScale : inactiveWeaponScale;
+
         usingPrimaryWeapon = !usingPrimaryWeapon;
     }
     

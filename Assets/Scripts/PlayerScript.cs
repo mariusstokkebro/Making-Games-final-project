@@ -105,21 +105,10 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
 
     public void OnSwitchWeapon(InputAction.CallbackContext context)
     {
-        if (usingPrimaryWeapon)
-        {
-            // Don't switch if there's no secondary weapon equipped
-            if (secondaryWeapon)
-            {
-                usingPrimaryWeapon = false;
-                HUD.Instance.SwitchWeapons();
-            }
-        }
-        else
-        {
-            // Switching to primary weapon should always be possible
-            usingPrimaryWeapon = true;
-            HUD.Instance.SwitchWeapons();
-        }
+        if (usingPrimaryWeapon && !secondaryWeapon) return; // No secondary to equip, do nothing
+
+        usingPrimaryWeapon = !usingPrimaryWeapon;
+        HUD.Instance.SwitchWeapons();
     }
 
     public void AddPassiveItem(PassiveItemData item)
@@ -140,7 +129,7 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
     }
     
     /** Use for manually dropping secondary weapon */
-    public void LooseSecondaryWeapon()
+    public void LoseSecondaryWeapon()
     { 
         HUD.Instance.RemoveSecondaryWeapon();
         if (!usingPrimaryWeapon)
