@@ -4,19 +4,22 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Weapon", menuName = "Scriptable Objects/Weapon")]
 public class Weapon : BaseItem
 {
-    [SerializeField] protected GameObject weaponProjectile;
-    [SerializeField] protected GameObject visualEffect;
+    public GameObject weaponProjectile;
+    public GameObject visualEffect;
 
-    [SerializeField] protected Vector3 offset;
-
-    [SerializeField] protected float damage = 0;
+    public Vector3 offset;
+    
+    public float damage = 100f;
     /** Length of the timeframe in which the attack can deal damage */
-    [SerializeField] protected float duration = 0;
+    public float duration = 0.5f;
     /** Minimum cooldown time between two attacks*/
-    [SerializeField] protected float cooldown = 0;
-
-    [SerializeField] protected float range = 0;
-    [SerializeField] protected float angle = 0;
+    public float cooldown = 1f;
+    
+    public float range = 20f;
+    public float angle = 25f;
+    
+    public bool canBreak = false;
+    public int usesUntilBreak = 10;
     
     // TODO do we actually need this?
     [SerializeField] protected ActiveItemEffect effect;
@@ -33,7 +36,7 @@ public class Weapon : BaseItem
         
         var toReturn = obj.AddComponent<WeaponBehaviour>();
         toReturn.transform.SetLocalPositionAndRotation(GetSpawn(player), GetRotation(player));
-        toReturn.Initialize(damage, duration, cooldown, range, angle, weaponProjectile.GetComponent<WeaponProjectile>(), visualEffect.GetComponent<ParticleEffect>());
+        toReturn.Initialize(this);
         
         return toReturn;
     }

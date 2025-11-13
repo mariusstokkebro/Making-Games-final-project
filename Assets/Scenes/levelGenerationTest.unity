@@ -541,14 +541,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5cd5541e8f768d4c9f4677d7c605d99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  roomAmount: 7
+  roomAmount: 18
   startRoom: {fileID: 2711664694031869415, guid: 272a17d02e567524eb91e3295a754637, type: 3}
   roomPrefabsByLevel:
   - roomPrefabs:
+    - {fileID: 7945309242931025761, guid: 116855009ac40ac4ba38118be41eedfa, type: 3}
     - {fileID: 808614582638773325, guid: a2bcec2a90599db488f58ac36d3216d3, type: 3}
+    - {fileID: 7081367016900160897, guid: 55d1a57932e3a5e4a8ac04c0690c5fee, type: 3}
     - {fileID: 7769625142423597568, guid: 8f2929a5385e31049a575d7a30610644, type: 3}
-    - {fileID: 3897148098168699219, guid: f21563cdd014ba44f997e9bbd3282275, type: 3}
+    - {fileID: 808614582638773325, guid: 945e5407fccf85a4d85f5b0c89d5716f, type: 3}
     - {fileID: 3897148098168699219, guid: 86d5e60c66a60da49ba6ebccbc8746f5, type: 3}
+    - {fileID: 3897148098168699219, guid: f21563cdd014ba44f997e9bbd3282275, type: 3}
+    - {fileID: 7945309242931025761, guid: 10dfb63b9ca71411b958368aa3eab15a, type: 3}
+    - {fileID: 808614582638773325, guid: d01fca78b19ed41d3a023bc89e19e49d, type: 3}
+    - {fileID: 7081367016900160897, guid: e1b681dd7f1da415ea169940833b5afe, type: 3}
+    - {fileID: 2552036487552579384, guid: 9541f4c04011b4afa9c3b5699105ccf9, type: 3}
+    - {fileID: 7769625142423597568, guid: c41f737e901fb488f81b44721f1a0513, type: 3}
+    - {fileID: 808614582638773325, guid: f47fbf6441ff64f3c852bf7486d5f88c, type: 3}
+    - {fileID: 3897148098168699219, guid: 4d0053d1632134a7eb070db137cd22c0, type: 3}
+    - {fileID: 3897148098168699219, guid: a931512d0f60c491ebad02d1b227bfe2, type: 3}
   - roomPrefabs: []
 --- !u!4 &777232873
 Transform:
