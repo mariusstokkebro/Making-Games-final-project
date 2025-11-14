@@ -20,10 +20,12 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
     private WeaponBehaviour primaryWeapon;
     private WeaponBehaviour secondaryWeapon;
     private Animator animator;
+
     void Start()
     {
         primaryWeapon = saltShaker.EquipWeapon(this);
         animator = GetComponent<Animator>();
+        HUD.Instance.SetPrimaryWeapon(saltShaker);
     }
     void Update()
     {
@@ -115,11 +117,17 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
         {
             if (usingPrimaryWeapon)
             {
+                if(!primaryWeapon)
+                    Debug.Log("No primary weapon!");
                 primaryWeapon.StartAttack();
             }
             else if (secondaryWeapon)
             {
                 secondaryWeapon.StartAttack();
+            }
+            else
+            {
+                Debug.Log("No secondary weapon!");
             }
         }
     }
@@ -127,6 +135,14 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
     public void EndAttack()
     {
         animator.SetBool("isAttacking", false);
+    }
+
+    public void OnSwitchWeapon(InputAction.CallbackContext context)
+    {
+        if (usingPrimaryWeapon && !secondaryWeapon) return; // No secondary to equip, do nothing
+
+        usingPrimaryWeapon = !usingPrimaryWeapon;
+        HUD.Instance.SwitchWeapons();
     }
 
     public void AddPassiveItem(PassiveItemData item)
@@ -140,21 +156,25 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
         items.Remove(item);
     }
 
-    public void SetSecondaryWeapon(Weapon item) => secondaryWeapon = item.EquipWeapon(this);
+    public void SetSecondaryWeapon(Weapon item)
+    { 
+        secondaryWeapon = item.EquipWeapon(this);
+        HUD.Instance.SetSecondaryWeapon(item);
+    }
+    
+    /** Use for manually dropping secondary weapon */
+    public void LoseSecondaryWeapon()
+    { 
+        HUD.Instance.RemoveSecondaryWeapon();
+        if (!usingPrimaryWeapon)
+        {
+            usingPrimaryWeapon = true;
+            HUD.Instance.SwitchWeapons();
+        }
+    }
 
     
-
     public void OnInteract(InputAction.CallbackContext context)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void OnCrouch(InputAction.CallbackContext context)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void OnJump(InputAction.CallbackContext context)
     {
         throw new System.NotImplementedException();
     }
@@ -165,11 +185,6 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
     }
 
     public void OnNext(InputAction.CallbackContext context)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void OnSprint(InputAction.CallbackContext context)
     {
         throw new System.NotImplementedException();
     }

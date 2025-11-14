@@ -71,11 +71,10 @@ public class DoorScript : MonoBehaviour
         if (enemies == null)
         {
             Debug.LogWarning($"No Enemies found in {room.name}");
+            return;
         }
-        else
-        {
-            room.Find("Enemies").gameObject.SetActive(true);
-        }
+
+        enemies.SetActive(true);
 
     }
 
@@ -84,7 +83,9 @@ public class DoorScript : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, back, out hit, 100, doorMask))
         {
-            other.transform.position = hit.transform.position + (back * distanceFromDoorToPlayer);
+            // Doors are tall man
+            var tf = new Vector3(hit.transform.position.x, 0, hit.transform.position.z);
+            other.transform.position = tf + (back * distanceFromDoorToPlayer);
         }
         else
         {

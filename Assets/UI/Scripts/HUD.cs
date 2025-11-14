@@ -11,8 +11,16 @@ public class HUD : MonoBehaviour
     [SerializeField] private TextMeshProUGUI floorDisplay;
     [SerializeField] private TextMeshProUGUI timerDisplay;
     [SerializeField] private HealthBar healthBarDisplay;
+    [SerializeField] private WeaponSlot primaryWeaponSlot;
+    [SerializeField] private WeaponSlot secondaryWeaponSlot;
+
+    private bool usingPrimaryWeapon = true;
+    private Vector3 activeWeaponPosition;
+    private Vector3 activeWeaponScale;
+    private Vector3 inactiveWeaponPosition;
+    private Vector3 inactiveWeaponScale;
     
-    // TODO Should be moved to a game manager class
+    // TODO Should probably be moved to a game manager class
     private TimeSpan timerValue;
     
     void Awake()
@@ -27,6 +35,12 @@ public class HUD : MonoBehaviour
     void Start()
     {
         timerValue = TimeSpan.Zero;
+        
+        // Save weapon slot positions for switching
+        activeWeaponPosition = primaryWeaponSlot.transform.localPosition;
+        activeWeaponScale = primaryWeaponSlot.transform.localScale;
+        inactiveWeaponPosition = secondaryWeaponSlot.transform.localPosition;
+        inactiveWeaponScale = secondaryWeaponSlot.transform.localScale;
         
         // Initialization, TODO remove
         UpdateFloorDisplay(1);
@@ -58,6 +72,40 @@ public class HUD : MonoBehaviour
     public void UpdateHealthBar(float newHP)
     {
         healthBarDisplay.UpdateHealthBar(newHP);
+    }
+
+    public void ReduceWeaponUses()
+    {
+        if(usingPrimaryWeapon)
+            primaryWeaponSlot.ReduceUses();
+        else
+            secondaryWeaponSlot.ReduceUses();
+    }
+
+    public void SetPrimaryWeapon(Weapon weapon)
+    {
+        primaryWeaponSlot.FillSlot(weapon);
+    }
+    
+    public void SetSecondaryWeapon(Weapon weapon)
+    {
+        secondaryWeaponSlot.FillSlot(weapon);
+    }
+
+    public void RemoveSecondaryWeapon()
+    {
+        secondaryWeaponSlot.ClearSlot();
+    }
+
+    public void SwitchWeapons()
+    {
+        primaryWeaponSlot.transform.localPosition = usingPrimaryWeapon ? inactiveWeaponPosition : activeWeaponPosition;
+        primaryWeaponSlot.transform.localScale = usingPrimaryWeapon ? inactiveWeaponScale : activeWeaponScale;
+
+        secondaryWeaponSlot.transform.localPosition = usingPrimaryWeapon ? activeWeaponPosition : inactiveWeaponPosition;
+        secondaryWeaponSlot.transform.localScale = usingPrimaryWeapon ? activeWeaponScale : inactiveWeaponScale;
+
+        usingPrimaryWeapon = !usingPrimaryWeapon;
     }
     
     // TODO item display
