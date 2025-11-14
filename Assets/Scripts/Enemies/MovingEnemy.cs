@@ -26,6 +26,11 @@ public class MovingEnemy : BaseEnemy
             {
                 player.TakeDamage(damage);
                 Debug.Log("player hit)");
+
+                Vector3 dir = collider.transform.position - transform.position;
+                dir.y = 0f; // No vertical knockback
+
+                player.ApplyKnockback(dir);
             }
         }
     }

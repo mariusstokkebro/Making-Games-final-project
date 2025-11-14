@@ -81,11 +81,22 @@ public class DoorScript : MonoBehaviour
     void MovePlayerToRoom(Collider other)
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, back, out hit, 100, doorMask))
+        if (Physics.Raycast(transform.position, back, out hit, 20, doorMask))
         {
-            // Doors are tall man
-            var tf = new Vector3(hit.transform.position.x, 0, hit.transform.position.z);
-            other.transform.position = tf + (back * distanceFromDoorToPlayer);
+            Vector3 targetPos = new Vector3(hit.transform.position.x, 0, hit.transform.position.z)
+                             + (back * distanceFromDoorToPlayer);
+
+            CharacterController cc = other.GetComponent<CharacterController>();
+            if (cc != null)
+            {
+                cc.enabled = false;           // disable before teleporting
+                other.transform.position = targetPos;
+                cc.enabled = true;            // re-enable after teleporting
+            }
+            else
+            {
+                Debug.LogWarning("No CharacterController found on player");
+            }
         }
         else
         {
