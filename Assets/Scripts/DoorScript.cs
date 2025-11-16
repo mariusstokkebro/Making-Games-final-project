@@ -1,10 +1,10 @@
 using UnityEngine;
-public class DoorScript : MonoBehaviour
+public class DoorScript : MonoBehaviour, IInteractable
 {
     private bool smoothCameraTransition = false;
     LayerMask roomMask;
     LayerMask doorMask;
-    int distanceFromDoorToPlayer = 10;
+    int distanceFromDoorToPlayer = 4;
     Vector3 back;
     void Start()
     {
@@ -12,19 +12,16 @@ public class DoorScript : MonoBehaviour
         doorMask = LayerMask.GetMask("Door");
         back = transform.TransformDirection(Vector3.left);
     }
-    void OnTriggerStay(Collider other)
-    {
 
-        if (other.CompareTag("Player"))
-        {
-            //Debug.Log("Door opened");
-            Transform room = GetClosestRoom();
-            ActivateRoom(room);
-            MoveCameraToRoom(room);
-            MovePlayerToRoom(other);
-            ActivateEnemies(room);
-            DisableCurrentRoom();
-        }
+    public void Interact(PlayerScript player)
+    {
+        //Debug.Log("Door opened");
+        Transform room = GetClosestRoom();
+        ActivateRoom(room);
+        MoveCameraToRoom(room);
+        MovePlayerToRoom(player.GetComponent<Collider>());
+        ActivateEnemies(room);
+        DisableCurrentRoom();
     }
 
 

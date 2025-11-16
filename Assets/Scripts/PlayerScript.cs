@@ -15,6 +15,7 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
     private Vector2 _lookInput;
     private Vector2 _mousePosition;
     private CharacterController controller;
+    private IInteractable currentInteractable;
     [SerializeField] private IList<PassiveItemData> items = new List<PassiveItemData>();
 
     [SerializeField] private Weapon saltShaker;
@@ -187,7 +188,12 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        throw new System.NotImplementedException();
+
+        if (context.performed && currentInteractable != null)
+        {
+            currentInteractable.Interact(this);
+        }
+
     }
 
     public void OnPrevious(InputAction.CallbackContext context)
@@ -198,5 +204,23 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
     public void OnNext(InputAction.CallbackContext context)
     {
         throw new System.NotImplementedException();
+    }
+
+    void OnTriggerEnter(Collider collider)
+    {
+        if (collider.TryGetComponent<IInteractable>(out var interactable))
+        {
+            currentInteractable = interactable;
+        }
+    }
+
+
+    void OnTriggerExit(Collider collider)
+    {
+        if (collider.TryGetComponent<IInteractable>(out var interactable))
+        {
+            if (currentInteractable == interactable)
+                currentInteractable = null;
+        }
     }
 }
