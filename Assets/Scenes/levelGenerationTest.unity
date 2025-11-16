@@ -560,7 +560,13 @@ MonoBehaviour:
     - {fileID: 808614582638773325, guid: f47fbf6441ff64f3c852bf7486d5f88c, type: 3}
     - {fileID: 3897148098168699219, guid: 4d0053d1632134a7eb070db137cd22c0, type: 3}
     - {fileID: 3897148098168699219, guid: a931512d0f60c491ebad02d1b227bfe2, type: 3}
-  - roomPrefabs: []
+  - roomPrefabs:
+    - {fileID: 808614582638773325, guid: f47fbf6441ff64f3c852bf7486d5f88c, type: 3}
+    - {fileID: 808614582638773325, guid: a2bcec2a90599db488f58ac36d3216d3, type: 3}
+  - roomPrefabs:
+    - {fileID: 3897148098168699219, guid: a931512d0f60c491ebad02d1b227bfe2, type: 3}
+    - {fileID: 2552036487552579384, guid: 9541f4c04011b4afa9c3b5699105ccf9, type: 3}
+  level: 0
 --- !u!4 &777232873
 Transform:
   m_ObjectHideFlags: 0
