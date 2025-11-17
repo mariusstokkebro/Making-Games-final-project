@@ -4,7 +4,7 @@ using Items_and_Weapons;
 
 public abstract class BaseEnemy : BaseEntity
 {
-    private Vector3 velocity;
+    protected Vector3 velocity;
     public float gravity = -9.81f;
     [SerializeField] protected float activationDelay = 1f;
     protected bool isActive = false;
@@ -13,11 +13,12 @@ public abstract class BaseEnemy : BaseEntity
     private BaseItem _drop;
     public void AssignDrop(BaseItem drop) => _drop = drop;
 
-    private CharacterController controller;
+    protected CharacterController controller;
 
     protected virtual void Awake()
     {
         controller = GetComponent<CharacterController>();
+        // GameSeed.Initialize(null);
     }
     protected virtual void OnEnable()
     {
