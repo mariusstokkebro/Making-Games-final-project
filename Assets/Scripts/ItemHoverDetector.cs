@@ -17,14 +17,9 @@ public class ItemHoverDetector : MonoBehaviour
 
         foreach (var h in hits)
         {
-            if (h.collider.TryGetComponent(out WeaponScript weaponScript))
+            if (h.collider.TryGetComponent(out ItemScript passiveItemScript))
             {
-                TooltipManager.Instance.ShowTooltip(weaponScript.weapon.GetDescription());
-                return;
-            }
-            if (h.collider.TryGetComponent(out PassiveItemScript passiveItemScript))
-            {
-                TooltipManager.Instance.ShowTooltip(passiveItemScript.itemData?.GetDescription());
+                TooltipManager.Instance.ShowTooltip(passiveItemScript.item?.GetDescription());
                 return;
             }
         }

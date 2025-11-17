@@ -10,8 +10,8 @@ public abstract class BaseEnemy : BaseEntity
     protected bool isActive = false;
     private Coroutine activationCoroutine;
     [SerializeField] private GameObject lootPrefab;
-    private PassiveItemData _drop;
-    public void AssignDrop(PassiveItemData drop) => _drop = drop;
+    private BaseItem _drop;
+    public void AssignDrop(BaseItem drop) => _drop = drop;
 
     private CharacterController controller;
 
@@ -65,9 +65,9 @@ public abstract class BaseEnemy : BaseEntity
             drop = Instantiate(deathEffect, transform.position, Quaternion.identity);
         }
 
-        if (drop != null && drop.TryGetComponent(out PassiveItemScript s))
+        if (drop != null && drop.TryGetComponent(out ItemScript s))
         {
-            Debug.Log($"Dropped item {s.itemData}");
+            Debug.Log($"Dropped item {s.item}");
             s.SetItem(_drop);
         }
         Destroy(gameObject);

@@ -24,10 +24,6 @@ public class Weapon : BaseItem
     // TODO do we actually need this?
     [SerializeField] protected ActiveItemEffect effect;
 
-    
-    public Mesh mesh;
-    public Sprite sprite;
-
     public WeaponBehaviour EquipWeapon(PlayerScript player)
     {
         GameObject obj = new GameObject("Weapon");
