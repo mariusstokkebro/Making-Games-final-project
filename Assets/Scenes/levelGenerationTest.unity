@@ -541,7 +541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5cd5541e8f768d4c9f4677d7c605d99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  roomAmount: 18
+  roomAmount: 5
   startRoom: {fileID: 2711664694031869415, guid: 272a17d02e567524eb91e3295a754637, type: 3}
   roomPrefabsByLevel:
   - roomPrefabs:
@@ -560,7 +560,13 @@ MonoBehaviour:
     - {fileID: 808614582638773325, guid: f47fbf6441ff64f3c852bf7486d5f88c, type: 3}
     - {fileID: 3897148098168699219, guid: 4d0053d1632134a7eb070db137cd22c0, type: 3}
     - {fileID: 3897148098168699219, guid: a931512d0f60c491ebad02d1b227bfe2, type: 3}
-  - roomPrefabs: []
+  - roomPrefabs:
+    - {fileID: 808614582638773325, guid: f47fbf6441ff64f3c852bf7486d5f88c, type: 3}
+    - {fileID: 808614582638773325, guid: a2bcec2a90599db488f58ac36d3216d3, type: 3}
+  - roomPrefabs:
+    - {fileID: 3897148098168699219, guid: a931512d0f60c491ebad02d1b227bfe2, type: 3}
+    - {fileID: 2552036487552579384, guid: 9541f4c04011b4afa9c3b5699105ccf9, type: 3}
+  level: 0
 --- !u!4 &777232873
 Transform:
   m_ObjectHideFlags: 0
@@ -732,7 +738,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2703844052494568031, guid: d1b1b5791ae6446bfa2a3e9bbf3ffa78, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.51
       objectReference: {fileID: 0}
     - target: {fileID: 2703844052494568031, guid: d1b1b5791ae6446bfa2a3e9bbf3ffa78, type: 3}
       propertyPath: m_LocalPosition.z

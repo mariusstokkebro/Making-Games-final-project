@@ -1904,6 +1904,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2853310724296232979, guid: d830eee4170839d4a9102321497822d5, type: 3}
+      propertyPath: health
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 5992257286763761863, guid: d830eee4170839d4a9102321497822d5, type: 3}
       propertyPath: m_Name
       value: MovingEnemyTest (1)
@@ -1969,6 +1973,10 @@ PrefabInstance:
     - target: {fileID: 209837457250270225, guid: d830eee4170839d4a9102321497822d5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2853310724296232979, guid: d830eee4170839d4a9102321497822d5, type: 3}
+      propertyPath: health
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 5992257286763761863, guid: d830eee4170839d4a9102321497822d5, type: 3}
       propertyPath: m_Name
@@ -2036,6 +2044,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2853310724296232979, guid: d830eee4170839d4a9102321497822d5, type: 3}
+      propertyPath: health
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 5992257286763761863, guid: d830eee4170839d4a9102321497822d5, type: 3}
       propertyPath: m_Name
       value: MovingEnemyTest
@@ -2101,6 +2113,10 @@ PrefabInstance:
     - target: {fileID: 209837457250270225, guid: d830eee4170839d4a9102321497822d5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2853310724296232979, guid: d830eee4170839d4a9102321497822d5, type: 3}
+      propertyPath: health
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 5992257286763761863, guid: d830eee4170839d4a9102321497822d5, type: 3}
       propertyPath: m_Name
@@ -2168,6 +2184,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2853310724296232979, guid: d830eee4170839d4a9102321497822d5, type: 3}
+      propertyPath: health
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 5992257286763761863, guid: d830eee4170839d4a9102321497822d5, type: 3}
       propertyPath: m_Name
       value: MovingEnemyTest (6)
@@ -2234,6 +2254,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2853310724296232979, guid: d830eee4170839d4a9102321497822d5, type: 3}
+      propertyPath: health
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 5992257286763761863, guid: d830eee4170839d4a9102321497822d5, type: 3}
       propertyPath: m_Name
       value: MovingEnemyTest (3)
@@ -2299,6 +2323,10 @@ PrefabInstance:
     - target: {fileID: 209837457250270225, guid: d830eee4170839d4a9102321497822d5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2853310724296232979, guid: d830eee4170839d4a9102321497822d5, type: 3}
+      propertyPath: health
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 5992257286763761863, guid: d830eee4170839d4a9102321497822d5, type: 3}
       propertyPath: m_Name
@@ -2427,6 +2455,10 @@ PrefabInstance:
     - target: {fileID: 209837457250270225, guid: d830eee4170839d4a9102321497822d5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2853310724296232979, guid: d830eee4170839d4a9102321497822d5, type: 3}
+      propertyPath: health
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 5992257286763761863, guid: d830eee4170839d4a9102321497822d5, type: 3}
       propertyPath: m_Name
@@ -2617,6 +2649,10 @@ PrefabInstance:
     - target: {fileID: 209837457250270225, guid: d830eee4170839d4a9102321497822d5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2853310724296232979, guid: d830eee4170839d4a9102321497822d5, type: 3}
+      propertyPath: health
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 5992257286763761863, guid: d830eee4170839d4a9102321497822d5, type: 3}
       propertyPath: m_Name

@@ -8,8 +8,19 @@ public abstract class BaseEntity : MonoBehaviour
     [SerializeField] protected float damage = 10f;
     [SerializeField] protected float turnSpeed = 180f;
     [SerializeField] protected GameObject deathEffect;
-    [SerializeField] protected Matrix4x4 _matrix = Matrix4x4.Rotate(Quaternion.Euler(0,-45, 0));
+    [SerializeField] protected Matrix4x4 _matrix = Matrix4x4.Rotate(Quaternion.Euler(0, -45, 0));
+    [SerializeField] protected float knockbackStrength = 10f;
+    [SerializeField] protected float knockbackDuration = 0.15f;
 
+    protected Vector3 knockbackVelocity;
+    protected float knockbackTimer = 0f;
+
+    // Call this when entity gets hit
+    public void ApplyKnockback(Vector3 direction)
+    {
+        knockbackVelocity = direction.normalized * knockbackStrength;
+        knockbackTimer = knockbackDuration;
+    }
     protected Transform FindEntity(string entityTag)
     {
         GameObject entity = GameObject.FindWithTag(entityTag);

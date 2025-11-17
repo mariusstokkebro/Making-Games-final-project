@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 209837457250270225}
   - component: {fileID: 2853310724296232979}
-  - component: {fileID: 1204766445287544618}
   - component: {fileID: 6999052240911207535}
+  - component: {fileID: -6672752943291307102}
   m_Layer: 8
   m_Name: MovingEnemyTest
   m_TagString: Enemy
@@ -69,35 +69,9 @@ MonoBehaviour:
     e31: 0
     e32: 0
     e33: 1
+  gravity: -9.81
   activationDelay: 1
   lootPrefab: {fileID: 3013907990175888136, guid: 51fb4f3aa2bfe4f81be978de76d07700, type: 3}
---- !u!54 &1204766445287544618
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5992257286763761863}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!136 &6999052240911207535
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -111,16 +85,41 @@ CapsuleCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.35
-  m_Height: 1
+  m_Radius: 1.3499999
+  m_Height: 3.6999998
   m_Direction: 1
-  m_Center: {x: 0, y: 0.7, z: 0}
+  m_Center: {x: 0, y: 0.6999998, z: 0}
+--- !u!143 &-6672752943291307102
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5992257286763761863}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  m_LayerOverridePriority: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 2
+  m_Radius: 1.02
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0.78, z: 0}
 --- !u!1001 &4250794805668153106
 PrefabInstance:
   m_ObjectHideFlags: 0
