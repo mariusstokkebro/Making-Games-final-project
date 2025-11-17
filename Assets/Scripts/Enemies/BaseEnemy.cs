@@ -25,7 +25,7 @@ public abstract class BaseEnemy : BaseEntity
         // Chance for enemy to have loot, deathEffect lets us hardcode drops for some enemies
         if (GameSeed.EnemyRandom.NextDouble() < 1.0 && deathEffect == null)
         {
-            var drop = LootTable.GetDrop();
+            var drop = LootTable.GetPassiveDrop();
             if (drop != null)
             {
                 AssignDrop(drop);

@@ -10,28 +10,30 @@ using Random = System.Random;
 
 public static class LootTable
 {
-    private static readonly List<BaseItem> Drops;
+    private static readonly List<BaseItem> passiveItems = new (Resources.LoadAll<BaseItem>("Passive Items"));
 
-    static LootTable()
-    {
-        // Load all PassiveItemData and Weapon from their respective folders
-        var passiveItems = Resources.LoadAll<BaseItem>("Passive Items");
-        var weapons = Resources.LoadAll<BaseItem>("Weapons");
-
-        // Combine into a single list
-        Drops = new List<BaseItem>();
-        Drops.AddRange(passiveItems);
-        Drops.AddRange(weapons);
-
-        // Optional: shuffle or sort if needed
-        // Drops = Drops.OrderBy(x => Random.value).ToList();
-    }
+    private static readonly List<BaseItem> weapons = new (Resources.LoadAll<BaseItem>("Weapons"));
+    private static List<BaseItem> drops;
 
     private static readonly Random Rng = GameSeed.LootTableRandom; 
 
-    public static BaseItem? GetDrop()
+    public static BaseItem? GetPassiveDrop()
     {
-        if (Drops.Count == 0) return null;
+        return GetDrop(true);
+    }
+
+    public static BaseItem? GetWeaponDrop()
+    {
+        return GetDrop(false);
+    }
+
+    private static BaseItem? GetDrop(bool getPassiveItemDrop)
+    {
+        if (getPassiveItemDrop)
+        {
+            drops = passiveItems;
+        }
+        if (drops.Count == 0) return null;
         
         
         double chance = Rng.NextDouble();
@@ -39,7 +41,7 @@ public static class LootTable
         
         // All items that could be dropped from this chance
         Rarity rarity = GetRarity(chance);
-        List<BaseItem> sublist = Drops.Where(predicate: item => item.rarity == rarity).ToList();
+        List<BaseItem> sublist = drops.Where(predicate: item => item.rarity == rarity).ToList();
         if (sublist.Count == 0) return null;
         
         // Pick one
@@ -47,7 +49,7 @@ public static class LootTable
         BaseItem drop = sublist[idx];
         Debug.Log($"Picked drop: {drop} from [{string.Join(", ", sublist)}]");
         
-        Drops.Remove(drop);
+        drops.Remove(drop);
         return drop;
     }
     

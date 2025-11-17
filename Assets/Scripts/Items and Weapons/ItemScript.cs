@@ -16,7 +16,6 @@ namespace Items_and_Weapons
         private void Start()
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = item?.sprite;
-            gameObject.GetComponent<MeshFilter>().mesh = item?.mesh;
             transform.rotation = Quaternion.Euler(0, -45, 0);
             transform.localScale += (new Vector3(3, 3, 3));
         }

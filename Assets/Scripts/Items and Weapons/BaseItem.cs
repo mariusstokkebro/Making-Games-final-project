@@ -5,8 +5,6 @@ public abstract class BaseItem : ScriptableObject
     #nullable enable
     [SerializeField] protected string itemName;
     [SerializeField] public Sprite? sprite;
-    
-    [SerializeField] public Mesh? mesh;
     [SerializeField] protected string description;
     [SerializeField] public Rarity rarity = Rarity.Natural;
 
