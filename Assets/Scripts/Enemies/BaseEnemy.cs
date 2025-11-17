@@ -4,20 +4,21 @@ using Items_and_Weapons;
 
 public abstract class BaseEnemy : BaseEntity
 {
-    private Vector3 velocity;
+    protected Vector3 velocity;
     public float gravity = -9.81f;
     [SerializeField] protected float activationDelay = 1f;
     protected bool isActive = false;
     private Coroutine activationCoroutine;
     [SerializeField] private GameObject lootPrefab;
-    private PassiveItemData _drop;
-    public void AssignDrop(PassiveItemData drop) => _drop = drop;
+    private BaseItem _drop;
+    public void AssignDrop(BaseItem drop) => _drop = drop;
 
-    private CharacterController controller;
+    protected CharacterController controller;
 
     protected virtual void Awake()
     {
         controller = GetComponent<CharacterController>();
+        // GameSeed.Initialize(null);
     }
     protected virtual void OnEnable()
     {
@@ -25,7 +26,7 @@ public abstract class BaseEnemy : BaseEntity
         // Chance for enemy to have loot, deathEffect lets us hardcode drops for some enemies
         if (GameSeed.EnemyRandom.NextDouble() < 1.0 && deathEffect == null)
         {
-            var drop = LootTable.GetDrop();
+            var drop = LootTable.GetPassiveDrop();
             if (drop != null)
             {
                 AssignDrop(drop);
@@ -65,9 +66,9 @@ public abstract class BaseEnemy : BaseEntity
             drop = Instantiate(deathEffect, transform.position, Quaternion.identity);
         }
 
-        if (drop != null && drop.TryGetComponent(out PassiveItemScript s))
+        if (drop != null && drop.TryGetComponent(out ItemScript s))
         {
-            Debug.Log($"Dropped item {s.itemData}");
+            Debug.Log($"Dropped item {s.item}");
             s.SetItem(_drop);
         }
         Destroy(gameObject);

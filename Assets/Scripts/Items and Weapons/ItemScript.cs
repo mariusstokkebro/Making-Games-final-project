@@ -3,19 +3,19 @@ using UnityEngine;
 
 namespace Items_and_Weapons
 {
-    public class PassiveItemScript : MonoBehaviour
+    public class ItemScript : MonoBehaviour
     {
         #nullable enable
-        [SerializeField] internal PassiveItemData? itemData;
+        [SerializeField] internal BaseItem? item;
 
-        public void SetItem(PassiveItemData item)
+        public void SetItem(BaseItem item)
         {
-            itemData = item;
+            this.item = item;
         }
 
         private void Start()
         {
-            gameObject.GetComponent<SpriteRenderer>().sprite = itemData?.sprite;
+            gameObject.GetComponent<SpriteRenderer>().sprite = item?.sprite;
             transform.rotation = Quaternion.Euler(0, -45, 0);
             transform.localScale += (new Vector3(3, 3, 3));
         }
@@ -25,15 +25,26 @@ namespace Items_and_Weapons
         /// </summary>
         public void OnPickup(PlayerScript p)
         {
-            // _itemData will never be null because an enemy with no drop doesn't spawn a lootPrefab
-            if (itemData == null) {Destroy(gameObject); return;}
-
-            foreach (PassiveEffect effect in itemData!.effects)
+            if (item == null)
             {
-                effect.Apply(p);
+                Destroy(gameObject);
+                return;
             }
 
-            p.AddPassiveItem(itemData);
+            if (item is PassiveItemData passive)
+            {
+                foreach (PassiveEffect effect in passive.effects)
+                {
+                    effect.Apply(p);
+                }
+
+                p.AddPassiveItem(passive);
+            }
+            else if (item is Weapon weapon)
+            {
+                p.SetSecondaryWeapon(weapon);
+            }
+
             Destroy(gameObject);
         }
 
