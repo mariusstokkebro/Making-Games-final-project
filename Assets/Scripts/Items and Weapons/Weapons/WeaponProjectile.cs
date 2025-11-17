@@ -8,7 +8,7 @@ public class WeaponProjectile : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     public void Initialize(float damage, float range, float angle, float duration)
@@ -23,10 +23,10 @@ public class WeaponProjectile : MonoBehaviour
     void Update()
     {
         countdown -= Time.deltaTime;
-        if(countdown <= 0)
+        if (countdown <= 0)
             Destroy(gameObject);
     }
-    
+
     void OnTriggerEnter(Collider other)
     {
         Vector3 hitDirection = (other.gameObject.transform.position - transform.position).normalized;
@@ -34,6 +34,10 @@ public class WeaponProjectile : MonoBehaviour
         {
             Debug.Log("Hit enemy!");
             other.gameObject.GetComponent<BaseEntity>().TakeDamage(damage);
+            Vector3 dir = other.transform.position - transform.position;
+            dir.y = 0f; // No vertical knockback
+
+            other.gameObject.GetComponent<BaseEntity>().ApplyKnockback(dir);
         }
     }
 }

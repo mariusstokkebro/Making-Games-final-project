@@ -4,6 +4,8 @@ using Items_and_Weapons;
 
 public abstract class BaseEnemy : BaseEntity
 {
+    private Vector3 velocity;
+    public float gravity = -9.81f;
     [SerializeField] protected float activationDelay = 1f;
     protected bool isActive = false;
     private Coroutine activationCoroutine;
@@ -11,6 +13,12 @@ public abstract class BaseEnemy : BaseEntity
     private PassiveItemData _drop;
     public void AssignDrop(PassiveItemData drop) => _drop = drop;
 
+    private CharacterController controller;
+
+    protected virtual void Awake()
+    {
+        controller = GetComponent<CharacterController>();
+    }
     protected virtual void OnEnable()
     {
         Debug.Log($"Enabled {this.name}");
@@ -48,7 +56,7 @@ public abstract class BaseEnemy : BaseEntity
     {
         return FindEntity("Player");
     }
-    
+
     protected override void Die()
     {
         GameObject drop = default;
@@ -74,7 +82,7 @@ public abstract class BaseEnemy : BaseEntity
         if (dir.magnitude < 0.01f) return;
 
         transform.right = Vector3.Slerp(transform.right, -dir.normalized, turnSpeed * Time.deltaTime);
-        
+
         Debug.DrawRay(transform.position, -transform.right * 2f, Color.red);
         Debug.DrawRay(transform.position, dir.normalized * 2f, Color.green);
     }
@@ -86,10 +94,19 @@ public abstract class BaseEnemy : BaseEntity
         Vector3 dir = targetPosition - transform.position;
         dir.y = 0f;
         if (dir.magnitude < 0.01f) return;
-
+        velocity.y += gravity * Time.deltaTime;
         Vector3 moveVec = dir.normalized * (movementSpeed * Time.deltaTime);
+        Vector3 move = moveVec + velocity * Time.deltaTime;
         Debug.DrawRay(transform.position, moveVec * 50f, Color.blue);
-        
-        transform.position += moveVec;
+
+        if (knockbackTimer > 0f)
+        {
+            move += knockbackVelocity * Time.deltaTime;
+            knockbackTimer -= Time.deltaTime;
+        }
+
+        controller.Move(move);
+
+        if (controller.isGrounded) velocity.y = 0f;
     }
 }

@@ -8,13 +8,16 @@ using System.Reflection;
 
 public class PlayerScript : BaseEntity, Controls.IPlayerActions
 {
+
+    private Rigidbody rb;
     private bool _usingController = false;
     private Vector3 _movementDirection;
     private Vector2 _lookInput;
     private Vector2 _mousePosition;
-    
+    private CharacterController controller;
+    private IInteractable currentInteractable;
     [SerializeField] private IList<PassiveItemData> items = new List<PassiveItemData>();
-    
+
     [SerializeField] private Weapon saltShaker;
     [SerializeField] private bool usingPrimaryWeapon = true;
     private WeaponBehaviour primaryWeapon;
@@ -23,13 +26,22 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
 
     void Start()
     {
+        controller = GetComponent<CharacterController>();
         primaryWeapon = saltShaker.EquipWeapon(this);
         animator = GetComponent<Animator>();
         HUD.Instance.SetPrimaryWeapon(saltShaker);
     }
+
     void Update()
     {
-        transform.position += _movementDirection * (movementSpeed * Time.deltaTime);
+        Vector3 move = _movementDirection * (movementSpeed * Time.deltaTime);
+
+        if (knockbackTimer > 0f)
+        {
+            move += knockbackVelocity * Time.deltaTime;
+            knockbackTimer -= Time.deltaTime;
+        }
+        controller.Move(move);
 
         if (!_usingController)
         {
@@ -76,7 +88,7 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
     {
         Vector2 pressed = context.ReadValue<Vector2>();
         Vector3 tmp = new Vector3(pressed.x, 0, pressed.y);
-        _movementDirection = _matrix.MultiplyPoint3x4(tmp).normalized;
+        _movementDirection = _matrix.MultiplyPoint3x4(tmp);
 
         if (_usingController != (context.control.device == Gamepad.current))
         {
@@ -117,7 +129,7 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
         {
             if (usingPrimaryWeapon)
             {
-                if(!primaryWeapon)
+                if (!primaryWeapon)
                     Debug.Log("No primary weapon!");
                 primaryWeapon.StartAttack();
             }
@@ -157,14 +169,14 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
     }
 
     public void SetSecondaryWeapon(Weapon item)
-    { 
+    {
         secondaryWeapon = item.EquipWeapon(this);
         HUD.Instance.SetSecondaryWeapon(item);
     }
-    
+
     /** Use for manually dropping secondary weapon */
     public void LoseSecondaryWeapon()
-    { 
+    {
         HUD.Instance.RemoveSecondaryWeapon();
         if (!usingPrimaryWeapon)
         {
@@ -173,10 +185,15 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
         }
     }
 
-    
+
     public void OnInteract(InputAction.CallbackContext context)
     {
-        throw new System.NotImplementedException();
+
+        if (context.performed && currentInteractable != null)
+        {
+            currentInteractable.Interact(this);
+        }
+
     }
 
     public void OnPrevious(InputAction.CallbackContext context)
@@ -187,5 +204,23 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
     public void OnNext(InputAction.CallbackContext context)
     {
         throw new System.NotImplementedException();
+    }
+
+    void OnTriggerEnter(Collider collider)
+    {
+        if (collider.TryGetComponent<IInteractable>(out var interactable))
+        {
+            currentInteractable = interactable;
+        }
+    }
+
+
+    void OnTriggerExit(Collider collider)
+    {
+        if (collider.TryGetComponent<IInteractable>(out var interactable))
+        {
+            if (currentInteractable == interactable)
+                currentInteractable = null;
+        }
     }
 }
