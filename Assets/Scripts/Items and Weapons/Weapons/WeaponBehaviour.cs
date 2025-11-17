@@ -6,7 +6,6 @@ public class WeaponBehaviour : MonoBehaviour
     private float damage;
     private float attackDuration;
     private float range;
-    private float angle;
     
     private float cooldownTime;
     private float countdown;
@@ -30,7 +29,6 @@ public class WeaponBehaviour : MonoBehaviour
         damage = weaponData.damage;
         attackDuration = weaponData.duration;
         range = weaponData.range;
-        angle = weaponData.angle;
 
         canBreak = weaponData.canBreak;
         usesUntilBreak = weaponData.usesUntilBreak;
@@ -47,7 +45,7 @@ public class WeaponBehaviour : MonoBehaviour
             var position = player.transform.position;
             var fireAngle = rotation * Quaternion.Euler(0, -90, 0);
 
-            Instantiate(projectile, position, fireAngle).Initialize(damage, range, angle, attackDuration);
+            Instantiate(projectile, position, fireAngle).Initialize(damage, range, attackDuration);
             Instantiate(particleEffect, position, fireAngle);
             countdown = cooldownTime;
 
