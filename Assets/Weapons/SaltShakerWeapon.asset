@@ -19,8 +19,8 @@ MonoBehaviour:
   visualEffect: {fileID: 2176640399428159979, guid: 2de9349a1bde6b948bcbe82502c067d7, type: 3}
   offset: {x: 0, y: 0, z: 0}
   damage: 100
-  duration: 0.5
-  cooldown: 0.75
+  duration: 0.25
+  cooldown: 0.3
   range: 10
   angle: 25
   canBreak: 0

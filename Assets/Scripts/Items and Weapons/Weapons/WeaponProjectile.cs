@@ -3,7 +3,6 @@ using UnityEngine;
 public class WeaponProjectile : MonoBehaviour
 {
     private float damage;
-    private float angle;
     private float countdown;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -11,12 +10,11 @@ public class WeaponProjectile : MonoBehaviour
 
     }
 
-    public void Initialize(float damage, float range, float angle, float duration)
+    public void Initialize(float damage, float range, float duration)
     {
         this.damage = damage;
-        this.angle = angle;
         this.countdown = duration;
-        transform.localScale = new Vector3(range, range, range);
+        transform.localScale *= range;
     }
 
     // Update is called once per frame
@@ -29,8 +27,7 @@ public class WeaponProjectile : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Vector3 hitDirection = (other.gameObject.transform.position - transform.position).normalized;
-        if (/*Vector3.Angle(transform.forward, hitDirection) <= angle &&*/ other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("Hit enemy!");
             other.gameObject.GetComponent<BaseEntity>().TakeDamage(damage);
