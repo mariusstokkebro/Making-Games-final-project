@@ -10,14 +10,30 @@ using Random = System.Random;
 
 public static class LootTable
 {
-    private static readonly List<PassiveItemData> Drops = 
-        new (Resources.LoadAll<PassiveItemData>("Passive Items"));
+    private static readonly List<BaseItem> passiveItems = new (Resources.LoadAll<BaseItem>("Passive Items"));
+
+    private static readonly List<BaseItem> weapons = new (Resources.LoadAll<BaseItem>("Weapons"));
+    private static List<BaseItem> drops;
 
     private static readonly Random Rng = GameSeed.LootTableRandom; 
 
-    public static PassiveItemData? GetDrop()
+    public static BaseItem? GetPassiveDrop()
     {
-        if (Drops.Count == 0) return null;
+        return GetDrop(true);
+    }
+
+    public static BaseItem? GetWeaponDrop()
+    {
+        return GetDrop(false);
+    }
+
+    private static BaseItem? GetDrop(bool getPassiveItemDrop)
+    {
+        if (getPassiveItemDrop)
+        {
+            drops = passiveItems;
+        }
+        if (drops.Count == 0) return null;
         
         
         double chance = Rng.NextDouble();
@@ -25,15 +41,15 @@ public static class LootTable
         
         // All items that could be dropped from this chance
         Rarity rarity = GetRarity(chance);
-        List<PassiveItemData> sublist = Drops.Where(predicate: item => item.rarity == rarity).ToList();
+        List<BaseItem> sublist = drops.Where(predicate: item => item.rarity == rarity).ToList();
         if (sublist.Count == 0) return null;
         
         // Pick one
         int idx = Rng.Next(0, sublist.Count);
-        PassiveItemData drop = sublist[idx];
+        BaseItem drop = sublist[idx];
         Debug.Log($"Picked drop: {drop} from [{string.Join(", ", sublist)}]");
         
-        Drops.Remove(drop);
+        drops.Remove(drop);
         return drop;
     }
     
