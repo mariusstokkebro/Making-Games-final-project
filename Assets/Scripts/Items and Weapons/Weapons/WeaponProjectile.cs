@@ -30,7 +30,7 @@ public class WeaponProjectile : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         Vector3 hitDirection = (other.gameObject.transform.position - transform.position).normalized;
-        if (Vector3.Angle(transform.forward, hitDirection) <= angle && other.gameObject.CompareTag("Enemy"))
+        if (/*Vector3.Angle(transform.forward, hitDirection) <= angle &&*/ other.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("Hit enemy!");
             other.gameObject.GetComponent<BaseEntity>().TakeDamage(damage);
