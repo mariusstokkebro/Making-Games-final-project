@@ -21,7 +21,7 @@ MonoBehaviour:
   damage: 100
   duration: 0.5
   cooldown: 0.75
-  range: 20
+  range: 10
   angle: 25
   canBreak: 0
   usesUntilBreak: 10
