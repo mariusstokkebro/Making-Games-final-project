@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovingEnemy
   health: 100
-  movementSpeed: 3
+  movementSpeed: 5
   damage: 10
   turnSpeed: 200
   deathEffect: {fileID: 0}
@@ -69,6 +69,8 @@ MonoBehaviour:
     e31: 0
     e32: 0
     e33: 1
+  knockbackStrength: 25
+  knockbackDuration: 0.1
   gravity: -9.81
   activationDelay: 1
   lootPrefab: {fileID: 3013907990175888136, guid: 51fb4f3aa2bfe4f81be978de76d07700, type: 3}
