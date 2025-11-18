@@ -47,7 +47,7 @@ public class Weapon : BaseItem
     
     public override string GetDescription()
     {
-        return $"{name}\n" +
+        return $"{itemName}\n" +
                $"Damage: {damage}\n" +
                $"Duration: {duration}\n" +
                $"Cooldown: {cooldown}\n" +

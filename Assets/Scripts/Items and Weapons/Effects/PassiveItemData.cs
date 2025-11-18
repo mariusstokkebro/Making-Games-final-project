@@ -12,7 +12,7 @@ namespace Items_and_Weapons
         public override string GetDescription()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine(name);
+            sb.AppendLine(itemName);
 
             if (effects != null && effects.Length > 0)
             {
