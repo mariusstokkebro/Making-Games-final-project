@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Items_and_Weapons
 {
-    public class ItemScript : MonoBehaviour
+    public class ItemScript : MonoBehaviour, IInteractable
     {
         #nullable enable
         [SerializeField] internal BaseItem? item;
@@ -23,7 +23,7 @@ namespace Items_and_Weapons
         /// <summary>
         /// A one-time effect when picking up item, e.g. unlocking the dash
         /// </summary>
-        public void OnPickup(PlayerScript p)
+        public void Interact(PlayerScript p)
         {
             if (item == null)
             {
@@ -46,15 +46,6 @@ namespace Items_and_Weapons
             }
 
             Destroy(gameObject);
-        }
-
-        void OnTriggerEnter(Collider collider)
-        {
-            if (collider.gameObject.CompareTag("Player"))
-            {
-                PlayerScript player = collider.gameObject.GetComponent<PlayerScript>();
-                OnPickup(player);
-            }
         }
 
         // Think this is best done by having some unlockables in the player? effect.Apply(p) => p.unlockDash();
