@@ -16,6 +16,6 @@ public class RotatingWeaponProjectile : WeaponProjectile
     {
         CountDown(Time.deltaTime);
         
-        transform.Rotate(Vector3.up, rotationAngle * (Time.deltaTime / lifetime));
+        transform.Rotate(Vector3.up, - rotationAngle * (Time.deltaTime / lifetime));
     }
 }
