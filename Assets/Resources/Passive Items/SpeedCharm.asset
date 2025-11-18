@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: SpeedCharm
   m_EditorClassIdentifier: Assembly-CSharp::Items.PassiveItemData
   itemName: Speed Charm
-  description: 
-  mesh: {fileID: 0}
-  sprite: {fileID: 21300000, guid: c80f3f1c680024897916812b8589bffc, type: 3}
+  sprite: {fileID: 21300000, guid: 5ba659438346445cc87b96553c0ea6b6, type: 3}
+  description: Wind behind your wings!
+  rarity: 0
   effects:
   - {fileID: 11400000, guid: a8a771c18488942c498ab3979834c73c, type: 2}
