@@ -16,6 +16,7 @@ public class Weapon : BaseItem
     public float cooldown = 1f;
     
     public float range = 20f;
+    public bool movesWithPlayer = false;
     
     public bool canBreak = false;
     public int usesUntilBreak = 10;

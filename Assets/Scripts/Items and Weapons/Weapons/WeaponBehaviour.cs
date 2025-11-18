@@ -6,6 +6,7 @@ public class WeaponBehaviour : MonoBehaviour
     private float damage;
     private float attackDuration;
     private float range;
+    private bool attachToPlayer;
     
     private float cooldownTime;
     private float countdown;
@@ -29,24 +30,33 @@ public class WeaponBehaviour : MonoBehaviour
         damage = weaponData.damage;
         attackDuration = weaponData.duration;
         range = weaponData.range;
+        attachToPlayer = weaponData.movesWithPlayer;
 
         canBreak = weaponData.canBreak;
         usesUntilBreak = weaponData.usesUntilBreak;
     }
 
-    public void StartAttack()
+    public virtual void StartAttack()
     {
         if (countdown <= 0)
         {
             GameObject player = GameObject.FindWithTag("Player");
             if (player == null) return;
-
-            var rotation = player.transform.rotation;
-            var position = player.transform.position;
-            var fireAngle = rotation * Quaternion.Euler(0, -90, 0);
-
-            Instantiate(projectile, position, fireAngle).Initialize(damage, range, attackDuration);
-            Instantiate(particleEffect, position, fireAngle);
+            
+            if (attachToPlayer)
+            {
+                Instantiate(projectile, player.transform).Initialize(damage, range, attackDuration);
+                Instantiate(particleEffect, player.transform);
+            }
+            else
+            {
+                var rotation = player.transform.rotation;
+                var position = player.transform.position;
+                var fireAngle = rotation * Quaternion.Euler(0, -90, 0);
+                
+                Instantiate(projectile, position, fireAngle).Initialize(damage, range, attackDuration);
+                Instantiate(particleEffect, position, fireAngle);
+            }
             countdown = cooldownTime;
 
             if (canBreak)
