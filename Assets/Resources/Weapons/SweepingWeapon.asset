@@ -13,16 +13,17 @@ MonoBehaviour:
   m_Name: SweepingWeapon
   m_EditorClassIdentifier: Assembly-CSharp::Weapon
   itemName: 
-  sprite: {fileID: 21300000, guid: d6d6a0588aa644af29a1155d7a6e2295, type: 3}
+  sprite: {fileID: 21300000, guid: 74c0abd39ef784754a35b100ebf8fdac, type: 3}
   description: 
   rarity: 0
-  weaponProjectile: {fileID: 7960931600771293886, guid: cf9c3ad201dc77746bde17af5bc8f816, type: 3}
-  visualEffect: {fileID: 2176640399428159979, guid: 2de9349a1bde6b948bcbe82502c067d7, type: 3}
+  weaponProjectile: {fileID: 7960931600771293886, guid: ca5416d14a0ab42459065e42fcb5d5ca, type: 3}
+  visualEffect: {fileID: 2176640399428159979, guid: a15395a7566722048b116c3bd84ca449, type: 3}
   offset: {x: 0, y: 0, z: 0}
   damage: 25
   duration: 0.25
   cooldown: 0.3
   range: 10
+  movesWithPlayer: 1
   canBreak: 0
   usesUntilBreak: 10
   effect: 0

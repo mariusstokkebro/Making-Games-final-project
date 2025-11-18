@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class WeaponProjectile : MonoBehaviour
 {
-    private float damage;
-    private float countdown;
+    protected float damage;
+    protected float lifetime;
+    protected float countdown;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -14,13 +15,19 @@ public class WeaponProjectile : MonoBehaviour
     {
         this.damage = damage;
         this.countdown = duration;
+        lifetime = duration;
         transform.localScale *= range;
     }
 
     // Update is called once per frame
     void Update()
     {
-        countdown -= Time.deltaTime;
+        CountDown(Time.deltaTime);
+    }
+
+    protected void CountDown(float time)
+    {
+        countdown -= time;
         if (countdown <= 0)
             Destroy(gameObject);
     }
