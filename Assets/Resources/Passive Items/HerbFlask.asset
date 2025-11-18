@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a459570047ab4efe8c9646d2ea97c00, type: 3}
   m_Name: HerbFlask
   m_EditorClassIdentifier: Assembly-CSharp::Items_and_Weapons.PassiveItemData
-  itemName: 
-  description: 
+  itemName: Flask of Herbs
+  sprite: {fileID: 21300000, guid: ac062eaefbc294eb0b8b49419e0430a5, type: 3}
+  description: Smells potent!
   rarity: 1
-  sprite: {fileID: 0}
   effects:
   - {fileID: 11400000, guid: fef33dfd8df404e88bf315b29d829357, type: 2}
