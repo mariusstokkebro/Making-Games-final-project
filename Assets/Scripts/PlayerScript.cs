@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -191,6 +192,10 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
 
         if (context.performed && currentInteractable != null)
         {
+            if (currentInteractable is ItemScript)
+            {
+                TooltipManager.Instance.HideTooltip();
+            }
             currentInteractable.Interact(this);
         }
 
@@ -212,6 +217,10 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
         {
             currentInteractable = interactable;
         }
+        if (collider.TryGetComponent(out ItemScript passiveItemScript))
+        {
+            TooltipManager.Instance.ShowTooltip(passiveItemScript.item?.GetDescription());
+        }
     }
 
 
@@ -221,6 +230,10 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
         {
             if (currentInteractable == interactable)
                 currentInteractable = null;
+        }
+        if (collider.TryGetComponent(out ItemScript _))
+        {
+            TooltipManager.Instance.HideTooltip();
         }
     }
 }
