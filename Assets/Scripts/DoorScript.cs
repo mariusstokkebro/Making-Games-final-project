@@ -1,7 +1,7 @@
 using UnityEngine;
 public class DoorScript : MonoBehaviour, IInteractable
 {
-    private bool smoothCameraTransition = false;
+    private bool smoothCameraTransition = true;
     LayerMask roomMask;
     LayerMask doorMask;
     int distanceFromDoorToPlayer = 4;
