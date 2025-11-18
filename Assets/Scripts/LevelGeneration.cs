@@ -100,7 +100,6 @@ public class LevelGeneration : MonoBehaviour
 
 
         }
-        Debug.Log(doorAmount);
     }
 
     private Transform FindDoorForSecondRoom(GameObject room, Transform firstRoomDoor)
@@ -174,8 +173,11 @@ public class LevelGeneration : MonoBehaviour
     }
     public void generateNextLevel()
     {
+        if (roomPrefabsByLevel.Count-1 == level) return;
+
         level++;
         generateLevel(roomPrefabsByLevel, roomAmount, level);
+        HUD.Instance.UpdateFloorDisplay(level+1);
     }
 
 

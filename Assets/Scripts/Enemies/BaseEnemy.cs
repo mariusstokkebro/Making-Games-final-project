@@ -22,7 +22,6 @@ public abstract class BaseEnemy : BaseEntity
     }
     protected virtual void OnEnable()
     {
-        Debug.Log($"Enabled {this.name}");
         // Chance for enemy to have loot, deathEffect lets us hardcode drops for some enemies
         if (GameSeed.EnemyRandom.NextDouble() < 1.0 && deathEffect == null)
         {
