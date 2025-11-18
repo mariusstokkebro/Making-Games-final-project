@@ -44,7 +44,7 @@ public class Weapon : BaseItem
 
     protected Vector3 GetForwardDirection(PlayerScript p)
         => (p.transform.right * -1).normalized;
-    
+
     public override string GetDescription()
     {
         return $"{itemName}\n" +

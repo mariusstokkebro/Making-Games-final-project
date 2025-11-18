@@ -217,9 +217,9 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
         {
             currentInteractable = interactable;
         }
-        if (collider.TryGetComponent(out ItemScript passiveItemScript))
+        if (collider.TryGetComponent(out ItemScript itemScript))
         {
-            TooltipManager.Instance.ShowTooltip(passiveItemScript.item?.GetDescription());
+            TooltipManager.Instance.ShowTooltip(itemScript.item?.GetDescription());
         }
     }
 

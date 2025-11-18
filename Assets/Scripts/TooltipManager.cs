@@ -21,9 +21,6 @@ public class TooltipManager : MonoBehaviour
 
     private void Update()
     {
-        // Follow mouse position
-        Vector3 mousePos = Input.mousePosition;
-        tooltipPanel.transform.position = mousePos;
     }
 
     public void ShowTooltip(string description)
