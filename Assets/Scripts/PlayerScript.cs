@@ -31,6 +31,7 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
         primaryWeapon = saltShaker.EquipWeapon(this);
         animator = GetComponent<Animator>();
         HUD.Instance.SetPrimaryWeapon(saltShaker);
+        HUD.Instance.UpdateHealthBar(health);
     }
 
     void Update()
