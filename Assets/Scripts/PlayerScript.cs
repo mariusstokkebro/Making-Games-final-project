@@ -65,10 +65,13 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
 
     public override void TakeDamage(float amount)
     {
-        animator.SetBool("isHit", true);
         base.TakeDamage(amount);
         HUD.Instance.UpdateHealthBar(health);
         health -= amount;
+        if (health > 0)
+        {
+            animator.SetBool("isHit", true);
+        }
     }
 
     public void EndHitTaken()
@@ -79,6 +82,7 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
     protected override void Die()
     {
         animator.SetBool("isDead", true);
+        GetComponent<PlayerInput>().enabled = false;
     }
 
     public void DeathAnimationDone()
