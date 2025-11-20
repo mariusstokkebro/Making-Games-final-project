@@ -1,7 +1,6 @@
 using UnityEngine;
 public class DoorScript : MonoBehaviour, IInteractable
 {
-    private bool smoothCameraTransition = false;
     LayerMask roomMask;
     LayerMask doorMask;
     int distanceFromDoorToPlayer = 4;
@@ -42,16 +41,7 @@ public class DoorScript : MonoBehaviour, IInteractable
         Transform cameraPoint = room.Find("cameraPoint");
         if (cameraPoint != null)
         {
-            if (smoothCameraTransition)
-            {
-                Camera.main.GetComponent<CameraScript>().SetTarget(cameraPoint);
-            }
-            else
-            {
-                Camera.main.transform.position = cameraPoint.position;
-                Camera.main.transform.rotation = cameraPoint.rotation;
-            }
-
+            Camera.main.GetComponent<CameraScript>().SetTarget(cameraPoint);
         }
         else
         {

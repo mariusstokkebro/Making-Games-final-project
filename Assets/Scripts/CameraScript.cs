@@ -3,7 +3,7 @@ using UnityEngine;
 public class CameraScript : MonoBehaviour
 {
     public Transform target;
-    public float moveDuration = 2f;
+    public float moveDuration = 0.2f;
 
     private Vector3 startPosition;
     private float elapsedTime;
