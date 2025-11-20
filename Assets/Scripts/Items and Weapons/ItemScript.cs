@@ -47,15 +47,5 @@ namespace Items_and_Weapons
 
             Destroy(gameObject);
         }
-
-        // Think this is best done by having some unlockables in the player? effect.Apply(p) => p.unlockDash();
-        // /// <summary>
-        // /// Activate the item's effect, e.g. Dashing
-        // /// </summary>
-        // /// <typeparam name="T"></typeparam>
-        // public T? Activate<T>()
-        // {
-        //     throw new System.NotImplementedException();
-        // }
     }
 }
