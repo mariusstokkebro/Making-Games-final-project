@@ -16,11 +16,10 @@ namespace Items_and_Weapons
 
             if (effects != null && effects.Length > 0)
             {
-                sb.AppendLine("Effects:");
                 foreach (var effect in effects)
                 {
                     if (effect != null)
-                        sb.AppendLine($"- {effect.GetDescription()}");
+                        sb.AppendLine($"{effect.passiveEffectType} {effect.GetDescription()}");
                 }
             }
             else
@@ -30,7 +29,5 @@ namespace Items_and_Weapons
 
             return sb.ToString();
         }
-
-        public override string ToString() => name;
     }
 }
