@@ -24,6 +24,6 @@ MonoBehaviour:
   cooldown: 0.5
   range: 4
   movesWithPlayer: 1
-  canBreak: 0
+  canBreak: 1
   usesUntilBreak: 10
   effect: 0
