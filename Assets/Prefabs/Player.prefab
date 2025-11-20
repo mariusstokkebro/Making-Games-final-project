@@ -1520,7 +1520,7 @@ MonoBehaviour:
     e33: 1
   knockbackStrength: 10
   knockbackDuration: 0.15
-  saltShaker: {fileID: 11400000, guid: 98539ff9536962748ab9348102892e5a, type: 2}
+  saltShaker: {fileID: 11400000, guid: 9ea9cb76d0b4c484a96c8e9665e2fbec, type: 2}
   usingPrimaryWeapon: 1
 --- !u!143 &-4665040170105338904
 CharacterController:
