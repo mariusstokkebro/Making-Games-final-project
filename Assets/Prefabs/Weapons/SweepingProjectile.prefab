@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 7004860526235435450}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0.2, z: 0.5}
   m_LocalScale: {x: 0.05, y: 0.05, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 144776347767165524}
   - component: {fileID: 1750518404098704616}
   - component: {fileID: -5160834361795042281}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SweepingProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -250,6 +250,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SweepParticleEffect
       objectReference: {fileID: 0}
+    - target: {fileID: 2176640399428159979, guid: a15395a7566722048b116c3bd84ca449, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3970105624333282841, guid: a15395a7566722048b116c3bd84ca449, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -268,7 +272,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3970105624333282841, guid: a15395a7566722048b116c3bd84ca449, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 3970105624333282841, guid: a15395a7566722048b116c3bd84ca449, type: 3}
       propertyPath: m_LocalPosition.z
@@ -327,8 +331,12 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6516747311649036499, guid: a15395a7566722048b116c3bd84ca449, type: 3}
+      propertyPath: ClampVelocityModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6516747311649036499, guid: a15395a7566722048b116c3bd84ca449, type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 0.2
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 6516747311649036499, guid: a15395a7566722048b116c3bd84ca449, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
@@ -336,7 +344,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6516747311649036499, guid: a15395a7566722048b116c3bd84ca449, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

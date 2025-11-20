@@ -20,9 +20,9 @@ MonoBehaviour:
   visualEffect: {fileID: 2176640399428159979, guid: a15395a7566722048b116c3bd84ca449, type: 3}
   offset: {x: 0, y: 0, z: 0}
   damage: 50
-  duration: 0.5
+  duration: 0.25
   cooldown: 0.5
-  range: 3
+  range: 4
   movesWithPlayer: 1
   canBreak: 0
   usesUntilBreak: 10
