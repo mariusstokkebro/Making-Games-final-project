@@ -12,6 +12,7 @@ public class Bergmonch : BaseEnemy
     private float dashCooldownTimer = 0f;
     private Vector3 dashDirection;
 
+
     private Transform player;
 
     private void Update()
@@ -57,16 +58,7 @@ public class Bergmonch : BaseEnemy
             if (dashTimer <= 0f)
                 isDashing = false;
         }
-        else
-        {
-            if (player != null)
-            {
-                Vector3 dir = (player.position - transform.position);
-                dir.y = 0f;
-                if (dir.magnitude > 0.01f)
-                    move = dir.normalized * (movementSpeed * Time.deltaTime);
-            }
-        }
+
 
         velocity.y += gravity * Time.deltaTime;
         move += velocity * Time.deltaTime;
