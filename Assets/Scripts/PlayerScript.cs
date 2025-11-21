@@ -62,7 +62,7 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
     public override void TakeDamage(float amount)
     {
         base.TakeDamage(amount);
-        HUD.Instance.UpdateHealthBar(health);
+        // HUD.Instance.UpdateHealthBar(health);
         health -= amount;
         if (health > 0)
         {
