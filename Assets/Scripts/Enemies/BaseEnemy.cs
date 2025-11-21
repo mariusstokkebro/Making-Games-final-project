@@ -18,7 +18,7 @@ public abstract class BaseEnemy : BaseEntity
     protected virtual void Awake()
     {
         controller = GetComponent<CharacterController>();
-        GameSeed.Initialize(null);
+        // GameSeed.Initialize(null);
     }
     protected virtual void OnEnable()
     {
