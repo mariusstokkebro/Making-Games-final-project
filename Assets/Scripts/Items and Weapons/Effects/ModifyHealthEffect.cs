@@ -1,4 +1,5 @@
 using UnityEngine;
+using Enums;
 
 namespace Items_and_Weapons.Effects
 {
@@ -7,7 +8,7 @@ namespace Items_and_Weapons.Effects
     {
         public ModifyHealthEffect()
         {
-            base.passiveEffectType = Effect.Health;
+            passiveEffectType = Effect.Health;
         }
         public override void Apply(PlayerScript p)
         {

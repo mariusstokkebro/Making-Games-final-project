@@ -1,8 +1,11 @@
-public enum Effect
+namespace Enums
 {
-    None,
-    Health,
-    Healing,
-    Damage,
-    Speed
+    public enum Effect
+    {
+        None,
+        Health,
+        Healing,
+        Damage,
+        Speed
+    }
 }

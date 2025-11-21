@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4999257749196695878}
   - component: {fileID: 5387619581893558370}
   - component: {fileID: 1240459041905740417}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: EnemyLoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 3013907990175888136}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1, y: 1, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68d1d5b04b2c14651b373870e565c3fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PassiveItemScript
-  itemData: {fileID: 0}
+  item: {fileID: 0}
 --- !u!212 &1240459041905740417
 SpriteRenderer:
   m_ObjectHideFlags: 0

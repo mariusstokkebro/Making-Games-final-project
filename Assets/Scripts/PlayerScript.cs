@@ -1,11 +1,7 @@
-using System;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using Items_and_Weapons;
-using UnityEngine.Serialization;
-using System.Reflection;
 
 public class PlayerScript : BaseEntity, Controls.IPlayerActions
 {
@@ -193,11 +189,12 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
 
         if (context.performed && currentInteractable != null)
         {
+            currentInteractable.Interact(this);
             if (currentInteractable is ItemScript)
             {
                 TooltipManager.Instance.HideTooltip();
+                currentInteractable = null;
             }
-            currentInteractable.Interact(this);
         }
 
     }
@@ -212,7 +209,7 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
         throw new System.NotImplementedException();
     }
 
-    void OnTriggerEnter(Collider collider)
+    void OnTriggerStay(Collider collider)
     {
         if (collider.TryGetComponent<IInteractable>(out var interactable))
         {

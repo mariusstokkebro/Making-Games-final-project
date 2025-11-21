@@ -1,3 +1,4 @@
+using System;
 using Items_and_Weapons.Effects;
 using UnityEngine;
 
@@ -17,7 +18,8 @@ namespace Items_and_Weapons
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = item?.sprite;
             transform.rotation = Quaternion.Euler(0, -45, 0);
-            transform.localScale += (new Vector3(3, 3, 3));
+            transform.localScale = new Vector3(10, 10, 10);
+            transform.position = new Vector3(transform.position.x, 2, transform.position.z);
         }
 
         /// <summary>
@@ -47,5 +49,6 @@ namespace Items_and_Weapons
 
             Destroy(gameObject);
         }
+
     }
 }
