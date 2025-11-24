@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: wall_redwindow
+  m_Name: Floor_Marmor_Dark_Smooth
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
-  m_Parent: {fileID: 2100000, guid: 74680cab059ab834d9fc98c7aacb7f82, type: 2}
+  m_Parent: {fileID: 2100000, guid: 6ca37346f675544f186fea65cd41b10b, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -26,11 +26,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 38e9f8a2e73c2d243a5400b7ececbe64, type: 3}
+        m_Texture: {fileID: 2800000, guid: 36139af08847c4b21bab48887a642018, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 38e9f8a2e73c2d243a5400b7ececbe64, type: 3}
+        m_Texture: {fileID: 2800000, guid: 36139af08847c4b21bab48887a642018, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
@@ -38,7 +38,7 @@ Material:
     m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &7172054265839343712
+--- !u!114 &7435427087883264896
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

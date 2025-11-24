@@ -32,11 +32,10 @@ public class WeaponProjectile : MonoBehaviour
             Destroy(gameObject);
     }
 
-    void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("Hit enemy!");
             other.gameObject.GetComponent<BaseEntity>().TakeDamage(damage);
             Vector3 dir = other.transform.position - transform.position;
             dir.y = 0f; // No vertical knockback
