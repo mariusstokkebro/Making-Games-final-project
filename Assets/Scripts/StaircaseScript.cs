@@ -4,7 +4,14 @@ public class StaircaseScript : MonoBehaviour, IInteractable
 {
     public void Interact(PlayerScript player)
     {
-        LevelGeneration.Instance.generateNextLevel();
+        if (player.HasKey)
+        {
+            LevelGeneration.Instance.generateNextLevel();
+        }
+        else
+        {
+            Debug.Log("You need a key to use the staircase.");
+        }
 
     }
 }

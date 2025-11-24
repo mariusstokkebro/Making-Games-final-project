@@ -16,6 +16,7 @@ public class DoorScript : MonoBehaviour, IInteractable
     {
         //Debug.Log("Door opened");
         Transform room = GetClosestRoom();
+        LevelManager.Instance.CheckIfRoomIsNew(room.gameObject);
         ActivateRoom(room);
         MoveCameraToRoom(room);
         MovePlayerToRoom(player.GetComponent<Collider>());

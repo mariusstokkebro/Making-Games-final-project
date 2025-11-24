@@ -21,6 +21,8 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
     private WeaponBehaviour secondaryWeapon;
     private Animator animator;
 
+    public bool HasKey = false;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
