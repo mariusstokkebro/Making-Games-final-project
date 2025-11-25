@@ -39,6 +39,7 @@ public class LevelManager : MonoBehaviour
 
     private void SpawnKey(GameObject room)
     {
+        Vector3 spawnPos;
         int roomsVisited = visitedRooms.Count;
         float chance = Mathf.Clamp01(roomsVisited * chancePerRoom);
 
@@ -51,7 +52,16 @@ public class LevelManager : MonoBehaviour
 
         if (Random.value < chance)
         {
-            Vector3 spawnPos = new Vector3(room.transform.position.x, room.transform.position.y + 2, room.transform.position.z);
+            if (room.transform.Find("KeySpawn") != null)
+            {
+                spawnPos = room.transform.Find("KeySpawn").position;
+                Debug.Log($"Key spawn point found in {room.name}");
+            }
+            else
+            {
+                Debug.LogWarning($"No key spawn point found in {room.name}. Key will be spawned at room center.");
+                spawnPos = new Vector3(room.transform.position.x, room.transform.position.y + 2, room.transform.position.z);
+            }
 
             Instantiate(keyPrefab, spawnPos, Quaternion.identity);
             keySpawned = true;
