@@ -702,7 +702,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 13.766666
-    functionName: 
+    functionName: StartGame
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
