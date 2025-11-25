@@ -17,4 +17,4 @@ MonoBehaviour:
   description: What soothing touch!
   rarity: 0
   effects:
-  - {fileID: 11400000, guid: ea30bbad65d8e492fae8554873cc2e97, type: 2}
+  - {fileID: 11400000, guid: 94690d2e7b0604d35a74f5eae3d855aa, type: 2}

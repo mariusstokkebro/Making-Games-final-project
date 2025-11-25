@@ -17,5 +17,5 @@ MonoBehaviour:
   description: They give off an uneasy aura.
   rarity: 2
   effects:
-  - {fileID: 11400000, guid: ac5476cd8df22416a88c2f16ba4fef11, type: 2}
+  - {fileID: 11400000, guid: fef33dfd8df404e88bf315b29d829357, type: 2}
   - {fileID: 11400000, guid: 122e21898c4844681b153d23e00e4a3a, type: 2}

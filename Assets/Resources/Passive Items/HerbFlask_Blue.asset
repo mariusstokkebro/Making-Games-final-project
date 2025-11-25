@@ -17,4 +17,4 @@ MonoBehaviour:
   description: Smells potent!
   rarity: 1
   effects:
-  - {fileID: 11400000, guid: fef33dfd8df404e88bf315b29d829357, type: 2}
+  - {fileID: 11400000, guid: ac5476cd8df22416a88c2f16ba4fef11, type: 2}
