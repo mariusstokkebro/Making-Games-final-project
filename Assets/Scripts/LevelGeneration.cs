@@ -47,7 +47,7 @@ public class LevelGeneration : MonoBehaviour
         Transform cameraPoint = startRoom.transform.Find("cameraPoint");
         Camera.main.transform.position = cameraPoint.position;
         Camera.main.transform.rotation = cameraPoint.rotation;
-
+        LevelManager.Instance.AddStartRoom();
         AddRoomDoors(startRoom);
         roomsToDestroy.Add(startRoom);
         for (int i = 0; i < roomAmount; i++)

@@ -1676,7 +1676,7 @@ GameObject:
   - component: {fileID: 2297350433000319964}
   m_Layer: 6
   m_Name: stairway_Room_v1
-  m_TagString: room
+  m_TagString: StartRoom
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

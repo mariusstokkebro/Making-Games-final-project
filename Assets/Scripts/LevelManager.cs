@@ -48,9 +48,7 @@ public class LevelManager : MonoBehaviour
             chance = 1f; // Guarantee key spawn in last room
         }
 
-        Debug.Log($"Trying to spawn key. Chance: {chance * 100}%");
-
-        if (Random.value < chance)
+        if (Random.value < chance && roomsVisited > 2)
         {
             if (room.transform.Find("KeySpawn") != null)
             {
@@ -59,7 +57,6 @@ public class LevelManager : MonoBehaviour
             }
             else
             {
-                Debug.LogWarning($"No key spawn point found in {room.name}. Key will be spawned at room center.");
                 spawnPos = new Vector3(room.transform.position.x, room.transform.position.y + 2, room.transform.position.z);
             }
 
@@ -72,5 +69,23 @@ public class LevelManager : MonoBehaviour
     public int RoomsVisitedCount()
     {
         return visitedRooms.Count;
+    }
+
+    public void ResetLevelProgress()
+    {
+        visitedRooms.Clear();
+        keySpawned = false;
+    }
+    public void AddStartRoom()
+    {
+        GameObject startRoom = GameObject.FindWithTag("StartRoom");
+        if (startRoom != null)
+        {
+            visitedRooms.Add(startRoom);
+        }
+        else
+        {
+            Debug.LogWarning("Start room not found");
+        }
     }
 }

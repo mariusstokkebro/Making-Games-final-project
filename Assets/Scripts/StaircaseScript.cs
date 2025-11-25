@@ -7,6 +7,7 @@ public class StaircaseScript : MonoBehaviour, IInteractable
         if (player.HasKey)
         {
             LevelGeneration.Instance.generateNextLevel();
+            LevelManager.Instance.ResetLevelProgress();
         }
         else
         {
