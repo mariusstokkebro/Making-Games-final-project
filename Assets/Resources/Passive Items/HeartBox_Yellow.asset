@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a459570047ab4efe8c9646d2ea97c00, type: 3}
-  m_Name: HerbFlask
+  m_Name: HeartBox_Yellow
   m_EditorClassIdentifier: Assembly-CSharp::Items_and_Weapons.PassiveItemData
-  itemName: Flask of Herbs
-  sprite: {fileID: 21300000, guid: ac062eaefbc294eb0b8b49419e0430a5, type: 3}
-  description: Smells potent!
-  rarity: 1
+  itemName: Wittwe Wivers Treasure
+  sprite: {fileID: 21300000, guid: 29ea5eda5712b41be86181554c2631bf, type: 3}
+  description: A rare and significant find.
+  rarity: 4
   effects:
-  - {fileID: 11400000, guid: fef33dfd8df404e88bf315b29d829357, type: 2}
+  - {fileID: 11400000, guid: db2234a839221484cacf6f76861199da, type: 2}
+  - {fileID: 11400000, guid: ac5476cd8df22416a88c2f16ba4fef11, type: 2}
+  - {fileID: 11400000, guid: a8a771c18488942c498ab3979834c73c, type: 2}

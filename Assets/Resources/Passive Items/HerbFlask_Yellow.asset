@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a459570047ab4efe8c9646d2ea97c00, type: 3}
-  m_Name: Feather
+  m_Name: HerbFlask_Yellow
   m_EditorClassIdentifier: Assembly-CSharp::Items_and_Weapons.PassiveItemData
-  itemName: Smooth Feather
-  sprite: {fileID: 21300000, guid: ed7484f5d198045f2ba984fee77a4c1d, type: 3}
-  description: Wind behind your wings!
-  rarity: 0
+  itemName: Suspicious Leafs
+  sprite: {fileID: 21300000, guid: d014878886b13482ea1b0f3e29501aab, type: 3}
+  description: A risk but also a chance!
+  rarity: 1
   effects:
-  - {fileID: 11400000, guid: a8a771c18488942c498ab3979834c73c, type: 2}
+  - {fileID: 11400000, guid: 6635fe194f41247f1aabddf7f6cfc048, type: 2}
+  - {fileID: 11400000, guid: f8c23e93a1ab245abb58e02758db3e1d, type: 2}

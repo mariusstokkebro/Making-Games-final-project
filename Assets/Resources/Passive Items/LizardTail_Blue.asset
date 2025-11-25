@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a459570047ab4efe8c9646d2ea97c00, type: 3}
-  m_Name: Talons
+  m_Name: LizardTail_Blue
   m_EditorClassIdentifier: Assembly-CSharp::Items_and_Weapons.PassiveItemData
-  itemName: Talons
-  sprite: {fileID: 21300000, guid: 15777c1aa9f844f1a9812920a4d9e586, type: 3}
-  description: Ouch, that's sharp!
+  itemName: Lizard's Tail
+  sprite: {fileID: 21300000, guid: ad94ddcd3d8ad42c184ee8a9ffa76270, type: 3}
+  description: Got to get out of here!
   rarity: 3
   effects:
-  - {fileID: 11400000, guid: ac5476cd8df22416a88c2f16ba4fef11, type: 2}
+  - {fileID: 11400000, guid: 5b08f55433571441db7169aa3abacfbe, type: 2}
+  - {fileID: 11400000, guid: 5b08f55433571441db7169aa3abacfbe, type: 2}
+  - {fileID: 11400000, guid: eb4627345e88016ecbf9d0c82deae91e, type: 2}

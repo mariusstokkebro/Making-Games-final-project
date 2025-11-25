@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a459570047ab4efe8c9646d2ea97c00, type: 3}
-  m_Name: ChickenFeet
+  m_Name: Feather_Yellow
   m_EditorClassIdentifier: Assembly-CSharp::Items_and_Weapons.PassiveItemData
-  itemName: Chicken Feet
-  sprite: {fileID: 21300000, guid: 80ef15cf31f494ce8b46981c2d4ad0d1, type: 3}
-  description: Avian speed!
+  itemName: Paradis Birds Feather
+  sprite: {fileID: 21300000, guid: ed7484f5d198045f2ba984fee77a4c1d, type: 3}
+  description: What soothing touch!
   rarity: 0
   effects:
-  - {fileID: 11400000, guid: 5b08f55433571441db7169aa3abacfbe, type: 2}
+  - {fileID: 11400000, guid: ea30bbad65d8e492fae8554873cc2e97, type: 2}
