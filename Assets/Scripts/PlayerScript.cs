@@ -17,13 +17,13 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
     private CharacterController controller;
     private IInteractable currentInteractable;
     [SerializeField] private IList<PassiveItemData> items = new List<PassiveItemData>();
-
     [SerializeField] private Weapon saltShaker;
     [SerializeField] private Weapon TestSecondary;
     [SerializeField] private bool usingPrimaryWeapon = true;
     private WeaponBehaviour primaryWeapon;
     private WeaponBehaviour secondaryWeapon;
-    private Animator animator;
+    public Animator animator;
+    public AudioClip attackSound;
 
     void Start()
     {
@@ -145,7 +145,6 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
 
     public void OnAttack(InputAction.CallbackContext context)
     {
-        animator.SetBool("isAttacking", true);
         if (context.performed)
         {
             if (usingPrimaryWeapon)

@@ -45,6 +45,9 @@ public class WeaponBehaviour : MonoBehaviour
             GameObject player = GameObject.FindWithTag("Player");
             if (player == null) return;
             
+            AudioManager.Instance.PlayAttackSound(player.GetComponent<PlayerScript>().attackSound);
+            player.GetComponent<PlayerScript>().animator.SetBool("isAttacking", true);
+
             if (attachToPlayer)
             {
                 Instantiate(projectile, player.transform).Initialize(damage, knockbackMultiplier, range, attackDuration);
