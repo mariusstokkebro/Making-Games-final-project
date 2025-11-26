@@ -6,7 +6,7 @@ public class LevelGeneration : MonoBehaviour
 
     public static LevelGeneration Instance { get { return _instance; } }
 
-    [SerializeField] private int roomAmount = 5;
+    [SerializeField] public int roomAmount = 5;
     // if all doors in one room needs to be used before moving to next room
     private int DoorsUsed = 0;
     [SerializeField] private GameObject startRoom;

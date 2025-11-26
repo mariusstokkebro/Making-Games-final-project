@@ -6,6 +6,7 @@ public class Key : MonoBehaviour, IInteractable
     {
         Debug.Log("Key picked up");
         player.HasKey = true;
+        TooltipManager.Instance.HideTooltip();
         Destroy(gameObject);
 
     }

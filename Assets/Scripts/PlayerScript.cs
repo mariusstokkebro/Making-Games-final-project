@@ -33,7 +33,7 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
         primaryWeapon = saltShaker.EquipWeapon(this);
         animator = GetComponent<Animator>();
         HUD.Instance.SetPrimaryWeapon(saltShaker);
-        HUD.Instance.InitializeHealthBar(health, health/5);
+        HUD.Instance.InitializeHealthBar(health, health / 5);
         HUD.Instance.UpdateHealthBar(health);
         SetSecondaryWeapon(TestSecondary);
     }
@@ -244,7 +244,7 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
         {
             TooltipManager.Instance.ShowTooltip(itemScript.item?.GetDescription());
         }
-        if (collider.TryGetComponent(out Key key))
+        if (collider.TryGetComponent(out Key _))
         {
             TooltipManager.Instance.ShowTooltip("Press 'E' to pick up the key");
         }
@@ -259,6 +259,10 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
                 currentInteractable = null;
         }
         if (collider.TryGetComponent(out ItemScript _))
+        {
+            TooltipManager.Instance.HideTooltip();
+        }
+        if (collider.TryGetComponent(out Key _))
         {
             TooltipManager.Instance.HideTooltip();
         }
