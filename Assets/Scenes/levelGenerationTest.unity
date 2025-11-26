@@ -267,6 +267,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD
       objectReference: {fileID: 0}
+    - target: {fileID: 2201207352682133122, guid: 9f3f139eb596dc140a613b8e8ddbb83c, type: 3}
+      propertyPath: m_Name
+      value: SpeedNumber
+      objectReference: {fileID: 0}
     - target: {fileID: 3441196317057986473, guid: 9f3f139eb596dc140a613b8e8ddbb83c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 47.86216
@@ -315,10 +319,23 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -144.29999
       objectReference: {fileID: 0}
+    - target: {fileID: 4635636641198821303, guid: 9f3f139eb596dc140a613b8e8ddbb83c, type: 3}
+      propertyPath: m_Name
+      value: DamageNumber
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1941414407609756240, guid: 9f3f139eb596dc140a613b8e8ddbb83c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1991898689}
+    - targetCorrespondingSourceObject: {fileID: 4028734336577954683, guid: 9f3f139eb596dc140a613b8e8ddbb83c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 986953037}
+    - targetCorrespondingSourceObject: {fileID: 9051588974792852599, guid: 9f3f139eb596dc140a613b8e8ddbb83c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1340778793}
   m_SourcePrefab: {fileID: 100100000, guid: 9f3f139eb596dc140a613b8e8ddbb83c, type: 3}
 --- !u!1 &432759860 stripped
 GameObject:
@@ -849,6 +866,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 972925293}
   m_CullTransparentMesh: 1
+--- !u!1 &986953033 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4028734336577954683, guid: 9f3f139eb596dc140a613b8e8ddbb83c, type: 3}
+  m_PrefabInstance: {fileID: 291258970}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &986953035 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2267134059057451000, guid: 9f3f139eb596dc140a613b8e8ddbb83c, type: 3}
+  m_PrefabInstance: {fileID: 291258970}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986953033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!114 &986953037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986953033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92948224cae946f4d86df04313dfb956, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StatSlot
+  statType: 0
+  Description: {fileID: 986953035}
+  valueText: {fileID: 1040484181}
 --- !u!1 &1005583750
 GameObject:
   m_ObjectHideFlags: 0
@@ -951,6 +999,28 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1040484181 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3210395101748019972, guid: 9f3f139eb596dc140a613b8e8ddbb83c, type: 3}
+  m_PrefabInstance: {fileID: 291258970}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!114 &1327715245 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3913090914442850890, guid: 9f3f139eb596dc140a613b8e8ddbb83c, type: 3}
+  m_PrefabInstance: {fileID: 291258970}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1331228702
 GameObject:
   m_ObjectHideFlags: 0
@@ -1053,6 +1123,37 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1340778792 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9051588974792852599, guid: 9f3f139eb596dc140a613b8e8ddbb83c, type: 3}
+  m_PrefabInstance: {fileID: 291258970}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1340778793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340778792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92948224cae946f4d86df04313dfb956, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StatSlot
+  statType: 1
+  Description: {fileID: 1340778795}
+  valueText: {fileID: 1327715245}
+--- !u!114 &1340778795 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8036410153627211925, guid: 9f3f139eb596dc140a613b8e8ddbb83c, type: 3}
+  m_PrefabInstance: {fileID: 291258970}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340778792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!20 &1559557066 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 765294186270489896, guid: 741b3d3e56f467542b673461024145c3, type: 3}
@@ -1072,6 +1173,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CameraScript
   target: {fileID: 0}
   moveDuration: 0.2
+--- !u!1 &1991898688 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1941414407609756240, guid: 9f3f139eb596dc140a613b8e8ddbb83c, type: 3}
+  m_PrefabInstance: {fileID: 291258970}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1991898689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991898688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed0b8e87278dd574b8cd58cd0281a7eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StatHUD
+  statSlotElements:
+  - {fileID: 986953037}
+  - {fileID: 1340778793}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
