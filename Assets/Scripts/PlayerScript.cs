@@ -225,6 +225,10 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
         {
             TooltipManager.Instance.ShowTooltip(itemScript.item?.GetDescription());
         }
+        if (collider.TryGetComponent(out Key key))
+        {
+            TooltipManager.Instance.ShowTooltip("Press 'E' to pick up the key");
+        }
     }
 
 
