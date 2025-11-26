@@ -10,6 +10,7 @@ public class Weapon : BaseItem
     public Vector3 offset;
     
     public float damage = 100f;
+    public float knockbackMultiplier = 1f;
     /** Length of the timeframe in which the attack can deal damage */
     public float duration = 0.5f;
     /** Minimum cooldown time between two attacks*/
