@@ -137,6 +137,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3441196317057986473}
   - component: {fileID: 8890981428598901988}
+  - component: {fileID: 1617786716824897365}
   m_Layer: 0
   m_Name: HUD
   m_TagString: Untagged
@@ -177,6 +178,21 @@ MonoBehaviour:
   healthBarDisplay: {fileID: 6938139895934441087}
   primaryWeaponSlot: {fileID: 853626066219282671}
   secondaryWeaponSlot: {fileID: 1007986059822288296}
+--- !u!114 &1617786716824897365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941414407609756240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed0b8e87278dd574b8cd58cd0281a7eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StatHUD
+  statSlotElements:
+  - {fileID: 6120972886490104537}
+  - {fileID: 8768636921512845214}
 --- !u!1 &2201207352682133122
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,7 +205,7 @@ GameObject:
   - component: {fileID: 8992645098858143407}
   - component: {fileID: 3913090914442850890}
   m_Layer: 5
-  m_Name: Number
+  m_Name: SpeedNumber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -365,6 +381,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92948224cae946f4d86df04313dfb956, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  statType: 0
+  Description: {fileID: 0}
+  valueText: {fileID: 0}
+  originalColor: {r: 0, g: 0, b: 0, a: 0}
+  flashDuration: 0.3
 --- !u!1 &4028734336577954683
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,6 +397,7 @@ GameObject:
   - component: {fileID: 4316435258139138180}
   - component: {fileID: 127801283559366639}
   - component: {fileID: 2267134059057451000}
+  - component: {fileID: 6120972886490104537}
   m_Layer: 5
   m_Name: Damage
   m_TagString: Untagged
@@ -502,6 +524,23 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6120972886490104537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4028734336577954683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92948224cae946f4d86df04313dfb956, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StatSlot
+  statType: 0
+  Description: {fileID: 2267134059057451000}
+  valueText: {fileID: 3210395101748019972}
+  originalColor: {r: 0, g: 0, b: 0, a: 0}
+  flashDuration: 0.3
 --- !u!1 &4483048459226730967
 GameObject:
   m_ObjectHideFlags: 0
@@ -589,7 +628,7 @@ GameObject:
   - component: {fileID: 427815449243065759}
   - component: {fileID: 3210395101748019972}
   m_Layer: 5
-  m_Name: Number
+  m_Name: DamageNumber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1185,6 +1224,7 @@ GameObject:
   - component: {fileID: 894152301319588810}
   - component: {fileID: 5182694402735253743}
   - component: {fileID: 8036410153627211925}
+  - component: {fileID: 8768636921512845214}
   m_Layer: 5
   m_Name: Speed
   m_TagString: Untagged
@@ -1313,6 +1353,23 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8768636921512845214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9051588974792852599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92948224cae946f4d86df04313dfb956, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StatSlot
+  statType: 1
+  Description: {fileID: 8036410153627211925}
+  valueText: {fileID: 3913090914442850890}
+  originalColor: {r: 0, g: 0, b: 0, a: 0}
+  flashDuration: 0.3
 --- !u!1 &9139448114525084859
 GameObject:
   m_ObjectHideFlags: 0

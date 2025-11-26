@@ -8,6 +8,7 @@ public class StatHUD : MonoBehaviour
 
     private void Start()
     {
+
         playerEntity = GameObject.FindWithTag("Player").GetComponent<BaseEntity>();
         playerEntity.OnStatChanged += UpdateStatDisplay;
 
@@ -17,10 +18,10 @@ public class StatHUD : MonoBehaviour
             switch (statSlot.statType)
             {
                 case EntityStats.Damage:
-                    statSlot.SetValue(playerEntity.GetDamage());
+                    statSlot.SetValue(playerEntity.GetDamage(), playerEntity.GetDamage());
                     break;
                 case EntityStats.Speed:
-                    statSlot.SetValue(playerEntity.GetMovementSpeed());
+                    statSlot.SetValue(playerEntity.GetMovementSpeed(), playerEntity.GetMovementSpeed());
                     break;
             }
         }
@@ -32,7 +33,8 @@ public class StatHUD : MonoBehaviour
         {
             if (statSlot.statType == type)
             {
-                statSlot.SetValue(newValue);
+                float oldValue = statSlot.GetValue();
+                statSlot.SetValue(newValue, oldValue);
                 return;
             }
         }
