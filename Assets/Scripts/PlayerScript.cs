@@ -19,6 +19,7 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
     [SerializeField] private IList<PassiveItemData> items = new List<PassiveItemData>();
 
     [SerializeField] private Weapon saltShaker;
+    [SerializeField] private Weapon TestSecondary;
     [SerializeField] private bool usingPrimaryWeapon = true;
     private WeaponBehaviour primaryWeapon;
     private WeaponBehaviour secondaryWeapon;
@@ -31,6 +32,7 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
         animator = GetComponent<Animator>();
         HUD.Instance.SetPrimaryWeapon(saltShaker);
         HUD.Instance.UpdateHealthBar(health);
+        SetSecondaryWeapon(TestSecondary);
     }
 
     void Update()

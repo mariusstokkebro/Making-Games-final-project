@@ -56,7 +56,7 @@ public class DoppelGanger : BaseEnemy
 
         if (proj.TryGetComponent<SpearProjectile>(out var spearProj))
         {
-            spearProj.Initialize(damage, 1f, 3f);
+            spearProj.Initialize(damage, 1f, 1f, 3f);
             spearProj.SetTarget(player);
         }
     }

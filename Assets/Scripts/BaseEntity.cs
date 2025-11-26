@@ -17,9 +17,9 @@ public abstract class BaseEntity : MonoBehaviour
     protected float knockbackTimer = 0f;
 
     // Call this when entity gets hit
-    public void ApplyKnockback(Vector3 direction)
+    public void ApplyKnockback(Vector3 direction, float multiplier = 1f)
     {
-        knockbackVelocity = direction.normalized * knockbackStrength;
+        knockbackVelocity = direction.normalized * knockbackStrength * multiplier;
         knockbackTimer = knockbackDuration;
     }
     protected Transform FindEntity(string entityTag)

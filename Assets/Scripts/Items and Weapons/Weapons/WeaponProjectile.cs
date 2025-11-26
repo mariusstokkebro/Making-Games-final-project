@@ -3,6 +3,7 @@ using UnityEngine;
 public class WeaponProjectile : MonoBehaviour
 {
     protected float damage;
+    protected float knockbackMultiplier;
     protected float lifetime;
     protected float countdown;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -11,9 +12,10 @@ public class WeaponProjectile : MonoBehaviour
 
     }
 
-    public void Initialize(float damage, float range, float duration)
+    public void Initialize(float damage, float knockbackMultiplier, float range, float duration)
     {
         this.damage = damage;
+        this.knockbackMultiplier = knockbackMultiplier;
         this.countdown = duration;
         lifetime = duration;
         transform.localScale *= range;
@@ -40,7 +42,7 @@ public class WeaponProjectile : MonoBehaviour
             Vector3 dir = other.transform.position - transform.position;
             dir.y = 0f; // No vertical knockback
 
-            other.gameObject.GetComponent<BaseEntity>().ApplyKnockback(dir);
+            other.gameObject.GetComponent<BaseEntity>().ApplyKnockback(dir, knockbackMultiplier);
         }
     }
 }
