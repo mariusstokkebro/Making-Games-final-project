@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DoppelGanger
   health: 100
-  movementSpeed: 3
+  movementSpeed: 10
   damage: 10
   turnSpeed: 180
   deathEffect: {fileID: 0}

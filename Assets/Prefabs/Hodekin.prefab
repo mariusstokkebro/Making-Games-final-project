@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovingEnemy
   health: 100
-  movementSpeed: 5
+  movementSpeed: 10
   damage: 10
   turnSpeed: 200
   deathEffect: {fileID: 0}

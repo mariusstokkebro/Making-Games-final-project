@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bergmonch
   health: 100
-  movementSpeed: 3
+  movementSpeed: 10
   damage: 10
   turnSpeed: 200
   deathEffect: {fileID: 0}
