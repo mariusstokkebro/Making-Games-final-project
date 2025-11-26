@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a459570047ab4efe8c9646d2ea97c00, type: 3}
-  m_Name: ChickenFeet
+  m_Name: HerbFlask_Yellow
   m_EditorClassIdentifier: Assembly-CSharp::Items_and_Weapons.PassiveItemData
-  itemName: Chicken Feet
-  sprite: {fileID: 21300000, guid: 80ef15cf31f494ce8b46981c2d4ad0d1, type: 3}
-  description: Avian speed!
-  rarity: 0
+  itemName: Suspicious Leafs
+  sprite: {fileID: 21300000, guid: d014878886b13482ea1b0f3e29501aab, type: 3}
+  description: A risk but also a chance!
+  rarity: 1
   effects:
-  - {fileID: 11400000, guid: 5b08f55433571441db7169aa3abacfbe, type: 2}
+  - {fileID: 11400000, guid: 6635fe194f41247f1aabddf7f6cfc048, type: 2}
+  - {fileID: 11400000, guid: f8c23e93a1ab245abb58e02758db3e1d, type: 2}
