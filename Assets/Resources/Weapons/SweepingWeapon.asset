@@ -22,8 +22,8 @@ MonoBehaviour:
   damage: 50
   duration: 0.25
   cooldown: 0.5
-  range: 4
+  range: 5
   movesWithPlayer: 1
   canBreak: 1
-  usesUntilBreak: 10
+  usesUntilBreak: 20
   effect: 0
