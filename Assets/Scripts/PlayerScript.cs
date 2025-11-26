@@ -5,10 +5,13 @@ using Items_and_Weapons;
 
 public class PlayerScript : BaseEntity, Controls.IPlayerActions
 {
-
+    [SerializeField] private float invulnerabilityDuration = 100.0f;
+    public float gravity = -9.81f;
+    private float invulnerabilityTimer = 0.0f;
     private Rigidbody rb;
     private bool _usingController = false;
     private Vector3 _movementDirection;
+    private Vector3 velocity;
     private Vector2 _lookInput;
     private Vector2 _mousePosition;
     private CharacterController controller;
@@ -16,6 +19,7 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
     [SerializeField] private IList<PassiveItemData> items = new List<PassiveItemData>();
 
     [SerializeField] private Weapon saltShaker;
+    [SerializeField] private Weapon TestSecondary;
     [SerializeField] private bool usingPrimaryWeapon = true;
     private WeaponBehaviour primaryWeapon;
     private WeaponBehaviour secondaryWeapon;
@@ -29,13 +33,20 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
         primaryWeapon = saltShaker.EquipWeapon(this);
         animator = GetComponent<Animator>();
         HUD.Instance.SetPrimaryWeapon(saltShaker);
+        HUD.Instance.InitializeHealthBar(health, health/5);
         HUD.Instance.UpdateHealthBar(health);
+        SetSecondaryWeapon(TestSecondary);
     }
 
     void Update()
     {
-        Vector3 move = _movementDirection * (movementSpeed * Time.deltaTime);
-
+        if (invulnerabilityTimer > 0f)
+        {
+            invulnerabilityTimer -= Time.deltaTime;
+        }
+        velocity.y += gravity * Time.deltaTime;
+        Vector3 movevec = _movementDirection * (movementSpeed * Time.deltaTime);
+        Vector3 move = movevec + velocity * Time.deltaTime;
         if (knockbackTimer > 0f)
         {
             move += knockbackVelocity * Time.deltaTime;
@@ -63,6 +74,12 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
 
     public override void TakeDamage(float amount)
     {
+        if (invulnerabilityTimer > 0f)
+        {
+            Debug.Log("Player is invulnerable, no damage taken");
+            return;
+        }
+
         base.TakeDamage(amount);
         HUD.Instance.UpdateHealthBar(health);
         health -= amount;
@@ -70,6 +87,8 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
         {
             animator.SetBool("isHit", true);
         }
+        invulnerabilityTimer = invulnerabilityDuration;
+
     }
 
     public void EndHitTaken()

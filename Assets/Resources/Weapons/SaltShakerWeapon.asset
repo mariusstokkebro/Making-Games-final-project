@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SaltShakerWeapon
   m_EditorClassIdentifier: Assembly-CSharp::Weapon
   itemName: 
-  sprite: {fileID: 21300000, guid: d6d6a0588aa644af29a1155d7a6e2295, type: 3}
+  sprite: {fileID: 21300000, guid: e870122a053134df6b0fc6fcd449e1fe, type: 3}
   description: 
   rarity: 0
   weaponProjectile: {fileID: 7960931600771293886, guid: cf9c3ad201dc77746bde17af5bc8f816, type: 3}
@@ -23,6 +23,7 @@ MonoBehaviour:
   duration: 0.25
   cooldown: 0.3
   range: 10
+  movesWithPlayer: 0
   canBreak: 0
   usesUntilBreak: 10
   effect: 0

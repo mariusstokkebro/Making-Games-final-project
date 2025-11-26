@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a459570047ab4efe8c9646d2ea97c00, type: 3}
-  m_Name: SpeedCharm
+  m_Name: ChickenFeet_Yellow
   m_EditorClassIdentifier: Assembly-CSharp::Items.PassiveItemData
-  itemName: Speed Charm
-  sprite: {fileID: 21300000, guid: 5ba659438346445cc87b96553c0ea6b6, type: 3}
-  description: Wind behind your wings!
-  rarity: 0
+  itemName: Chicken Feet
+  sprite: {fileID: 21300000, guid: 80ef15cf31f494ce8b46981c2d4ad0d1, type: 3}
+  description: Avian speed!
+  rarity: 1
   effects:
-  - {fileID: 11400000, guid: a8a771c18488942c498ab3979834c73c, type: 2}
+  - {fileID: 11400000, guid: 5b08f55433571441db7169aa3abacfbe, type: 2}

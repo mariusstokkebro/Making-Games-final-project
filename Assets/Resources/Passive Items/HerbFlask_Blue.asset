@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a459570047ab4efe8c9646d2ea97c00, type: 3}
-  m_Name: Talons
+  m_Name: HerbFlask_Blue
   m_EditorClassIdentifier: Assembly-CSharp::Items_and_Weapons.PassiveItemData
-  itemName: Talons
-  sprite: {fileID: 21300000, guid: 15777c1aa9f844f1a9812920a4d9e586, type: 3}
-  description: Ouch, that's sharp!
-  rarity: 3
+  itemName: Flask of Herbs
+  sprite: {fileID: 21300000, guid: ac062eaefbc294eb0b8b49419e0430a5, type: 3}
+  description: Smells potent!
+  rarity: 1
   effects:
   - {fileID: 11400000, guid: ac5476cd8df22416a88c2f16ba4fef11, type: 2}

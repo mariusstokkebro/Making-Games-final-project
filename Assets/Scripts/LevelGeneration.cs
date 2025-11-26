@@ -6,6 +6,16 @@ public class LevelGeneration : MonoBehaviour
 
     public static LevelGeneration Instance { get { return _instance; } }
 
+    [SerializeField] private int roomAmount = 5;
+    // if all doors in one room needs to be used before moving to next room
+    private int DoorsUsed = 0;
+    [SerializeField] private GameObject startRoom;
+    [SerializeField] private List<RoomsInLevel> roomPrefabsByLevel = new List<RoomsInLevel>();
+    [SerializeField] private int level = 0;
+    private Transform attachDoor;
+    private List<Transform> availableDoors = new List<Transform>();
+    private List<Transform> doorsToDestroy = new List<Transform>();
+    private List<GameObject> roomsToDestroy = new List<GameObject>();
 
     private void Awake()
     {
@@ -18,16 +28,6 @@ public class LevelGeneration : MonoBehaviour
             _instance = this;
         }
     }
-    [SerializeField] public int roomAmount = 5;
-    // if all doors in one room needs to be used before moving to next room
-    private int DoorsUsed = 0;
-    [SerializeField] public GameObject startRoom;
-    [SerializeField] private List<RoomsInLevel> roomPrefabsByLevel = new List<RoomsInLevel>();
-    [SerializeField] private int level = 0;
-    private Transform attachDoor;
-    private List<Transform> availableDoors = new List<Transform>();
-    private List<Transform> doorsToDestroy = new List<Transform>();
-    private List<GameObject> roomsToDestroy = new List<GameObject>();
 
     void Start()
     {

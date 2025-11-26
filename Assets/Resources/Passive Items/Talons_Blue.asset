@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a459570047ab4efe8c9646d2ea97c00, type: 3}
-  m_Name: Feather
+  m_Name: Talons_Blue
   m_EditorClassIdentifier: Assembly-CSharp::Items_and_Weapons.PassiveItemData
-  itemName: Smooth Feather
-  sprite: {fileID: 21300000, guid: ed7484f5d198045f2ba984fee77a4c1d, type: 3}
-  description: Wind behind your wings!
-  rarity: 0
+  itemName: Alp's Talons
+  sprite: {fileID: 21300000, guid: 15777c1aa9f844f1a9812920a4d9e586, type: 3}
+  description: They give off an uneasy aura.
+  rarity: 2
   effects:
-  - {fileID: 11400000, guid: a8a771c18488942c498ab3979834c73c, type: 2}
+  - {fileID: 11400000, guid: fef33dfd8df404e88bf315b29d829357, type: 2}
+  - {fileID: 11400000, guid: 122e21898c4844681b153d23e00e4a3a, type: 2}
