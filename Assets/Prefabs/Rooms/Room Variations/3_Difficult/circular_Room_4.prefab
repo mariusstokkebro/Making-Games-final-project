@@ -162,7 +162,7 @@ Transform:
   - {fileID: 8356958354366795475}
   - {fileID: 8951925645408155335}
   - {fileID: 2536855172396755030}
-  m_Father: {fileID: 9172055240369691190}
+  m_Father: {fileID: 9009782403909378163}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &992608199311860468
 GameObject:
@@ -286,7 +286,6 @@ Transform:
   m_Children:
   - {fileID: 5091832928044241909}
   - {fileID: 9009782403909378163}
-  - {fileID: 1551423572013410518}
   - {fileID: 3593300940685073112}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -669,6 +668,7 @@ Transform:
   - {fileID: 4138830429374322010}
   - {fileID: 5263180300997728303}
   - {fileID: 6616537984024288004}
+  - {fileID: 1551423572013410518}
   m_Father: {fileID: 9172055240369691190}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5652693370921636087
