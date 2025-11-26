@@ -321,6 +321,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MenuScript
   creditsScreen: {fileID: 845754128}
   tutorialScreen: {fileID: 1405748670}
+  startGameSound: {fileID: 8300000, guid: 3286e32db3e2e1b448bfc10a26076726, type: 3}
+  hoverSound: {fileID: 8300000, guid: 5c5d3673685fb364d9b6f101b54741b9, type: 3}
+  buttonSound: {fileID: 8300000, guid: 0d445d91cfcb47c45b88893dfafea8c9, type: 3}
 --- !u!1 &162561145
 GameObject:
   m_ObjectHideFlags: 0
