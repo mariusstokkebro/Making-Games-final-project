@@ -1318,14 +1318,14 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 64
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.58
-  m_Height: 2.3988042
+  m_Radius: 1.0799999
+  m_Height: 3.1599998
   m_Direction: 1
-  m_Center: {x: -0.057480514, y: 0.97846484, z: -0.019789577}
+  m_Center: {x: -0.057480335, y: 0.47846484, z: -0.019789696}
 --- !u!114 &-3694154897782642976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1520,7 +1520,10 @@ MonoBehaviour:
     e33: 1
   knockbackStrength: 10
   knockbackDuration: 0.15
+  invulnerabilityDuration: 0.2
+  gravity: -9.81
   saltShaker: {fileID: 11400000, guid: 9ea9cb76d0b4c484a96c8e9665e2fbec, type: 2}
+  TestSecondary: {fileID: 11400000, guid: 98539ff9536962748ab9348102892e5a, type: 2}
   usingPrimaryWeapon: 1
 --- !u!143 &-4665040170105338904
 CharacterController:

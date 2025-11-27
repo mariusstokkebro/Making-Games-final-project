@@ -6,6 +6,16 @@ public class LevelGeneration : MonoBehaviour
 
     public static LevelGeneration Instance { get { return _instance; } }
 
+    [SerializeField] public int roomAmount = 5;
+    // if all doors in one room needs to be used before moving to next room
+    private int DoorsUsed = 0;
+    [SerializeField] private GameObject startRoom;
+    [SerializeField] private List<RoomsInLevel> roomPrefabsByLevel = new List<RoomsInLevel>();
+    [SerializeField] private int level = 0;
+    private Transform attachDoor;
+    private List<Transform> availableDoors = new List<Transform>();
+    private List<Transform> doorsToDestroy = new List<Transform>();
+    private List<GameObject> roomsToDestroy = new List<GameObject>();
 
     private void Awake()
     {
@@ -18,16 +28,6 @@ public class LevelGeneration : MonoBehaviour
             _instance = this;
         }
     }
-    [SerializeField] private int roomAmount = 5;
-    // if all doors in one room needs to be used before moving to next room
-    private int DoorsUsed = 0;
-    [SerializeField] private GameObject startRoom;
-    [SerializeField] private List<RoomsInLevel> roomPrefabsByLevel = new List<RoomsInLevel>();
-    [SerializeField] private int level = 0;
-    private Transform attachDoor;
-    private List<Transform> availableDoors = new List<Transform>();
-    private List<Transform> doorsToDestroy = new List<Transform>();
-    private List<GameObject> roomsToDestroy = new List<GameObject>();
 
     void Start()
     {
@@ -47,7 +47,7 @@ public class LevelGeneration : MonoBehaviour
         Transform cameraPoint = startRoom.transform.Find("cameraPoint");
         Camera.main.transform.position = cameraPoint.position;
         Camera.main.transform.rotation = cameraPoint.rotation;
-
+        LevelManager.Instance.AddStartRoom();
         AddRoomDoors(startRoom);
         roomsToDestroy.Add(startRoom);
         for (int i = 0; i < roomAmount; i++)
@@ -173,11 +173,16 @@ public class LevelGeneration : MonoBehaviour
     }
     public void generateNextLevel()
     {
-        if (roomPrefabsByLevel.Count-1 == level) return;
+        if (roomPrefabsByLevel.Count - 1 == level) return;
 
         level++;
         generateLevel(roomPrefabsByLevel, roomAmount, level);
-        HUD.Instance.UpdateFloorDisplay(level+1);
+        HUD.Instance.UpdateFloorDisplay(level + 1);
+    }
+
+    public List<GameObject> getCurrentRooms()
+    {
+        return roomsToDestroy;
     }
 
 

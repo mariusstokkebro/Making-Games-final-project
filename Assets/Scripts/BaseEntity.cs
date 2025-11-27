@@ -1,5 +1,6 @@
 using Items_and_Weapons;
 using UnityEngine;
+using System;
 
 public abstract class BaseEntity : MonoBehaviour
 {
@@ -11,14 +12,14 @@ public abstract class BaseEntity : MonoBehaviour
     [SerializeField] protected Matrix4x4 _matrix = Matrix4x4.Rotate(Quaternion.Euler(0, -45, 0));
     [SerializeField] protected float knockbackStrength = 10f;
     [SerializeField] protected float knockbackDuration = 0.15f;
-
+    public event Action<EntityStats, float> OnStatChanged;
     protected Vector3 knockbackVelocity;
     protected float knockbackTimer = 0f;
 
     // Call this when entity gets hit
-    public void ApplyKnockback(Vector3 direction)
+    public void ApplyKnockback(Vector3 direction, float multiplier = 1f)
     {
-        knockbackVelocity = direction.normalized * knockbackStrength;
+        knockbackVelocity = direction.normalized * knockbackStrength * multiplier;
         knockbackTimer = knockbackDuration;
     }
     protected Transform FindEntity(string entityTag)
@@ -45,13 +46,18 @@ public abstract class BaseEntity : MonoBehaviour
     public float GetMovementSpeed() => movementSpeed;
     public void ModifyMovementSpeed(float newMovementSpeed)
     {
+
         movementSpeed = newMovementSpeed;
+        OnStatChanged?.Invoke(EntityStats.Speed, movementSpeed);
+
     }
 
     public float GetDamage() => damage;
     public void ModifyDamage(float newDamage)
     {
         damage = newDamage;
+        OnStatChanged?.Invoke(EntityStats.Damage, damage);
+
     }
 
     public float GetHealth() => health;

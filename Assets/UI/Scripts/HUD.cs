@@ -2,6 +2,7 @@ using System;
 using System.Timers;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class HUD : MonoBehaviour
     [SerializeField] private HealthBar healthBarDisplay;
     [SerializeField] private WeaponSlot primaryWeaponSlot;
     [SerializeField] private WeaponSlot secondaryWeaponSlot;
+    [SerializeField] private Image KeyDisplay;
 
     private bool usingPrimaryWeapon = true;
     private Vector3 activeWeaponPosition;
@@ -35,6 +37,7 @@ public class HUD : MonoBehaviour
     void Start()
     {
         timerValue = TimeSpan.Zero;
+        HideKeyDisplay();
         
         // Save weapon slot positions for switching
         activeWeaponPosition = primaryWeaponSlot.transform.localPosition;
@@ -44,7 +47,7 @@ public class HUD : MonoBehaviour
         
         // Initialization, TODO remove
         UpdateFloorDisplay(1);
-        //healthBarDisplay.Initialize(6, 1);
+        
     }
 
     // Update is called once per frame
@@ -107,7 +110,15 @@ public class HUD : MonoBehaviour
 
         usingPrimaryWeapon = !usingPrimaryWeapon;
     }
+
+    public void ShowKeyDisplay()
+    {
+        KeyDisplay.enabled = true;
+    }
     
-    // TODO item display
+    public void HideKeyDisplay()
+    {
+        KeyDisplay.enabled = false;
+    }
     
 }

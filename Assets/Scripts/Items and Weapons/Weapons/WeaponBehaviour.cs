@@ -4,6 +4,7 @@ public class WeaponBehaviour : MonoBehaviour
 {
     private WeaponProjectile projectile;
     private float damage;
+    private float knockbackMultiplier;
     private float attackDuration;
     private float range;
     private bool attachToPlayer;
@@ -28,6 +29,7 @@ public class WeaponBehaviour : MonoBehaviour
         particleEffect = weaponData.visualEffect.GetComponent<ParticleEffect>();
 
         damage = weaponData.damage;
+        knockbackMultiplier = weaponData.knockbackMultiplier;
         attackDuration = weaponData.duration;
         range = weaponData.range;
         attachToPlayer = weaponData.movesWithPlayer;
@@ -45,7 +47,7 @@ public class WeaponBehaviour : MonoBehaviour
             
             if (attachToPlayer)
             {
-                Instantiate(projectile, player.transform).Initialize(damage, range, attackDuration);
+                Instantiate(projectile, player.transform).Initialize(damage, knockbackMultiplier, range, attackDuration);
                 Instantiate(particleEffect, player.transform);
             }
             else
@@ -54,7 +56,7 @@ public class WeaponBehaviour : MonoBehaviour
                 var position = player.transform.position;
                 var fireAngle = rotation * Quaternion.Euler(0, -90, 0);
                 
-                Instantiate(projectile, position, fireAngle).Initialize(damage, range, attackDuration);
+                Instantiate(projectile, position, fireAngle).Initialize(damage, knockbackMultiplier, range, attackDuration);
                 Instantiate(particleEffect, position, fireAngle);
             }
             countdown = cooldownTime;
