@@ -9,6 +9,7 @@ public class MenuScript : MonoBehaviour
     private bool creditsActive = false;
     public GameObject tutorialScreen;
     private bool tutorialActive = false;
+    public Animator animator;
 
     private void Update()
     {
@@ -27,10 +28,7 @@ public class MenuScript : MonoBehaviour
 
     public void PlayGame()
     {
-        //Cursor.visible = false;
-        //Cursor.lockState = CursorLockMode.Locked;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        //Time.timeScale = 1;
+        animator.SetBool("Play", true);
     }
 
     public void BackToMenu()
