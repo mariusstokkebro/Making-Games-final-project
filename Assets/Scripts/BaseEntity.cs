@@ -15,6 +15,7 @@ public abstract class BaseEntity : MonoBehaviour
     public event Action<EntityStats, float> OnStatChanged;
     protected Vector3 knockbackVelocity;
     protected float knockbackTimer = 0f;
+    public AudioClip hitClip;
 
     // Call this when entity gets hit
     public void ApplyKnockback(Vector3 direction, float multiplier = 1f)
@@ -30,6 +31,7 @@ public abstract class BaseEntity : MonoBehaviour
 
     public virtual void TakeDamage(float amount)
     {
+        PlayHitSound();
         health -= amount;
         if (health <= 0)
         {
@@ -37,6 +39,11 @@ public abstract class BaseEntity : MonoBehaviour
         }
     }
 
+    private void PlayHitSound()
+    {
+        AudioManager.Instance.PlaySFX(hitClip);
+    }
+    
     protected virtual void Die()
     {
         if (deathEffect) Instantiate(deathEffect, transform.position, Quaternion.identity);

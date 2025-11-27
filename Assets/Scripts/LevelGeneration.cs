@@ -11,7 +11,7 @@ public class LevelGeneration : MonoBehaviour
     private int DoorsUsed = 0;
     [SerializeField] private GameObject startRoom;
     [SerializeField] private List<RoomsInLevel> roomPrefabsByLevel = new List<RoomsInLevel>();
-    [SerializeField] private int level = 0;
+    public int level = 0;
     private Transform attachDoor;
     private List<Transform> availableDoors = new List<Transform>();
     private List<Transform> doorsToDestroy = new List<Transform>();
@@ -176,6 +176,7 @@ public class LevelGeneration : MonoBehaviour
         if (roomPrefabsByLevel.Count - 1 == level) return;
 
         level++;
+        AudioManager.Instance.UpdateFloorMusic(level);
         generateLevel(roomPrefabsByLevel, roomAmount, level);
         HUD.Instance.UpdateFloorDisplay(level + 1);
     }

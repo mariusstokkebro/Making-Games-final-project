@@ -1,7 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuScript : MonoBehaviour
 {
@@ -9,7 +9,15 @@ public class MenuScript : MonoBehaviour
     private bool creditsActive = false;
     public GameObject tutorialScreen;
     private bool tutorialActive = false;
+    [SerializeField] private AudioClip startGameSound;
+    [SerializeField] private AudioClip hoverSound;
+    [SerializeField] private AudioClip buttonSound;
     public Animator animator;
+    private void Start()
+    {
+        HookButtons();
+        AudioManager.Instance.PlayMenuMusic();
+    }
 
     private void Update()
     {
@@ -26,8 +34,40 @@ public class MenuScript : MonoBehaviour
         }
     }
 
+    private void HookButtons()
+    {
+        Button[] buttons = GetComponentsInChildren<Button>(true);
+
+        foreach (Button btn in buttons)
+        {
+
+            btn.onClick.AddListener(() => {
+                if (btn.name != "Button_Start")
+                {
+                    AudioManager.Instance.PlaySFX(buttonSound);
+                }
+            });
+
+            EventTrigger trigger = btn.gameObject.AddComponent<EventTrigger>();
+
+            EventTrigger.Entry entry = new EventTrigger.Entry();
+            entry.eventID = EventTriggerType.PointerEnter;
+            entry.callback.AddListener((_) =>
+            {
+                AudioManager.Instance.PlaySFX(hoverSound);
+            });
+
+            trigger.triggers.Add(entry);
+        }
+    }
+    
     public void PlayGame()
     {
+        //Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        AudioManager.Instance.PlaySFX(startGameSound);      
+        //Time.timeScale = 1;
         animator.SetBool("Play", true);
     }
 

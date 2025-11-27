@@ -71,6 +71,7 @@ MonoBehaviour:
     e33: 1
   knockbackStrength: 25
   knockbackDuration: 0.1
+  hitClip: {fileID: 8300000, guid: 17eb5b67060840d48b987ec5da76ed0d, type: 3}
   gravity: -9.81
   activationDelay: 1
   lootPrefab: {fileID: 3013907990175888136, guid: 51fb4f3aa2bfe4f81be978de76d07700, type: 3}
