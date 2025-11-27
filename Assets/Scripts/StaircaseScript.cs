@@ -12,6 +12,7 @@ public class StaircaseScript : MonoBehaviour, IInteractable
             LevelGeneration.Instance.generateNextLevel();
             LevelManager.Instance.ResetLevelProgress();
             player.HasKey = false;
+            HUD.Instance.HideKeyDisplay();
         }
         else
         {
