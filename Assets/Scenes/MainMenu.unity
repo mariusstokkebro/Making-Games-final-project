@@ -380,11 +380,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'WASD
+  m_text: 'WASD / Left Stick
 
-    E
+    Mouse / Right Stick
 
-    Mouse Click'
+    E / A Button
+
+    Mouse
+    Click / Right Bumper
+
+    Space / X Button'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6b491fa623eba3d40aa8790a3b50dd8f, type: 2}
   m_sharedMaterial: {fileID: 5519146468287634525, guid: 6b491fa623eba3d40aa8790a3b50dd8f, type: 2}
@@ -411,8 +416,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 110
-  m_fontSizeBase: 110
+  m_fontSize: 90
+  m_fontSizeBase: 90
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3054,9 +3059,13 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Movement
 
+    Aim
+
     Interaction
 
-    Shoot'
+    Shoot
+
+    Switch Weapons'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6b491fa623eba3d40aa8790a3b50dd8f, type: 2}
   m_sharedMaterial: {fileID: 5519146468287634525, guid: 6b491fa623eba3d40aa8790a3b50dd8f, type: 2}
@@ -3083,8 +3092,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 110
-  m_fontSizeBase: 110
+  m_fontSize: 90
+  m_fontSizeBase: 90
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
