@@ -355,7 +355,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -473.00012, y: -184}
+  m_AnchoredPosition: {x: -306, y: -184}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &162561147
@@ -378,11 +378,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'WASD
-
-    E
-
-    Mouse Click'
+  m_text: "WASD / Left Stick\nMouse / Right Stick\nE / A Button \nMouse Click / Right
+    Bumper\nSpace / X Button"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6b491fa623eba3d40aa8790a3b50dd8f, type: 2}
   m_sharedMaterial: {fileID: 5519146468287634525, guid: 6b491fa623eba3d40aa8790a3b50dd8f, type: 2}
@@ -409,8 +406,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 110
-  m_fontSizeBase: 110
+  m_fontSize: 80
+  m_fontSizeBase: 80
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1281,7 +1278,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &845754129
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1886,7 +1883,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1405748671
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2679,7 +2676,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 665, y: -184}
+  m_AnchoredPosition: {x: 832.0001, y: -184}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1929567370
@@ -2704,9 +2701,13 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Movement
 
+    Aim
+
     Interaction
 
-    Shoot'
+    Shoot
+
+    Switch Weapon'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6b491fa623eba3d40aa8790a3b50dd8f, type: 2}
   m_sharedMaterial: {fileID: 5519146468287634525, guid: 6b491fa623eba3d40aa8790a3b50dd8f, type: 2}
@@ -2733,8 +2734,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 110
-  m_fontSizeBase: 110
+  m_fontSize: 80
+  m_fontSizeBase: 80
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2847,7 +2848,7 @@ MonoBehaviour:
     Design Lead, 3D Art, 2D Art, Code
 
     UX
-    Design Lead, Code
+    Design Lead, UI, Code
 
     Tech Lead, Code
 
