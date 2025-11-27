@@ -37,8 +37,9 @@ public class Bergmonch : BaseEnemy
         isDashing = true;
         dashTimer = dashDuration;
         dashCooldownTimer = dashCooldown;
-        dashDirection = (targetPosition - transform.position).normalized;
-        dashDirection.y = 0f;
+        dashDirection = targetPosition - transform.position;
+        dashDirection.Scale(new Vector3(Random.Range(1f, 5f), 0f, Random.Range(1f, 5f)));
+        dashDirection.Normalize();
     }
 
     private void DashMovement()
