@@ -123,8 +123,8 @@ MonoBehaviour:
   gravity: -9.81
   activationDelay: 1
   lootPrefab: {fileID: 0}
-  dashSpeed: 30
-  dashDuration: 0.2
+  dashSpeed: 40
+  dashDuration: 0.3
   dashCooldown: 1.5
   dashDetectionRange: 25
 --- !u!1001 &3403086913996569031

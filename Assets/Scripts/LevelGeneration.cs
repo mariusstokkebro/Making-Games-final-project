@@ -6,7 +6,7 @@ public class LevelGeneration : MonoBehaviour
 
     public static LevelGeneration Instance { get { return _instance; } }
 
-    [SerializeField] private int roomAmount = 5;
+    [SerializeField] public int roomAmount = 5;
     // if all doors in one room needs to be used before moving to next room
     private int DoorsUsed = 0;
     [SerializeField] private GameObject startRoom;
@@ -29,7 +29,6 @@ public class LevelGeneration : MonoBehaviour
         }
     }
 
-
     void Start()
     {
         generateLevel(roomPrefabsByLevel, roomAmount, level);
@@ -48,7 +47,7 @@ public class LevelGeneration : MonoBehaviour
         Transform cameraPoint = startRoom.transform.Find("cameraPoint");
         Camera.main.transform.position = cameraPoint.position;
         Camera.main.transform.rotation = cameraPoint.rotation;
-
+        LevelManager.Instance.AddStartRoom();
         AddRoomDoors(startRoom);
         roomsToDestroy.Add(startRoom);
         for (int i = 0; i < roomAmount; i++)
@@ -180,6 +179,11 @@ public class LevelGeneration : MonoBehaviour
         AudioManager.Instance.UpdateFloorMusic(level);
         generateLevel(roomPrefabsByLevel, roomAmount, level);
         HUD.Instance.UpdateFloorDisplay(level + 1);
+    }
+
+    public List<GameObject> getCurrentRooms()
+    {
+        return roomsToDestroy;
     }
 
 

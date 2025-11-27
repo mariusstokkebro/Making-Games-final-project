@@ -12,7 +12,7 @@ public class MenuScript : MonoBehaviour
     [SerializeField] private AudioClip startGameSound;
     [SerializeField] private AudioClip hoverSound;
     [SerializeField] private AudioClip buttonSound;
-
+    public Animator animator;
     private void Start()
     {
         HookButtons();
@@ -40,10 +40,12 @@ public class MenuScript : MonoBehaviour
 
         foreach (Button btn in buttons)
         {
-            if (btn.name == "Button_Start") continue;
 
             btn.onClick.AddListener(() => {
-                AudioManager.Instance.PlaySFX(buttonSound);
+                if (btn.name != "Button_Start")
+                {
+                    AudioManager.Instance.PlaySFX(buttonSound);
+                }
             });
 
             EventTrigger trigger = btn.gameObject.AddComponent<EventTrigger>();
@@ -66,6 +68,7 @@ public class MenuScript : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         AudioManager.Instance.PlaySFX(startGameSound);      
         //Time.timeScale = 1;
+        animator.SetBool("Play", true);
     }
 
     public void BackToMenu()
