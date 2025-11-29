@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d5159e06a513469caa51de5d638b090, type: 3}
-  m_Name: Health2up
+  m_Name: MaxHealth10down
   m_EditorClassIdentifier: Assembly-CSharp::Effects.ModifyHealthEffect
-  increase: 2
+  passiveEffectType: 1
+  increase: -10
   multiplier: 1
