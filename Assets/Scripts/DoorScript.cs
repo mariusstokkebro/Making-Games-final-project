@@ -5,6 +5,7 @@ public class DoorScript : MonoBehaviour, IInteractable
     LayerMask doorMask;
     int distanceFromDoorToPlayer = 4;
     Vector3 back;
+    public AudioClip doorSound;
     void Start()
     {
         roomMask = LayerMask.GetMask("Room");
@@ -15,6 +16,7 @@ public class DoorScript : MonoBehaviour, IInteractable
     public void Interact(PlayerScript player)
     {
         //Debug.Log("Door opened");
+        AudioManager.Instance.PlaySFX(doorSound);
         Transform room = GetClosestRoom();
         LevelManager.Instance.CheckIfRoomIsNew(room.gameObject);
         ActivateRoom(room);
