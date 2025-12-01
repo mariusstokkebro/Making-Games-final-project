@@ -1027,7 +1027,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 19491784854010111}
-  - {fileID: 6846171098065345967}
   - {fileID: 4904088442460604213}
   - {fileID: 3106044726629640822}
   - {fileID: 2977876025570263200}
@@ -1672,7 +1671,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 209837457250270225, guid: d830eee4170839d4a9102321497822d5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.7543497
+      value: -3.2
       objectReference: {fileID: 0}
     - target: {fileID: 209837457250270225, guid: d830eee4170839d4a9102321497822d5, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1680,7 +1679,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 209837457250270225, guid: d830eee4170839d4a9102321497822d5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -23.23386
+      value: -25.6
       objectReference: {fileID: 0}
     - target: {fileID: 209837457250270225, guid: d830eee4170839d4a9102321497822d5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2343,68 +2342,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3060351543131972063, guid: b38f0ed1bdb4dcf47975f3cc581d1613, type: 3}
   m_PrefabInstance: {fileID: 6145854425592880277}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &6767505448078811582
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 2010743634500099228}
-    m_Modifications:
-    - target: {fileID: 209837457250270225, guid: d830eee4170839d4a9102321497822d5, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -6.64435
-      objectReference: {fileID: 0}
-    - target: {fileID: 209837457250270225, guid: d830eee4170839d4a9102321497822d5, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 209837457250270225, guid: d830eee4170839d4a9102321497822d5, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2.7938595
-      objectReference: {fileID: 0}
-    - target: {fileID: 209837457250270225, guid: d830eee4170839d4a9102321497822d5, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 209837457250270225, guid: d830eee4170839d4a9102321497822d5, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 209837457250270225, guid: d830eee4170839d4a9102321497822d5, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 209837457250270225, guid: d830eee4170839d4a9102321497822d5, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 209837457250270225, guid: d830eee4170839d4a9102321497822d5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 209837457250270225, guid: d830eee4170839d4a9102321497822d5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 209837457250270225, guid: d830eee4170839d4a9102321497822d5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5992257286763761863, guid: d830eee4170839d4a9102321497822d5, type: 3}
-      propertyPath: m_Name
-      value: Hodekin (1)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d830eee4170839d4a9102321497822d5, type: 3}
---- !u!4 &6846171098065345967 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 209837457250270225, guid: d830eee4170839d4a9102321497822d5, type: 3}
-  m_PrefabInstance: {fileID: 6767505448078811582}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6951602786951089725
 PrefabInstance:
