@@ -23,7 +23,7 @@ MonoBehaviour:
   knockbackMultiplier: 1
   duration: 0.25
   cooldown: 0.3
-  range: 15
+  range: 13
   movesWithPlayer: 0
   canBreak: 0
   usesUntilBreak: 10
