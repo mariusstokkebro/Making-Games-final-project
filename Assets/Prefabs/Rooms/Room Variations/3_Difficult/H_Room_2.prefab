@@ -828,6 +828,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Walpurgis_H_Room
       objectReference: {fileID: 0}
+    - target: {fileID: 1150341647856530838, guid: 4c77dde2a3bc440dda053341831a2c2b, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 6597448722278605960, guid: 4c77dde2a3bc440dda053341831a2c2b, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
