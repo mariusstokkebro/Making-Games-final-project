@@ -3,11 +3,13 @@ using UnityEngine;
 public class StaircaseScript : MonoBehaviour, IInteractable
 {
     [SerializeField] private SpriteRenderer lockSprite;
+    public AudioClip unlockDoor;
 
     public void Interact(PlayerScript player)
     {
         if (player.HasKey)
         {
+            AudioManager.Instance.PlaySFX(unlockDoor);
             lockSprite.enabled = false;
             LevelGeneration.Instance.generateNextLevel();
             LevelManager.Instance.ResetLevelProgress();

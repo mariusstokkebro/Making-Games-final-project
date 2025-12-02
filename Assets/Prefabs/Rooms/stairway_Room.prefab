@@ -2929,6 +2929,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: stairsDownNEW
       objectReference: {fileID: 0}
+    - target: {fileID: 7615002317827327412, guid: 1c821442ff8ba3f48b2cd481877b53b8, type: 3}
+      propertyPath: unlockDoor
+      value: 
+      objectReference: {fileID: 8300000, guid: 26be1a4a35406ee4fb842a41eb487be9, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

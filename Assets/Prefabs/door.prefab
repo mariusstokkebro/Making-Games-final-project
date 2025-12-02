@@ -124,3 +124,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61afc11dbc84b7547a05e0b33450da0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DoorScript
+  doorSound: {fileID: 8300000, guid: 7f68926e4e95c4547b6f85159d2fad71, type: 3}

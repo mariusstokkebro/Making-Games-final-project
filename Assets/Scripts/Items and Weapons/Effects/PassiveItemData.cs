@@ -12,14 +12,13 @@ namespace Items_and_Weapons
         public override string GetDescription()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine(itemName);
 
             if (effects != null && effects.Length > 0)
             {
                 foreach (var effect in effects)
                 {
                     if (effect != null)
-                        sb.AppendLine($"{effect.passiveEffectType} {effect.GetDescription()}");
+                        sb.AppendLine($"{effect.passiveEffectType}{effect.GetDescription()}");
                 }
             }
             else

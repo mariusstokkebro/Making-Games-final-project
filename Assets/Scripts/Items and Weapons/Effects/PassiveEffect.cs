@@ -14,11 +14,29 @@ namespace Items_and_Weapons.Effects
             var output = $"";
             if (increase > 0f)
             {
-                output += $"increase: {increase} ";
+                if (increase > 1.0f)
+                {
+                    output += "++";
+                }
+                else
+                {
+                    output += "+";
+                }
             }
             if (multiplier > 1.0f)
             {
-                output += $"multiplier: {multiplier} ";
+                output += $"x{multiplier}";
+            }
+            if (increase < 0f)
+            {
+                if (increase < -1.0f)
+                {
+                    output += "--";
+                }
+                else
+                {
+                    output += "-";
+                }
             }
             return output;
         }
