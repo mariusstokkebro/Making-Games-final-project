@@ -42,14 +42,14 @@ public class LevelGeneration : MonoBehaviour
         }
         availableDoors.Clear();
         DoorsUsed = 0;
-        Instantiate(startRoom, Vector3.zero, Quaternion.identity);
+        GameObject realStartRoom = Instantiate(startRoom, Vector3.zero, Quaternion.identity);
         //move camera to start room
         Transform cameraPoint = startRoom.transform.Find("cameraPoint");
         Camera.main.transform.position = cameraPoint.position;
         Camera.main.transform.rotation = cameraPoint.rotation;
         LevelManager.Instance.AddStartRoom();
         AddRoomDoors(startRoom);
-        roomsToDestroy.Add(startRoom);
+        roomsToDestroy.Add(realStartRoom);
         for (int i = 0; i < roomAmount; i++)
         {
             if (availableDoors.Count == 0)
