@@ -20,9 +20,10 @@ MonoBehaviour:
   visualEffect: {fileID: 2176640399428159979, guid: 2de9349a1bde6b948bcbe82502c067d7, type: 3}
   offset: {x: 0, y: 0, z: 0}
   damage: 25
+  knockbackMultiplier: 1
   duration: 0.25
   cooldown: 0.3
-  range: 10
+  range: 13
   movesWithPlayer: 0
   canBreak: 0
   usesUntilBreak: 10
