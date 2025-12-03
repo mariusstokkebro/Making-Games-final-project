@@ -6,16 +6,18 @@ public class LevelGeneration : MonoBehaviour
 
     public static LevelGeneration Instance { get { return _instance; } }
 
-    [SerializeField] public int roomAmount = 5;
+    [SerializeField] public List<int> roomAmountPerLevel = new List<int>() { 5, 6, 7 };
     // if all doors in one room needs to be used before moving to next room
     private int DoorsUsed = 0;
-    [SerializeField] private GameObject startRoom;
+
     [SerializeField] private List<RoomsInLevel> roomPrefabsByLevel = new List<RoomsInLevel>();
     public int level = 0;
     private Transform attachDoor;
     private List<Transform> availableDoors = new List<Transform>();
     private List<Transform> doorsToDestroy = new List<Transform>();
     private List<GameObject> roomsToDestroy = new List<GameObject>();
+
+    [SerializeField] private List<GameObject> startRooms = new List<GameObject>();
 
     private void Awake()
     {
@@ -31,7 +33,7 @@ public class LevelGeneration : MonoBehaviour
 
     void Start()
     {
-        generateLevel(roomPrefabsByLevel, roomAmount, level);
+        generateLevel(roomPrefabsByLevel, roomAmountPerLevel[level], level);
     }
     void generateLevel(List<RoomsInLevel> roomPrefabs, int roomAmount, int level)
     {
@@ -42,14 +44,14 @@ public class LevelGeneration : MonoBehaviour
         }
         availableDoors.Clear();
         DoorsUsed = 0;
-        Instantiate(startRoom, Vector3.zero, Quaternion.identity);
+        GameObject realStartRoom = Instantiate(startRooms[level], Vector3.zero, Quaternion.identity);
         //move camera to start room
-        Transform cameraPoint = startRoom.transform.Find("cameraPoint");
+        Transform cameraPoint = realStartRoom.transform.Find("cameraPoint");
         Camera.main.transform.position = cameraPoint.position;
         Camera.main.transform.rotation = cameraPoint.rotation;
         LevelManager.Instance.AddStartRoom();
-        AddRoomDoors(startRoom);
-        roomsToDestroy.Add(startRoom);
+        AddRoomDoors(realStartRoom);
+        roomsToDestroy.Add(realStartRoom);
         for (int i = 0; i < roomAmount; i++)
         {
             if (availableDoors.Count == 0)
@@ -177,7 +179,7 @@ public class LevelGeneration : MonoBehaviour
 
         level++;
         AudioManager.Instance.UpdateFloorMusic(level);
-        generateLevel(roomPrefabsByLevel, roomAmount, level);
+        generateLevel(roomPrefabsByLevel, roomAmountPerLevel[level], level);
         HUD.Instance.UpdateFloorDisplay(level + 1);
     }
 
