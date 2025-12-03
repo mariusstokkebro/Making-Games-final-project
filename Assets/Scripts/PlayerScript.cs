@@ -5,6 +5,8 @@ using Items_and_Weapons;
 
 public class PlayerScript : BaseEntity, Controls.IPlayerActions
 {
+    private List<SkinnedMeshRenderer> renderers;
+    private Color[][] originalColors;
     [SerializeField] private float invulnerabilityDuration = 100.0f;
     public float gravity = -9.81f;
     private float invulnerabilityTimer = 0.0f;
@@ -29,6 +31,19 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
 
     void Start()
     {
+        renderers = new List<SkinnedMeshRenderer>(GetComponentsInChildren<SkinnedMeshRenderer>());
+        originalColors = new Color[renderers.Count][];
+        // Save the original color of each renderer's material
+        for (int i = 0; i < renderers.Count; i++)
+        {
+            Material[] mats = renderers[i].materials;
+            originalColors[i] = new Color[mats.Length];
+            for (int j = 0; j < mats.Length; j++)
+            {
+                originalColors[i][j] = mats[j].color;
+            }
+        }
+
         controller = GetComponent<CharacterController>();
         primaryWeapon = saltShaker.EquipWeapon(this);
         animator = GetComponent<Animator>();
@@ -43,6 +58,27 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
         if (invulnerabilityTimer > 0f)
         {
             invulnerabilityTimer -= Time.deltaTime;
+            float flash = Mathf.PingPong(Time.time * 10, 1);
+            for (int i = 0; i < renderers.Count; i++)
+            {
+                Material[] mats = renderers[i].materials; // get all materials for this renderer
+                for (int j = 0; j < mats.Length; j++)
+                {
+                    mats[j].color = Color.Lerp(originalColors[i][j], Color.white, flash);
+                }
+            }
+        }
+        else
+        {
+            for (int i = 0; i < renderers.Count; i++)
+            {
+                Material[] mats = renderers[i].materials; // get all materials for this renderer
+                for (int j = 0; j < mats.Length; j++)
+                {
+                    mats[j].color = originalColors[i][j];
+                }
+            }
+
         }
         velocity.y += gravity * Time.deltaTime;
         Vector3 movevec = _movementDirection * (movementSpeed * Time.deltaTime);
@@ -266,4 +302,5 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
             TooltipManager.Instance.HideTooltip();
         }
     }
+
 }
