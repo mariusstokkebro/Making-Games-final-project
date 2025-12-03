@@ -42,8 +42,9 @@ public class LevelManager : MonoBehaviour
         Vector3 spawnPos;
         int roomsVisited = visitedRooms.Count;
         float chance = Mathf.Clamp01(roomsVisited * chancePerRoom);
+        int level = LevelGeneration.Instance.level;
 
-        if (roomsVisited == LevelGeneration.Instance.roomAmount)
+        if (roomsVisited == LevelGeneration.Instance.roomAmountPerLevel[level])
         {
             chance = 1f; // Guarantee key spawn in last room
         }

@@ -6,7 +6,7 @@ public class LevelGeneration : MonoBehaviour
 
     public static LevelGeneration Instance { get { return _instance; } }
 
-    [SerializeField] public int roomAmount = 5;
+    [SerializeField] public List<int> roomAmountPerLevel = new List<int>() { 5, 6, 7 };
     // if all doors in one room needs to be used before moving to next room
     private int DoorsUsed = 0;
     [SerializeField] private GameObject startRoom;
@@ -31,7 +31,7 @@ public class LevelGeneration : MonoBehaviour
 
     void Start()
     {
-        generateLevel(roomPrefabsByLevel, roomAmount, level);
+        generateLevel(roomPrefabsByLevel, roomAmountPerLevel[level], level);
     }
     void generateLevel(List<RoomsInLevel> roomPrefabs, int roomAmount, int level)
     {
@@ -177,7 +177,7 @@ public class LevelGeneration : MonoBehaviour
 
         level++;
         AudioManager.Instance.UpdateFloorMusic(level);
-        generateLevel(roomPrefabsByLevel, roomAmount, level);
+        generateLevel(roomPrefabsByLevel, roomAmountPerLevel[level], level);
         HUD.Instance.UpdateFloorDisplay(level + 1);
     }
 
