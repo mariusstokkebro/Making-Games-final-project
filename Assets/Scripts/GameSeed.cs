@@ -4,7 +4,7 @@ using Random = System.Random;
 
 public class GameSeed
 {
-    public static int Seed {get; private set;} = Environment.TickCount;
+    public static int Seed { get; private set; } = Environment.TickCount;
     // All randoms are derived from this seed, making sure the order of things doesn't change the outcome.
     // e.g. opening the chest before killing the enemy will give the same loot for the same seed
     // If we just used one random, we'd get different outcomes
@@ -13,14 +13,18 @@ public class GameSeed
     private static Random _environmentDropRandom;
     private static Random _chestRandom;
     private static Random _levelRandom;
+    private static Random _keyRandom;
+    private static Random _weaponRandom;
 
     public static Random EnemyRandom => _enemyRandom;
     public static Random LootTableRandom => _lootTableRandom;
     public static Random EnvironmentDropRandom => _environmentDropRandom;
     public static Random ChestRandom => _chestRandom;
     public static Random LevelRandom => _levelRandom;
+    public static Random KeyRandom => _keyRandom;
+    public static Random WeaponRandom => _weaponRandom;
 
-   // For use with game manager / Setting seed in main menu
+    // For use with game manager / Setting seed in main menu
     public static void Initialize(int? seed)
     {
         Seed = seed ?? Environment.TickCount;
@@ -29,5 +33,7 @@ public class GameSeed
         _environmentDropRandom = new(Seed);
         _chestRandom = new(Seed);
         _levelRandom = new(Seed);
+        _keyRandom = new(Seed);
+        _weaponRandom = new(Seed);
     }
 }
