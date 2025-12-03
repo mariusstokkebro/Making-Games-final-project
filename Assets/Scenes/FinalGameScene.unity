@@ -462,8 +462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5cd5541e8f768d4c9f4677d7c605d99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  roomAmount: 5
-  startRoom: {fileID: 2711664694031869415, guid: 9763361a4a3ad45799da9b6ffd4fdd3f, type: 3}
+  roomAmountPerLevel: 050000000600000007000000
   roomPrefabsByLevel:
   - roomPrefabs:
     - {fileID: 808614582638773325, guid: e3040bb29b24e414585bb6f4f6c8149b, type: 3}
@@ -484,6 +483,10 @@ MonoBehaviour:
     - {fileID: 7769625142423597568, guid: af61ecca96ba047e587fe38a65b62d09, type: 3}
     - {fileID: 2552036487552579384, guid: 587aaf55f306b4f8788d06bdd4f81e67, type: 3}
   level: 0
+  startRooms:
+  - {fileID: 2711664694031869415, guid: 9763361a4a3ad45799da9b6ffd4fdd3f, type: 3}
+  - {fileID: 2711664694031869415, guid: ef005a6a9254f4ab892fcf29ca824f1b, type: 3}
+  - {fileID: 2711664694031869415, guid: 80015d42154d3445690187e92ab3d87f, type: 3}
 --- !u!4 &777232873
 Transform:
   m_ObjectHideFlags: 0
