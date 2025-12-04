@@ -24,7 +24,10 @@ public class DoorScript : MonoBehaviour, IInteractable
         MovePlayerToRoom(player.GetComponent<Collider>());
         ActivateEnemies(room);
         DisableCurrentRoom();
+        TooltipManager.Instance.HideTooltip();
     }
+
+    public string GetDescription() => "Press 'E' to open the door";
 
 
     Transform GetClosestRoom()

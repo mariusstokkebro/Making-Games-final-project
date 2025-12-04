@@ -22,4 +22,5 @@ public class StaircaseScript : MonoBehaviour, IInteractable
         }
 
     }
+    public string GetDescription() => "Interact with me once you have the key";
 }

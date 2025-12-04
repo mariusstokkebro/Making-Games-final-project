@@ -282,18 +282,10 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
 
     void OnTriggerStay(Collider collider)
     {
-        if (collider.TryGetComponent<IInteractable>(out var interactable))
-        {
-            currentInteractable = interactable;
-        }
-        if (collider.TryGetComponent(out ItemScript itemScript))
-        {
-            TooltipManager.Instance.ShowTooltip(itemScript.item?.GetDescription());
-        }
-        if (collider.TryGetComponent(out Key _))
-        {
-            TooltipManager.Instance.ShowTooltip("Press 'E' to pick up the key");
-        }
+        if (!collider.TryGetComponent<IInteractable>(out var interactable)) return;
+
+        currentInteractable = interactable;
+        TooltipManager.Instance.ShowTooltip(interactable.GetDescription());
     }
 
 
@@ -303,13 +295,6 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
         {
             if (currentInteractable == interactable)
                 currentInteractable = null;
-        }
-        if (collider.TryGetComponent(out ItemScript _))
-        {
-            TooltipManager.Instance.HideTooltip();
-        }
-        if (collider.TryGetComponent(out Key _))
-        {
             TooltipManager.Instance.HideTooltip();
         }
     }

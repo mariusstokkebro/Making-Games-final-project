@@ -50,5 +50,6 @@ namespace Items_and_Weapons
             Destroy(gameObject);
         }
 
+        public string GetDescription() => item?.GetDescription() ?? "";
     }
 }
