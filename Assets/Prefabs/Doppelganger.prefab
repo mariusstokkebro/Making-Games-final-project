@@ -214,8 +214,8 @@ MonoBehaviour:
   activationDelay: 1
   lootPrefab: {fileID: 0}
   Projectile: {fileID: 7960931600771293886, guid: a08da1c4be850874fa28beb2cc4f8c08, type: 3}
-  range: 25
-  timeBetweenShots: 5
+  range: 40
+  timeBetweenShots: 3
 --- !u!1001 &3781445276708460662
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -149,8 +149,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.2000003, y: 11, z: 11}
-  m_Center: {x: 12, y: 5, z: 1.5}
+  m_Size: {x: 4.2000003, y: 11, z: 11.228546}
+  m_Center: {x: 12, y: 5, z: 1.6142733}
 --- !u!114 &7615002317827327412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StaircaseScript
   lockSprite: {fileID: 2756121360144402405}
+  unlockDoor: {fileID: 0}
 --- !u!1 &1676117519498601771
 GameObject:
   m_ObjectHideFlags: 0

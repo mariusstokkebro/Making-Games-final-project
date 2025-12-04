@@ -45,4 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   keyPrefab: {fileID: 1987320118579578340, guid: c47e0722bea37414fb386f5c6b3b3713, type: 3}
+  TableLegDrop: {fileID: 5159810488241697676, guid: 980015811e41604478f8836f00bcc093, type: 3}
   chancePerRoom: 0.1

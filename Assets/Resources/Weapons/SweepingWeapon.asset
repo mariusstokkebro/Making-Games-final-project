@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8f80cd5eb25c494bad9c8cfade4af04, type: 3}
   m_Name: SweepingWeapon
   m_EditorClassIdentifier: Assembly-CSharp::Weapon
-  itemName: 
+  itemName: Candlestick
   sprite: {fileID: 21300000, guid: 729c08634be1249eca2857e6cf18a53c, type: 3}
-  description: 
+  description: Strong, but fragile.
   rarity: 0
   weaponProjectile: {fileID: 7960931600771293886, guid: ca5416d14a0ab42459065e42fcb5d5ca, type: 3}
   visualEffect: {fileID: 2176640399428159979, guid: a15395a7566722048b116c3bd84ca449, type: 3}

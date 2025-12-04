@@ -4,6 +4,7 @@ public class LevelManager : MonoBehaviour
 {
     private static LevelManager _instance;
     [SerializeField] private GameObject keyPrefab;
+    [SerializeField] private GameObject TableLegDrop;
     private bool keySpawned = false;
     public static LevelManager Instance { get { return _instance; } }
     private HashSet<GameObject> visitedRooms = new HashSet<GameObject>();
@@ -24,6 +25,7 @@ public class LevelManager : MonoBehaviour
         // Check if visited before
         if (!visitedRooms.Contains(room))
         {
+            SpawnWeapon(room);
             visitedRooms.Add(room);
             Debug.Log("New room visited. Total unique rooms: " + visitedRooms.Count);
             if (!keySpawned)
@@ -42,18 +44,19 @@ public class LevelManager : MonoBehaviour
         Vector3 spawnPos;
         int roomsVisited = visitedRooms.Count;
         float chance = Mathf.Clamp01(roomsVisited * chancePerRoom);
+        int level = LevelGeneration.Instance.level;
 
-        if (roomsVisited == LevelGeneration.Instance.roomAmount)
+        if (roomsVisited == LevelGeneration.Instance.roomAmountPerLevel[level])
         {
             chance = 1f; // Guarantee key spawn in last room
         }
-
-        if (Random.value < chance && roomsVisited > 2)
+        float seedRoll = (float)GameSeed.KeyRandom.NextDouble();
+        if (seedRoll < chance && roomsVisited > 2)
         {
             if (room.transform.Find("KeySpawn") != null)
             {
                 spawnPos = room.transform.Find("KeySpawn").position;
-                Debug.Log($"Key spawn point found in {room.name}");
+
             }
             else
             {
@@ -62,7 +65,29 @@ public class LevelManager : MonoBehaviour
 
             Instantiate(keyPrefab, spawnPos, Quaternion.identity);
             keySpawned = true;
-            Debug.Log($"Key spawned in {room.name}");
+
+        }
+    }
+
+    public void SpawnWeapon(GameObject room)
+    {
+        Vector3 spawnPos;
+        float weaponChance = 0.2f;
+        float seedroll = (float)GameSeed.WeaponRandom.NextDouble();
+        if (seedroll < weaponChance)
+        {
+            if (room.transform.Find("WeaponSpawn") != null)
+            {
+                spawnPos = room.transform.Find("WeaponSpawn").position;
+                Debug.Log($"weapon spawn point found in {room.name}");
+            }
+            else
+            {
+                spawnPos = new Vector3(room.transform.position.x, room.transform.position.y + 2, room.transform.position.z);
+            }
+
+            Instantiate(TableLegDrop, spawnPos, Quaternion.identity);
+            Debug.Log($"weapon spawned in {room.name}");
         }
     }
 
