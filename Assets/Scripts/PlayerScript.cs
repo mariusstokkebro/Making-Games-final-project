@@ -50,7 +50,7 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
         HUD.Instance.SetPrimaryWeapon(saltShaker);
         HUD.Instance.InitializeHealthBar(health, health / 5);
         HUD.Instance.UpdateHealthBar(health);
-        SetSecondaryWeapon(TestSecondary);
+        //SetSecondaryWeapon(TestSecondary);
     }
 
     void Update()
