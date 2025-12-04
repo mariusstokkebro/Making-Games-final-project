@@ -9,6 +9,7 @@ public class LevelGeneration : MonoBehaviour
     [SerializeField] public int roomAmount = 5;
     // if all doors in one room needs to be used before moving to next room
     private int DoorsUsed = 0;
+    [SerializeField] private GameObject winScreen;
     [SerializeField] private GameObject startRoom;
     [SerializeField] private List<RoomsInLevel> roomPrefabsByLevel = new List<RoomsInLevel>();
     public int level = 0;
@@ -173,7 +174,11 @@ public class LevelGeneration : MonoBehaviour
     }
     public void generateNextLevel()
     {
-        if (roomPrefabsByLevel.Count - 1 == level) return;
+        if (roomPrefabsByLevel.Count - 1 == level)
+        {
+            winScreen.SetActive(true);
+            return;
+        }
 
         level++;
         AudioManager.Instance.UpdateFloorMusic(level);
