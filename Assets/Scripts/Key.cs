@@ -13,4 +13,5 @@ public class Key : MonoBehaviour, IInteractable
         Destroy(gameObject);
 
     }
+    public string GetDescription() => "Press 'E' to pick up the key";
 }

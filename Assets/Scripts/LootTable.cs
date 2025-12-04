@@ -49,7 +49,7 @@ public static class LootTable
         BaseItem drop = sublist[idx];
         Debug.Log($"Picked drop: {drop} from [{string.Join(", ", sublist)}]");
         
-        drops.Remove(drop);
+        // drops.Remove(drop);
         return drop;
     }
     

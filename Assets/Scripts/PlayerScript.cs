@@ -119,7 +119,6 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
 
         base.TakeDamage(amount);
         HUD.Instance.UpdateHealthBar(health);
-        health -= amount;
         if (health > 0)
         {
             animator.SetBool("isHit", true);
@@ -143,6 +142,18 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
     {
         if (loseScreen != null) loseScreen.SetActive(true);
         base.Die();
+    }
+
+    public override void Heal(float amount)
+    {
+        base.Heal(amount);
+        HUD.Instance.UpdateHealthBar(health);
+    }
+    
+    public override void ModifyHealth(float amount)
+    {
+        base.ModifyHealth(amount);
+        HUD.Instance.UpdateHealthBar(health);
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -273,18 +284,10 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
 
     void OnTriggerStay(Collider collider)
     {
-        if (collider.TryGetComponent<IInteractable>(out var interactable))
-        {
-            currentInteractable = interactable;
-        }
-        if (collider.TryGetComponent(out ItemScript itemScript))
-        {
-            TooltipManager.Instance.ShowTooltip(itemScript.item?.GetDescription());
-        }
-        if (collider.TryGetComponent(out Key _))
-        {
-            TooltipManager.Instance.ShowTooltip("Press 'E' to pick up the key");
-        }
+        if (!collider.TryGetComponent<IInteractable>(out var interactable)) return;
+
+        currentInteractable = interactable;
+        TooltipManager.Instance.ShowTooltip(interactable.GetDescription());
     }
 
 
@@ -294,13 +297,6 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
         {
             if (currentInteractable == interactable)
                 currentInteractable = null;
-        }
-        if (collider.TryGetComponent(out ItemScript _))
-        {
-            TooltipManager.Instance.HideTooltip();
-        }
-        if (collider.TryGetComponent(out Key _))
-        {
             TooltipManager.Instance.HideTooltip();
         }
     }

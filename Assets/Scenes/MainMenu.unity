@@ -1125,9 +1125,9 @@ GameObject:
   m_Component:
   - component: {fileID: 797274168}
   - component: {fileID: 797274171}
+  - component: {fileID: 797274169}
   - component: {fileID: 797274170}
   - component: {fileID: 797274172}
-  - component: {fileID: 797274169}
   m_Layer: 5
   m_Name: SeedDisplay
   m_TagString: Untagged
@@ -1167,7 +1167,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a69e2c6651a634fbca9b0777e000a48f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SeedDisplay
-  _seedInput: {fileID: 0}
+  seedInput: {fileID: 0}
+  seeds: 
+  usePredefinedSeeds: 0
 --- !u!114 &797274170
 MonoBehaviour:
   m_ObjectHideFlags: 0
