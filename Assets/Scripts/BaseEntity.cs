@@ -68,12 +68,12 @@ public abstract class BaseEntity : MonoBehaviour
     }
 
     public float GetHealth() => health;
-    public void ModifyHealth(float newHealth)
+    public virtual void ModifyHealth(float newHealth)
     {
         health = newHealth;
     }
 
-    public void Heal(float amount)
+    public virtual void Heal(float amount)
     {
         health += amount;
     }

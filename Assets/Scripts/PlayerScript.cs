@@ -142,6 +142,18 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
         base.Die();
     }
 
+    public override void Heal(float amount)
+    {
+        base.Heal(amount);
+        HUD.Instance.UpdateHealthBar(health);
+    }
+    
+    public override void ModifyHealth(float amount)
+    {
+        base.ModifyHealth(amount);
+        HUD.Instance.UpdateHealthBar(health);
+    }
+
     public void OnMove(InputAction.CallbackContext context)
     {
         Vector2 pressed = context.ReadValue<Vector2>();
