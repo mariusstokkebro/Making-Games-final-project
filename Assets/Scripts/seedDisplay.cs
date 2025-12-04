@@ -1,22 +1,29 @@
+using System;
 using UnityEngine;
 using TMPro;
-using System;
+using System.Collections.Generic;
+using Random = System.Random;
 
 public class SeedDisplay : MonoBehaviour
 {
-    [SerializeField] private TMP_InputField _seedInput;
+    [SerializeField] private TMP_InputField seedInput;
+    [SerializeField] public List<int> seeds;
+    [SerializeField] public bool usePredefinedSeeds;
 
     public void Start() {
-        if (_seedInput == null) _seedInput = GetComponent<TMP_InputField>();
-        GameSeed.Initialize(null);
+        if (seedInput == null) seedInput = GetComponent<TMP_InputField>();
+        int seed = seeds.Count == 0 && !usePredefinedSeeds
+            ? Environment.TickCount
+            : seeds[new Random(Environment.TickCount).Next(0, seeds.Count - 1)];
+        GameSeed.Initialize(seed);
 
-        _seedInput.text = $"{GameSeed.Seed}";
+        seedInput.text = $"{GameSeed.Seed}";
         Debug.Log($"Seed: {GameSeed.Seed}");
 
-        _seedInput.onEndEdit.AddListener(OnSeedEdited);
+        seedInput.onEndEdit.AddListener(OnSeedEdited);
     }
 
-    public void OnSeedEdited(string newText)
+    private void OnSeedEdited(string newText)
     {
         if (int.TryParse(newText, out int newSeed))
         {
@@ -26,7 +33,7 @@ public class SeedDisplay : MonoBehaviour
         else
         {
             Debug.LogWarning($"Invalid seed input: {newText}");
-            _seedInput.text = $"{GameSeed.Seed}";
+            seedInput.text = $"{GameSeed.Seed}";
         }
     }
 }
