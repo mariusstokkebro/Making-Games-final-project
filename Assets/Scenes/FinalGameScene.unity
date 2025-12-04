@@ -630,6 +630,7 @@ MonoBehaviour:
     - {fileID: 7769625142423597568, guid: af61ecca96ba047e587fe38a65b62d09, type: 3}
     - {fileID: 2552036487552579384, guid: 587aaf55f306b4f8788d06bdd4f81e67, type: 3}
   level: 0
+  winScreen: {fileID: 2016522326}
   startRooms:
   - {fileID: 2711664694031869415, guid: 9763361a4a3ad45799da9b6ffd4fdd3f, type: 3}
   - {fileID: 2711664694031869415, guid: ef005a6a9254f4ab892fcf29ca824f1b, type: 3}

@@ -17,6 +17,8 @@ public class LevelGeneration : MonoBehaviour
     private List<Transform> doorsToDestroy = new List<Transform>();
     private List<GameObject> roomsToDestroy = new List<GameObject>();
 
+    public GameObject winScreen;
+
     [SerializeField] private List<GameObject> startRooms = new List<GameObject>();
 
     private void Awake()
