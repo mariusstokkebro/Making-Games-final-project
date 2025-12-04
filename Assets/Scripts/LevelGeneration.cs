@@ -175,7 +175,11 @@ public class LevelGeneration : MonoBehaviour
     }
     public void generateNextLevel()
     {
-        if (roomPrefabsByLevel.Count - 1 == level) return;
+        if (roomPrefabsByLevel.Count - 1 == level)
+        {
+            winScreen.SetActive(true);
+            return;
+        }
 
         level++;
         AudioManager.Instance.UpdateFloorMusic(level);

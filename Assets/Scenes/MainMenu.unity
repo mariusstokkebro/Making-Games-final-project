@@ -387,10 +387,10 @@ MonoBehaviour:
 
     Mouse / Right Stick
 
-    E / A Button
+    Mouse Click / Right Bumper
 
-    Mouse
-    Click / Right Bumper
+    E
+    / A Button
 
     Space / X Button'
   m_isRightToLeft: 0
@@ -3064,9 +3064,9 @@ MonoBehaviour:
 
     Aim
 
-    Interaction
-
     Shoot
+
+    Interaction
 
     Switch Weapons'
   m_isRightToLeft: 0

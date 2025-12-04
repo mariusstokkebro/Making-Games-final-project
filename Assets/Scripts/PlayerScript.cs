@@ -26,6 +26,7 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
     private WeaponBehaviour secondaryWeapon;
     public Animator animator;
     public AudioClip attackSound;
+    public GameObject loseScreen;
 
     public bool HasKey = false;
 
@@ -140,6 +141,7 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
 
     public void DeathAnimationDone()
     {
+        if (loseScreen != null) loseScreen.SetActive(true);
         base.Die();
     }
 

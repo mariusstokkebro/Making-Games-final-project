@@ -65,7 +65,7 @@ public class MenuScript : MonoBehaviour
     {
         //Cursor.visible = false;
         //Cursor.lockState = CursorLockMode.Locked;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         AudioManager.Instance.PlaySFX(startGameSound);      
         //Time.timeScale = 1;
         animator.SetBool("Play", true);
