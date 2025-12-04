@@ -118,7 +118,6 @@ public class PlayerScript : BaseEntity, Controls.IPlayerActions
 
         base.TakeDamage(amount);
         HUD.Instance.UpdateHealthBar(health);
-        health -= amount;
         if (health > 0)
         {
             animator.SetBool("isHit", true);
