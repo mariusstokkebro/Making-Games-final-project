@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Enums;
-using Items_and_Weapons;
 using UnityEngine;
 using UnityEngine.Assertions;
 using Random = System.Random;
@@ -48,7 +47,6 @@ public static class LootTable
         int idx = Rng.Next(0, sublist.Count);
         BaseItem drop = sublist[idx];
         Debug.Log($"Picked drop: {drop} from [{string.Join(", ", sublist)}]");
-        
         // drops.Remove(drop);
         return drop;
     }

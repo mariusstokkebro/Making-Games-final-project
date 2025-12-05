@@ -49,7 +49,7 @@ public class LevelGeneration : MonoBehaviour
         GameObject realStartRoom = Instantiate(startRooms[level], Vector3.zero, Quaternion.identity);
         //move camera to start room
         Transform cameraPoint = realStartRoom.transform.Find("cameraPoint");
-        Camera.main.transform.position = cameraPoint.position;
+        Camera.main!.transform.position = cameraPoint.position;
         Camera.main.transform.rotation = cameraPoint.rotation;
         LevelManager.Instance.AddStartRoom();
         AddRoomDoors(realStartRoom);
