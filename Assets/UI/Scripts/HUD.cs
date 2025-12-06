@@ -46,7 +46,7 @@ public class HUD : MonoBehaviour
         inactiveWeaponScale = secondaryWeaponSlot.transform.localScale;
         
         // Initialization, TODO remove
-        UpdateFloorDisplay(1);
+        // UpdateFloorDisplay(1);
         
     }
 

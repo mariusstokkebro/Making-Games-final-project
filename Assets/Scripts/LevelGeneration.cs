@@ -35,10 +35,11 @@ public class LevelGeneration : MonoBehaviour
 
     void Start()
     {
-        generateLevel(roomPrefabsByLevel, roomAmountPerLevel[level], level);
+        generateLevel(roomAmountPerLevel[level]);
     }
-    void generateLevel(List<RoomsInLevel> roomPrefabs, int roomAmount, int level)
+    void generateLevel(int roomAmount)
     {
+        HUD.Instance.UpdateFloorDisplay(roomPrefabsByLevel.Count - level);
         if (roomsToDestroy.Count > 0)
         {
             DestroyRooms(roomsToDestroy);
@@ -185,8 +186,7 @@ public class LevelGeneration : MonoBehaviour
 
         level++;
         AudioManager.Instance.UpdateFloorMusic(level);
-        generateLevel(roomPrefabsByLevel, roomAmountPerLevel[level], level);
-        HUD.Instance.UpdateFloorDisplay(level + 1);
+        generateLevel(roomAmountPerLevel[level]);
     }
 
     public List<GameObject> getCurrentRooms()
