@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StaircaseScript
   lockSprite: {fileID: 2756121360144402405}
-  unlockDoor: {fileID: 0}
+  unlockDoor: {fileID: 8300000, guid: 26be1a4a35406ee4fb842a41eb487be9, type: 3}
 --- !u!1 &1676117519498601771
 GameObject:
   m_ObjectHideFlags: 0

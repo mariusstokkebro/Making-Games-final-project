@@ -65,7 +65,7 @@ public class AudioManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void PlaySFX(AudioClip clip)
+    public void PlaySFX(AudioClip clip, float volumeScale = 1f)
     {
         if (Time.time - lastPlayTime < minInterval && clip == lastClip)
             return;
@@ -73,7 +73,7 @@ public class AudioManager : MonoBehaviour
         lastPlayTime = Time.time;
         lastClip = clip;
 
-        sfxSource.PlayOneShot(clip);
+        sfxSource.PlayOneShot(clip, volumeScale: volumeScale);
     }
 
     public void PlayMusic(AudioClip clip, bool loop = true)

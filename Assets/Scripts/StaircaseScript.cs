@@ -9,7 +9,7 @@ public class StaircaseScript : MonoBehaviour, IInteractable
     {
         if (player.HasKey)
         {
-            AudioManager.Instance.PlaySFX(unlockDoor);
+            AudioManager.Instance.PlaySFX(unlockDoor, volumeScale: 2f);
             lockSprite.enabled = false;
             LevelGeneration.Instance.generateNextLevel();
             LevelManager.Instance.ResetLevelProgress();
