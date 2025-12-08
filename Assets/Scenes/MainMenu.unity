@@ -651,6 +651,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button_StartNoIntro
       objectReference: {fileID: 0}
+    - target: {fileID: 3377189057220737511, guid: c70149082077c41deb40a34d8f0c2773, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5576297924812766755, guid: c70149082077c41deb40a34d8f0c2773, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1169,7 +1173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SeedDisplay
   seedInput: {fileID: 0}
   seeds: a8cf430f
-  usePredefinedSeeds: 1
+  usePredefinedSeeds: 0
 --- !u!114 &797274170
 MonoBehaviour:
   m_ObjectHideFlags: 0
