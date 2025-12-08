@@ -64,7 +64,7 @@
                     "name": "Next",
                     "type": "Button",
                     "id": "b7230bb6-fc9b-4f52-8b25-f5e19cb2c2ba",
-                    "expectedControlType": "",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -910,12 +910,12 @@
         },
         {
             "name": "PauseMenu",
-            "id": "998012a0-c50f-456d-b0e7-d1b39bc28b67",
+            "id": "c7983db4-6830-44e3-a880-ab212d61d7d9",
             "actions": [
                 {
                     "name": "Pause",
                     "type": "Button",
-                    "id": "73cd97ca-c9d2-4c54-b9de-abfac3ee43b2",
+                    "id": "04782a06-716a-4e2b-aa5f-cc6bb2bb7c52",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -925,7 +925,7 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "25e143ba-9db0-4736-ba59-2b14c403aeec",
+                    "id": "0601ad81-1295-4103-b709-e9660dfd48b1",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
@@ -936,7 +936,7 @@
                 },
                 {
                     "name": "",
-                    "id": "f5b50bc1-fb13-4955-bd5a-3a0c147fbfe6",
+                    "id": "7f4fb1ec-acab-4c4f-a9f7-2783b48d988d",
                     "path": "<Gamepad>/start",
                     "interactions": "",
                     "processors": "",

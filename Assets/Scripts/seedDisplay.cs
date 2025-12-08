@@ -12,13 +12,12 @@ public class SeedDisplay : MonoBehaviour
 
     public void Start() {
         if (seedInput == null) seedInput = GetComponent<TMP_InputField>();
-        int seed = seeds.Count == 0 && !usePredefinedSeeds
-            ? Environment.TickCount
-            : seeds[new Random(Environment.TickCount).Next(0, seeds.Count - 1)];
+        int seed = seeds.Count > 0 && usePredefinedSeeds
+            ? seeds[new Random(Environment.TickCount).Next(0, seeds.Count - 1)]
+            : Environment.TickCount;
         GameSeed.Initialize(seed);
 
         seedInput.text = $"{GameSeed.Seed}";
-        Debug.Log($"Seed: {GameSeed.Seed}");
 
         seedInput.onEndEdit.AddListener(OnSeedEdited);
     }
@@ -28,7 +27,6 @@ public class SeedDisplay : MonoBehaviour
         if (int.TryParse(newText, out int newSeed))
         {
             GameSeed.Initialize(newSeed);
-            Debug.Log($"Game seed set to {newSeed}");
         }
         else
         {

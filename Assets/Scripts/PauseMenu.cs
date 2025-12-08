@@ -21,6 +21,7 @@ public class PauseMenu : MonoBehaviour, Controls.IPauseMenuActions
     public void ReloadGame()
     {
         Time.timeScale = 1;
+        GameSeed.Initialize(GameSeed.Seed);
         // load active Scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }

@@ -562,7 +562,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 73cd97ca-c9d2-4c54-b9de-abfac3ee43b2
+    m_ActionId: 04782a06-716a-4e2b-aa5f-cc6bb2bb7c52
     m_ActionName: 'PauseMenu/Pause[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 

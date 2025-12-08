@@ -1168,8 +1168,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SeedDisplay
   seedInput: {fileID: 0}
-  seeds: 
-  usePredefinedSeeds: 0
+  seeds: a8cf430f
+  usePredefinedSeeds: 1
 --- !u!114 &797274170
 MonoBehaviour:
   m_ObjectHideFlags: 0
