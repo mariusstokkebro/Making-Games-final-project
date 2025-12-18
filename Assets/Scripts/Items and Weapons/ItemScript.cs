@@ -6,7 +6,7 @@ namespace Items_and_Weapons
 {
     public class ItemScript : MonoBehaviour, IInteractable
     {
-        #nullable enable
+#nullable enable
         [SerializeField] internal BaseItem? item;
 
         public void SetItem(BaseItem item)
@@ -20,8 +20,10 @@ namespace Items_and_Weapons
             transform.rotation = Quaternion.Euler(0, -45, 0);
             transform.localScale = new Vector3(10, 10, 10);
             transform.position = new Vector3(transform.position.x, 2, transform.position.z);
-        }
+            GameObject currentRoom = LevelManager.Instance.GetCurrentRoom();
+            transform.parent = currentRoom.transform.Find("roomLayout");
 
+        }
         /// <summary>
         /// A one-time effect when picking up item, e.g. unlocking the dash
         /// </summary>

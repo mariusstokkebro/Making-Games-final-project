@@ -677,7 +677,7 @@ GameObject:
   - component: {fileID: 3929936653060927030}
   m_Layer: 6
   m_Name: circular_Room_1
-  m_TagString: Untagged
+  m_TagString: room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

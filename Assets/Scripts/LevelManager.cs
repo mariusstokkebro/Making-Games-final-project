@@ -3,6 +3,7 @@ using System.Collections.Generic;
 public class LevelManager : MonoBehaviour
 {
     private static LevelManager _instance;
+    private GameObject currentRoom;
     [SerializeField] private GameObject keyPrefab;
     [SerializeField] private GameObject TableLegDrop;
     private bool keySpawned = false;
@@ -112,5 +113,13 @@ public class LevelManager : MonoBehaviour
         {
             Debug.LogWarning("Start room not found");
         }
+    }
+    public void SetCurrentRoom(GameObject room)
+    {
+        currentRoom = room;
+    }
+    public GameObject GetCurrentRoom()
+    {
+        return currentRoom;
     }
 }

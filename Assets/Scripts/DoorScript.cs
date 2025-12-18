@@ -23,6 +23,7 @@ public class DoorScript : MonoBehaviour, IInteractable
         MoveCameraToRoom(room);
         MovePlayerToRoom(player.GetComponent<Collider>());
         ActivateEnemies(room);
+        LevelManager.Instance.SetCurrentRoom(room.gameObject);
         DisableCurrentRoom();
         TooltipManager.Instance.HideTooltip();
     }
