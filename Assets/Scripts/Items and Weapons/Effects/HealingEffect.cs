@@ -12,7 +12,16 @@ namespace Items_and_Weapons.Effects
         }
         public override void Apply(PlayerScript p)
         {
-            p.Heal(p.GetHealth() * multiplier + increase );
+            float potentialHealth = p.GetHealth() + increase;
+            if (potentialHealth >= 100)
+            {
+                float healAmount = 100 - p.GetHealth();
+                p.Heal(healAmount);
+            }
+            else
+            {
+                p.Heal(increase);
+            }
         }
 
     }

@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Founders Remains
   sprite: {fileID: 21300000, guid: 410162899f268404cb39fe60faa7f754, type: 3}
   description: Radiates energy!
-  rarity: 2
+  rarity: 1
   effects:
   - {fileID: 11400000, guid: ea30bbad65d8e492fae8554873cc2e97, type: 2}
   - {fileID: 11400000, guid: fef33dfd8df404e88bf315b29d829357, type: 2}
